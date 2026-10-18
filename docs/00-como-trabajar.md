@@ -7,7 +7,7 @@ The web page in `web/` runs the same Python package in the browser (Pyodide). It
 ## The loop
 
 ```
-cd una-gravedad/core
+cd one-gravity/core
 ../.venv/bin/python -m pytest -q            # see what's pending
 # read docs/unidad-N-*.md, write the function in una_gravedad/<file>.py
 ../.venv/bin/python -m pytest -q tests/test_<file>.py -ra   # until green
