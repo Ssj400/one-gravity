@@ -34,12 +34,18 @@ def perihelion_state(a: float, e: float, gm: float = GM_SUN_AU3_YR2) -> tuple[np
 
     Devuelve ``(r, v)`` como arreglos de forma (2,).
     """
-    raise NotImplementedError("Unidad 2: escribe perihelion_state (solar_system.py)")
+    
+    rp = a*(1-e)
+    vp = np.sqrt(gm*(2/rp - 1/a))
+    
+    return np.array([a*(1-e),0.0]) , np.array([0.0, vp])
 
 
 def specific_energy(r: np.ndarray, v: np.ndarray, gm: float = GM_SUN_AU3_YR2) -> np.ndarray:
     """Energía por unidad de masa, E = ½|v|² − GM/|r|. Acepta (2,) o (M, 2)."""
-    raise NotImplementedError("Unidad 2: escribe specific_energy (solar_system.py)")
+    E = 1/2 * np.sum(v**2, axis=-1) - (gm / np.linalg.norm(r, axis=-1))
+    return E
+
 
 
 def specific_angular_momentum(r: np.ndarray, v: np.ndarray) -> np.ndarray:
@@ -48,7 +54,7 @@ def specific_angular_momentum(r: np.ndarray, v: np.ndarray) -> np.ndarray:
     Es el doble del área barrida por unidad de tiempo: la segunda ley de Kepler
     dice que L es constante.
     """
-    raise NotImplementedError("Unidad 2: escribe specific_angular_momentum (solar_system.py)")
+    return r[..., 0] * v[..., 1] - r[..., 1] * v[..., 0]
 
 
 def simulate_orbit(
