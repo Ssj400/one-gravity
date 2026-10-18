@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCompute } from "../engine";
-import { COLOR, Plot } from "../components/Plot";
+import { Plot } from "../components/Plot";
+import { useColors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 
 type GalaxyResult = {
@@ -11,6 +12,7 @@ type GalaxyResult = {
 const fmtMass = (m: number) => `${(m / 1e10).toFixed(1)} × 10¹⁰ M☉`;
 
 export function Galaxy() {
+  const C = useColors();
   const [upsDisk, setUpsDisk] = useState(0.5);
   const [upsBulge, setUpsBulge] = useState(0.7);
   const [rCore, setRCore] = useState(3);
@@ -35,10 +37,10 @@ export function Galaxy() {
           <div className="grid2">
             <Figure caption={<>Figura 4. Curva de rotación de NGC 3198: observada (gris, con error), materia visible con Υ_disco = {upsDisk} (naranja), halo pseudo-isotermo con r_c = {result.r_core.toFixed(1)} kpc y v_∞ = {result.v_inf.toFixed(0)} km/s (verde) y la suma en cuadratura (azul).</>}>
               <Plot filename="fig4_curva_rotacion_ngc3198" data={[
-                { x: result.r, y: result.v_obs, error_y: { type: "data", array: result.v_err, visible: true, color: COLOR.obs, thickness: 1, width: 3 }, type: "scatter", mode: "markers", name: "observada (SPARC)", marker: { color: COLOR.obs, size: 7 } },
-                { x: result.r, y: result.v_vis, type: "scatter", mode: "lines", name: "materia visible", line: { color: COLOR.orange, width: 2 } },
-                { x: result.r, y: result.v_halo, type: "scatter", mode: "lines", name: "halo oscuro", line: { color: COLOR.aqua, width: 2, dash: "dash" } },
-                { x: result.r, y: result.v_tot, type: "scatter", mode: "lines", name: "visible + halo", line: { color: COLOR.blue, width: 2.5 } },
+                { x: result.r, y: result.v_obs, error_y: { type: "data", array: result.v_err, visible: true, color: C.obs, thickness: 1, width: 3 }, type: "scatter", mode: "markers", name: "observada (SPARC)", marker: { color: C.obs, size: 7 } },
+                { x: result.r, y: result.v_vis, type: "scatter", mode: "lines", name: "materia visible", line: { color: C.orange, width: 2 } },
+                { x: result.r, y: result.v_halo, type: "scatter", mode: "lines", name: "halo oscuro", line: { color: C.aqua, width: 2, dash: "dash" } },
+                { x: result.r, y: result.v_tot, type: "scatter", mode: "lines", name: "visible + halo", line: { color: C.blue, width: 2.5 } },
               ]} layout={{ xaxis: { title: { text: "radio (kpc)" }, rangemode: "tozero" }, yaxis: { title: { text: "velocidad circular (km/s)" }, rangemode: "tozero" } }} height={440} />
             </Figure>
             <div>

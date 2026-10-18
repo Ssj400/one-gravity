@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEngineStatus } from "./engine";
+import { useTheme } from "./theme";
 import { Solar } from "./tabs/Solar";
 import { Galaxy } from "./tabs/Galaxy";
 import { Universe } from "./tabs/Universe";
@@ -26,6 +27,7 @@ export default function App() {
     setTabState(id);
   };
   const status = useEngineStatus();
+  const { mode, setMode } = useTheme();
   return (
     <>
       <header className="header">
@@ -33,8 +35,13 @@ export default function App() {
           <h1>Una sola gravedad, tres escalas</h1>
           <p className="subtitle">Un motor numérico, tres preguntas astronómicas · AST101, Tarea 2 · UC 2026</p>
         </div>
-        <div className={`status ${status.ready ? "ready" : ""}`} title="El código Python corre en tu navegador con Pyodide">
-          {status.ready ? "Python listo" : status.text}
+        <div className="header-right">
+          <button className="theme-toggle" onClick={() => setMode(mode === "dark" ? "light" : "dark")} title="Modo claro para exportar las figuras del informe">
+            {mode === "dark" ? "☀ Modo informe" : "☾ Modo espacial"}
+          </button>
+          <div className={`status ${status.ready ? "ready" : ""}`} title="El código Python corre en tu navegador con Pyodide">
+            {status.ready ? "Python listo" : status.text}
+          </div>
         </div>
       </header>
       <nav className="tabs" role="tablist">

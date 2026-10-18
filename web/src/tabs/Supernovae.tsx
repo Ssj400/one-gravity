@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { Data } from "plotly.js";
 import { useCompute } from "../engine";
-import { COLOR, Plot } from "../components/Plot";
+import { Plot } from "../components/Plot";
+import { useColors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 import { PRESETS } from "./Universe";
 
@@ -10,13 +11,14 @@ type Bin = { z: number; res: number; err: number; n: number };
 type SnResult = { n: number; data: { z: number[]; mu: number[]; err: number[]; res: number[] }; bins: Bin[]; models: ModelRow[] };
 
 export function Supernovae() {
+  const C = useColors();
   const [h0, setH0] = useState(67.4);
   const [om, setOm] = useState(0.31);
   const [ol, setOl] = useState(0.69);
   const [showErr, setShowErr] = useState(false);
   const models = [...PRESETS.map(({ name, om, ol }) => ({ name, om, ol })), { name: `Personalizado (Ωm = ${om}, ΩΛ = ${ol})`, om, ol }];
   const { result, error, busy } = useCompute<SnResult>("supernovae", { models, h0 });
-  const colors = [...PRESETS.map((p) => p.color), COLOR.violet];
+  const colors = [...PRESETS.map((p) => C[p.color]), C.violet];
 
   return (
     <section>
@@ -36,8 +38,8 @@ export function Supernovae() {
               <Plot filename="fig7_diagrama_hubble" data={[
                 {
                   x: result.data.z, y: result.data.mu, type: "scatter", mode: "markers", name: "Pantheon+ (datos)",
-                  marker: { color: COLOR.obs, size: 4, opacity: 0.45 },
-                  error_y: { type: "data", array: result.data.err, visible: showErr, color: COLOR.obs, thickness: 0.6, width: 0 },
+                  marker: { color: C.obs, size: 4, opacity: 0.45 },
+                  error_y: { type: "data", array: result.data.err, visible: showErr, color: C.obs, thickness: 0.6, width: 0 },
                 },
                 ...result.models.map((m, i): Data => ({
                   x: m.z, y: m.mu, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === 4 ? 1.5 : 2, dash: i === 4 ? "dash" : "solid" },
@@ -46,12 +48,12 @@ export function Supernovae() {
             </Figure>
             <Figure caption={<>Figura 7b. Lo mismo, como residuos respecto a un universo vacío (Ωm = ΩΛ = 0, línea cero). Puntos: promedio ponderado de los datos en bins de z, con su error. Las supernovas lejanas son más tenues (Δμ &gt; 0) que en cualquier universo de solo materia: la expansión se acelera.</>}>
               <Plot filename="fig7b_residuos_hubble" data={[
-                { x: result.data.z, y: result.data.res, type: "scatter", mode: "markers", name: "Pantheon+ (cada supernova)", marker: { color: COLOR.obs, size: 3, opacity: 0.18 }, hoverinfo: "skip" },
-                { x: result.bins.map((b) => b.z), y: result.bins.map((b) => b.res), error_y: { type: "data", array: result.bins.map((b) => b.err), visible: true, color: COLOR.ink, thickness: 1.2, width: 3 }, type: "scatter", mode: "markers", name: "Pantheon+ (promedio por bin)", marker: { color: COLOR.ink, size: 8 }, text: result.bins.map((b) => `${b.n} SNe`) },
+                { x: result.data.z, y: result.data.res, type: "scatter", mode: "markers", name: "Pantheon+ (cada supernova)", marker: { color: C.obs, size: 3, opacity: 0.18 }, hoverinfo: "skip" },
+                { x: result.bins.map((b) => b.z), y: result.bins.map((b) => b.res), error_y: { type: "data", array: result.bins.map((b) => b.err), visible: true, color: C.ink, thickness: 1.2, width: 3 }, type: "scatter", mode: "markers", name: "Pantheon+ (promedio por bin)", marker: { color: C.ink, size: 8 }, text: result.bins.map((b) => `${b.n} SNe`) },
                 ...result.models.map((m, i): Data => ({
                   x: m.z, y: m.res, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === 4 ? 1.5 : 2, dash: i === 4 ? "dash" : "solid" },
                 })),
-              ]} layout={{ xaxis: { title: { text: "corrimiento al rojo z" }, type: "log" }, yaxis: { title: { text: "Δμ respecto al universo vacío (mag)" }, range: [-1, 0.6], zeroline: true, zerolinecolor: COLOR.muted, zerolinewidth: 1 } }} height={420} />
+              ]} layout={{ xaxis: { title: { text: "corrimiento al rojo z" }, type: "log" }, yaxis: { title: { text: "Δμ respecto al universo vacío (mag)" }, range: [-1, 0.6], zeroline: true, zerolinecolor: C.muted, zerolinewidth: 1 } }} height={420} />
             </Figure>
             <div>
               <table className="table">

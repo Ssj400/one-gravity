@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { useCompute } from "../engine";
-import { COLOR, Plot } from "../components/Plot";
+import { Plot } from "../components/Plot";
+import { useColors, type Colors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 
 type Model = { name: string; om: number; ol: number };
 type UniverseRow = Model & { t: number[]; a: number[]; age: number; age_exact: number | null; recollapses: boolean };
 
-export const PRESETS: (Model & { color: string; fate: string })[] = [
-  { name: "Recolapso (Ωm = 5, exagerado)", om: 5, ol: 0, color: COLOR.orange, fate: "Deja de crecer y colapsa (big crunch)" },
-  { name: "Crítico (Ωm = 1)", om: 1, ol: 0, color: COLOR.yellow, fate: "Se expande por siempre, frenando hacia velocidad cero" },
-  { name: "Abierto (Ωm = 0,3)", om: 0.3, ol: 0, color: COLOR.aqua, fate: "Se expande por siempre, frenando pero sin detenerse" },
-  { name: "Acelerado (Ωm = 0,31, ΩΛ = 0,69)", om: 0.31, ol: 0.69, color: COLOR.blue, fate: "Se expande cada vez más rápido" },
+export const PRESETS: (Model & { color: keyof Colors; fate: string })[] = [
+  { name: "Recolapso (Ωm = 5, exagerado)", om: 5, ol: 0, color: "orange", fate: "Deja de crecer y colapsa (big crunch)" },
+  { name: "Crítico (Ωm = 1)", om: 1, ol: 0, color: "yellow", fate: "Se expande por siempre, frenando hacia velocidad cero" },
+  { name: "Abierto (Ωm = 0,3)", om: 0.3, ol: 0, color: "aqua", fate: "Se expande por siempre, frenando pero sin detenerse" },
+  { name: "Acelerado (Ωm = 0,31, ΩΛ = 0,69)", om: 0.31, ol: 0.69, color: "blue", fate: "Se expande cada vez más rápido" },
 ];
 
 export function Universe() {
+  const C = useColors();
   const [h0, setH0] = useState(67.4);
   const [om, setOm] = useState(0.31);
   const [ol, setOl] = useState(0.69);
@@ -21,7 +23,7 @@ export function Universe() {
   const custom: Model = { name: `Personalizado (Ωm = ${om}, ΩΛ = ${ol})`, om, ol };
   const models = [...PRESETS.map(({ name, om, ol }) => ({ name, om, ol })), custom];
   const { result, error, busy } = useCompute<UniverseRow[]>("universe", { models, h0, t_future: tFuture, dt: 0.005 });
-  const colors = [...PRESETS.map((p) => p.color), COLOR.violet];
+  const colors = [...PRESETS.map((p) => C[p.color]), C.violet];
 
   return (
     <section>
@@ -43,8 +45,8 @@ export function Universe() {
               }))} layout={{
                 xaxis: { title: { text: "tiempo desde hoy (Gyr)" }, range: [-16, tFuture] },
                 yaxis: { title: { text: "factor de escala a" }, range: [0, 4] },
-                shapes: [{ type: "line", x0: 0, x1: 0, y0: 0, y1: 4, line: { color: COLOR.muted, width: 1, dash: "dot" } }],
-                annotations: [{ x: 0, y: 3.8, text: "hoy", showarrow: false, xanchor: "left", font: { color: COLOR.muted } }],
+                shapes: [{ type: "line", x0: 0, x1: 0, y0: 0, y1: 4, line: { color: C.muted, width: 1, dash: "dot" } }],
+                annotations: [{ x: 0, y: 3.8, text: "hoy", showarrow: false, xanchor: "left", font: { color: C.muted } }],
               }} height={440} />
             </Figure>
             <div>
