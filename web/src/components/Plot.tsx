@@ -7,12 +7,12 @@ import type { Colors } from "../theme";
 export function baseLayout(c: Colors): Partial<Layout> {
   const axis = { gridcolor: c.grid, zerolinecolor: c.grid, linecolor: c.muted, tickcolor: c.muted, ticks: "outside" as const, ticklen: 4, color: c.ink };
   return {
-    font: { family: "Inter, system-ui, sans-serif", size: 13, color: c.ink },
+    font: { family: '"IBM Plex Sans", system-ui, sans-serif', size: 13, color: c.ink },
     paper_bgcolor: c.surface,
     plot_bgcolor: c.surface,
     margin: { l: 64, r: 16, t: 40, b: 56 },
     hovermode: "closest",
-    hoverlabel: { font: { family: "Inter, system-ui, sans-serif" } },
+    hoverlabel: { font: { family: '"IBM Plex Sans", system-ui, sans-serif' } },
     legend: { orientation: "h", y: -0.22, x: 0, font: { size: 12, color: c.ink } },
     xaxis: axis,
     yaxis: axis,
