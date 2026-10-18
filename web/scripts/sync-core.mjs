@@ -23,7 +23,9 @@ mkdirSync(join(pyOut, "una_gravedad"), { recursive: true });
 
 const files = readdirSync(coreDir).filter((f) => f.endsWith(".py"));
 for (const f of files) copyFileSync(join(coreDir, f), join(pyOut, "una_gravedad", f));
-const manifest = { package: files.map((f) => `una_gravedad/${f}`), overrides: false };
+// `version` cambia en cada build: el worker la agrega como ?v= a cada archivo para
+// saltarse la caché del navegador (GitHub Pages sirve con max-age=600).
+const manifest = { version: Date.now().toString(36), package: files.map((f) => `una_gravedad/${f}`), overrides: false };
 
 if (process.env.OVERRIDES && existsSync(process.env.OVERRIDES)) {
   copyFileSync(process.env.OVERRIDES, join(pyOut, "_overrides.py"));

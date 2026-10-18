@@ -18,13 +18,17 @@ export type Response =
 
 let bridge: ReturnType<Pyodide["pyimport"]> | null = null;
 let baseUrl = "./";
+let version = "";
 
 function status(text: string, ready = false) {
   (self as unknown as Worker).postMessage({ id: -1, status: text, ready } satisfies Response);
 }
 
-async function fetchText(path: string): Promise<string> {
-  const res = await fetch(baseUrl + path);
+// El manifest nunca se cachea; el resto lleva ?v=<versión del build> para que cada
+// deploy baje archivos nuevos aunque el navegador tenga los anteriores guardados.
+async function fetchText(path: string, noStore = false): Promise<string> {
+  const url = noStore ? baseUrl + path : `${baseUrl}${path}?v=${version}`;
+  const res = await fetch(url, noStore ? { cache: "no-store" } : undefined);
   if (!res.ok) throw new Error(`No se pudo leer ${path} (${res.status})`);
   return res.text();
 }
@@ -37,7 +41,8 @@ async function init(): Promise<void> {
   await py.loadPackage("numpy");
 
   status("Instalando una_gravedad…");
-  const manifest = JSON.parse(await fetchText("py/manifest.json")) as { package: string[]; overrides: boolean };
+  const manifest = JSON.parse(await fetchText("py/manifest.json", true)) as { version: string; package: string[]; overrides: boolean };
+  version = manifest.version;
   py.FS.mkdirTree("/app/una_gravedad");
   for (const rel of manifest.package) py.FS.writeFile(`/app/${rel}`, await fetchText(`py/${rel}`));
   py.FS.writeFile("/app/bridge.py", bridgeSource);
