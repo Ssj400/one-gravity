@@ -30,6 +30,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<Mode>(stored);
   useEffect(() => {
     document.documentElement.dataset.theme = mode;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", mode === "dark" ? "#030510" : "#fcfcfb");
     try { localStorage.setItem("theme", mode); } catch { /* sin almacenamiento: no pasa nada */ }
   }, [mode]);
   return <ThemeCtx.Provider value={{ mode, setMode }}>{children}</ThemeCtx.Provider>;

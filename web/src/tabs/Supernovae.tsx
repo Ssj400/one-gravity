@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Data } from "plotly.js";
 import { useCompute } from "../engine";
 import { Plot } from "../components/Plot";
+import { fmt } from "../format";
 import { useColors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 import { PRESETS } from "./Universe";
@@ -62,7 +63,7 @@ export function Supernovae() {
                   <tr key={m.name}>
                     <td><span className="swatch" style={{ background: colors[i] }} />{m.name}</td>
                     <td>{m.om}</td><td>{m.ol}</td>
-                    <td>{m.chi2.toFixed(0)}</td><td>{(m.chi2 / result.n).toFixed(2)}</td><td>{m.delta.toFixed(3)}</td>
+                    <td>{fmt(m.chi2, 0)}</td><td>{fmt(m.chi2 / result.n, 2)}</td><td>{fmt(m.delta, 3)}</td>
                   </tr>
                 ))}</tbody>
               </table>

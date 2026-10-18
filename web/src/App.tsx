@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useEngineStatus } from "./engine";
 import { useTheme } from "./theme";
 import { Solar } from "./tabs/Solar";
@@ -29,23 +29,30 @@ const SCALES = [
 
 type ScaleId = (typeof SCALES)[number]["id"];
 
-function fromHash(): ScaleId {
+const isScale = (h: string): h is ScaleId => SCALES.some((s) => s.id === h);
+const fromHash = (): ScaleId | null => {
   const h = location.hash.replace("#", "");
-  return SCALES.some((s) => s.id === h) ? (h as ScaleId) : "solar";
-}
+  return isScale(h) ? h : null;
+};
 
 export default function App() {
-  const [scale, setScaleState] = useState<ScaleId>(fromHash);
-  const setScale = (id: ScaleId) => {
-    history.replaceState(null, "", `#${id}`);
-    setScaleState(id);
-  };
+  // La URL manda: las marcas son enlaces a #id y el estado sigue al hash (atrás/adelante funcionan).
+  const [scale, setScale] = useState<ScaleId>(() => fromHash() ?? "solar");
+  useEffect(() => {
+    const onHash = () => {
+      const h = fromHash();
+      if (h) setScale(h);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
   const status = useEngineStatus();
   const { mode, setMode } = useTheme();
   const current = SCALES.find((s) => s.id === scale)!;
 
   return (
     <>
+      <a className="skip" href="#contenido">Ir al contenido</a>
       <header className="header">
         <div className="masthead">
           <h1>Una sola gravedad, tres escalas</h1>
@@ -55,7 +62,7 @@ export default function App() {
           <button className="theme-toggle" onClick={() => setMode(mode === "dark" ? "light" : "dark")} title="Modo claro para exportar las figuras del informe">
             {mode === "dark" ? "Modo informe" : "Modo espacial"}
           </button>
-          <div className={`status ${status.ready ? "ready" : ""}`} title="El código Python corre en tu navegador con Pyodide">
+          <div className={`status ${status.ready ? "ready" : ""}`} aria-live="polite" title="El código Python corre en tu navegador con Pyodide">
             {status.ready ? "Python listo" : status.text}
           </div>
         </div>
@@ -71,21 +78,21 @@ export default function App() {
         ))}
         <div className="cursor" style={{ left: `${pct(current.logPc)}%` }} aria-hidden="true" />
         {SCALES.map((s) => (
-          <button
+          <a
             key={s.id}
+            href={`#${s.id}`}
             className={`mark row-${s.row} ${scale === s.id ? "active" : ""}`}
             style={{ left: `${pct(s.logPc)}%` }}
-            onClick={() => setScale(s.id)}
             aria-current={scale === s.id ? "page" : undefined}
           >
             <span className="mark-dot" />
             <span className="mark-label">{s.label}</span>
             <span className="mark-where">{s.where}</span>
-          </button>
+          </a>
         ))}
       </nav>
 
-      <main className="main">{current.el}</main>
+      <main className="main" id="contenido" tabIndex={-1}>{current.el}</main>
 
       <footer className="footer">
         Datos: SPARC (Lelli, McGaugh y Schombert 2016) y Pantheon+ (Scolnic et al. 2022; Brout et al. 2022). El paquete Python que corre en esta página es el mismo que pasa los tests de física en el repositorio.

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCompute } from "../engine";
 import { Plot } from "../components/Plot";
+import { fmt, fmtAuto } from "../format";
 import { useColors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 
@@ -9,7 +10,7 @@ type GalaxyResult = {
   r_core: number; v_inf: number; chi2: number; n: number; m_dyn: number; m_vis: number; r_last: number;
 };
 
-const fmtMass = (m: number) => `${(m / 1e10).toFixed(1)} × 10¹⁰ M☉`;
+const fmtMass = (m: number) => `${fmt(m / 1e10, 1)} × 10¹⁰ M☉`;
 
 export function Galaxy() {
   const C = useColors();
@@ -23,7 +24,7 @@ export function Galaxy() {
   return (
     <section>
       <p className="lead">
-        NGC 3198, una galaxia espiral a {result?.distance_mpc ?? 13.8} Mpc (datos SPARC). La materia visible (gas + disco) predice velocidades que caen hacia afuera, como los planetas. Las medidas se mantienen planas: hace falta un halo de materia oscura.
+        NGC 3198, una galaxia espiral a {fmtAuto(result?.distance_mpc ?? 13.8)} Mpc (datos SPARC). La materia visible (gas + disco) predice velocidades que caen hacia afuera, como los planetas. Las medidas se mantienen planas: hace falta un halo de materia oscura.
       </p>
       <Controls>
         <Slider label="Υ disco (M☉/L☉)" value={upsDisk} min={0.1} max={1.5} step={0.05} onChange={setUpsDisk} />
@@ -35,7 +36,7 @@ export function Galaxy() {
       <Outcome error={error} busy={busy}>
         {result && (
           <div className="grid2">
-            <Figure caption={<>Figura 4. Curva de rotación de NGC 3198: observada (gris, con error), materia visible con Υ_disco = {upsDisk} (naranja), halo pseudo-isotermo con r_c = {result.r_core.toFixed(1)} kpc y v_∞ = {result.v_inf.toFixed(0)} km/s (verde) y la suma en cuadratura (azul).</>}>
+            <Figure caption={<>Figura 4. Curva de rotación de NGC 3198: observada (gris, con error), materia visible con Υ_disco = {fmtAuto(upsDisk)} (naranja), halo pseudo-isotermo con r_c = {fmt(result.r_core, 1)} kpc y v_∞ = {fmt(result.v_inf, 0)} km/s (verde) y la suma en cuadratura (azul).</>}>
               <Plot filename="fig4_curva_rotacion_ngc3198" data={[
                 { x: result.r, y: result.v_obs, error_y: { type: "data", array: result.v_err, visible: true, color: C.obs, thickness: 1, width: 3 }, type: "scatter", mode: "markers", name: "observada (SPARC)", marker: { color: C.obs, size: 7 } },
                 { x: result.r, y: result.v_vis, type: "scatter", mode: "lines", name: "materia visible", line: { color: C.orange, width: 2 } },
@@ -46,12 +47,12 @@ export function Galaxy() {
             <div>
               <table className="table">
                 <tbody>
-                  <tr><th>Halo: r_c</th><td>{result.r_core.toFixed(2)} kpc</td></tr>
-                  <tr><th>Halo: v_∞</th><td>{result.v_inf.toFixed(1)} km/s</td></tr>
-                  <tr><th>χ² / (N − 2)</th><td>{(result.chi2 / (result.n - 2)).toFixed(2)}</td></tr>
-                  <tr><th>Masa dinámica dentro de {result.r_last.toFixed(1)} kpc</th><td>{fmtMass(result.m_dyn)}</td></tr>
-                  <tr><th>Masa visible dentro de {result.r_last.toFixed(1)} kpc</th><td>{fmtMass(result.m_vis)}</td></tr>
-                  <tr><th>Fracción oscura</th><td>{(100 * (1 - result.m_vis / result.m_dyn)).toFixed(0)} %</td></tr>
+                  <tr><th>Halo: r_c</th><td>{fmt(result.r_core, 2)} kpc</td></tr>
+                  <tr><th>Halo: v_∞</th><td>{fmt(result.v_inf, 1)} km/s</td></tr>
+                  <tr><th>χ² / (N − 2)</th><td>{fmt(result.chi2 / (result.n - 2), 2)}</td></tr>
+                  <tr><th>Masa dinámica dentro de {fmt(result.r_last, 1)} kpc</th><td>{fmtMass(result.m_dyn)}</td></tr>
+                  <tr><th>Masa visible dentro de {fmt(result.r_last, 1)} kpc</th><td>{fmtMass(result.m_vis)}</td></tr>
+                  <tr><th>Fracción oscura</th><td>{fmt(100 * (1 - result.m_vis / result.m_dyn), 0)} %</td></tr>
                 </tbody>
               </table>
               <p className="note">

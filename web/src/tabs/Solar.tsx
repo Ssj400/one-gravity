@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCompute } from "../engine";
 import { Plot } from "../components/Plot";
+import { fmt, fmtAuto } from "../format";
 import { useColors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 
@@ -29,12 +30,12 @@ export function Solar() {
           <select value={planet} onChange={(e) => setPlanet(e.target.value)}>{PLANETS.map((p) => <option key={p}>{p}</option>)}</select>
         </label>
         <Slider label="Años simulados" value={years} min={1} max={50} step={1} unit=" a" onChange={setYears} />
-        <Slider label="Paso Δt = 10^x años" value={dtExp} min={-4} max={-1} step={0.5} onChange={setDtExp} />
+        <Slider label="Paso Δt" value={dtExp} min={-4} max={-1} step={0.5} unit=" años" format={(x) => fmtAuto(Math.pow(10, x))} onChange={setDtExp} />
       </Controls>
       <Outcome error={error} busy={busy}>
         {result && (
           <div className="grid2">
-            <Figure caption={<>Figura 1a. Órbita de {result.planet} durante {years} años con Δt = {dt} a. Euler termina a {result.euler.r_final.toFixed(2)} UA; leapfrog a {result.leapfrog.r_final.toFixed(4)} UA.</>}>
+            <Figure caption={<>Figura 1a. Órbita de {result.planet} durante {years} años con Δt = {fmtAuto(dt)} años. Euler termina a {fmt(result.euler.r_final, 2)} UA; leapfrog a {fmt(result.leapfrog.r_final, 4)} UA.</>}>
               <Plot filename={`fig1a_orbita_${planet}`} data={[
                 { x: result.euler.x, y: result.euler.y, type: "scatter", mode: "lines", name: "Euler", line: { color: C.orange, width: 1.5 } },
                 { x: result.leapfrog.x, y: result.leapfrog.y, type: "scatter", mode: "lines", name: "Leapfrog", line: { color: C.blue, width: 2 } },
@@ -50,7 +51,7 @@ export function Solar() {
           </div>
         )}
       </Outcome>
-      <h3>Tercera ley de Kepler: T² = a³</h3>
+      <h2>Tercera ley de Kepler: T² = a³</h2>
       <Outcome error={k3.error} busy={k3.busy}>
         {k3.result && (
           <div className="grid2">
@@ -63,7 +64,7 @@ export function Solar() {
             <table className="table">
               <thead><tr><th>Planeta</th><th>a (UA)</th><th>e</th><th>T medido (a)</th><th>T²/a³</th></tr></thead>
               <tbody>{k3.result.map((r) => (
-                <tr key={r.planet}><td>{r.planet}</td><td>{r.a}</td><td>{r.e}</td><td>{r.T.toFixed(4)}</td><td>{r.ratio.toFixed(5)}</td></tr>
+                <tr key={r.planet}><td>{r.planet}</td><td>{r.a}</td><td>{r.e}</td><td>{fmt(r.T, 4)}</td><td>{fmt(r.ratio, 5)}</td></tr>
               ))}</tbody>
             </table>
           </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCompute } from "../engine";
 import { Plot } from "../components/Plot";
+import { fmt } from "../format";
 import { useColors, type Colors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 
@@ -56,8 +57,8 @@ export function Universe() {
                   <tr key={m.name}>
                     <td><span className="swatch" style={{ background: colors[i] }} />{m.name}</td>
                     <td>{m.om}</td><td>{m.ol}</td>
-                    <td>{m.age.toFixed(2)}</td>
-                    <td>{m.age_exact == null ? "—" : m.age_exact.toFixed(2)}</td>
+                    <td>{fmt(m.age, 2)}</td>
+                    <td>{m.age_exact == null ? "—" : fmt(m.age_exact, 2)}</td>
                     <td>{i < 4 ? PRESETS[i].fate : m.recollapses ? "Colapsa" : "Se expande"}</td>
                   </tr>
                 ))}</tbody>
