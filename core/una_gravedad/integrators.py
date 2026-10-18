@@ -15,14 +15,13 @@ Accel = Callable[[np.ndarray], np.ndarray]
 
 
 def euler_step(r: np.ndarray, v: np.ndarray, dt: float, accel: Accel) -> tuple[np.ndarray, np.ndarray]:
-    """Un paso de Euler explícito (el método ingenuo, deliberadamente incorrecto).
-
+    """
         r_{n+1} = r_n + v_n·dt
         v_{n+1} = v_n + a(r_n)·dt
-
-    Nota que la velocidad se actualiza con la aceleración en la posición *vieja*.
     """
-    raise NotImplementedError("Unidad 1: escribe euler_step (integrators.py)")
+    rn1 = r + v*dt
+    vn1 = v + accel(r)*dt
+    return rn1, vn1
 
 
 def leapfrog_step(r: np.ndarray, v: np.ndarray, dt: float, accel: Accel) -> tuple[np.ndarray, np.ndarray]:
@@ -35,8 +34,10 @@ def leapfrog_step(r: np.ndarray, v: np.ndarray, dt: float, accel: Accel) -> tupl
     Cuesta una evaluación de ``accel`` por paso si se reutiliza a(r_{n+1}) en el
     paso siguiente; aquí se aceptan dos por simplicidad.
     """
-    raise NotImplementedError("Unidad 1: escribe leapfrog_step (integrators.py)")
-
+    vn12 = v + accel(r)*dt*1/2
+    rn1 = r + vn12*dt
+    vn1 = vn12 + accel(rn1)*dt*1/2
+    return rn1,vn1
 
 STEPPERS = {"euler": euler_step, "leapfrog": leapfrog_step}
 
