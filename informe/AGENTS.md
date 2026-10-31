@@ -43,7 +43,7 @@ Un simulador de gravedad con interfaz web. La misma ley (gravitación de Newton)
 
 | Resultado | Valor | De dónde sale |
 | --- | --- | --- |
-| Euler, Tierra, 5 años, Δt = 0,01 a | termina a 2,01 UA del Sol; gana > 10 % de energía en el primer año | `test_engine.py`, web (escala Sistema Solar) |
+| Euler, Tierra, Δt = 0,01 a | gana 34,6 % de energía en el primer año y 57,6 % a los 5 años; termina a 2,01 UA del Sol (el test exige > 10 % a 5 años) | `test_engine.py`, web (escala Sistema Solar); corrida del 2026-10-31 |
 | Leapfrog, 100 órbitas, Δt = 0,001 a | error relativo de energía < 10⁻⁶; reversible en el tiempo a 10⁻⁹ | `test_engine.py` |
 | Tercera ley de Kepler | T²/a³ = 1,00000 para los ocho planetas (error < 0,1 %) | `test_solar_system.py`, tabla en la web |
 | Velocidad de Mercurio en el perihelio | ≈ 59 km/s (NASA: 58,98) | `test_solar_system.py`; cálculo a mano de Luis |
@@ -99,14 +99,14 @@ Cada figura lleva número y un pie de 1–3 frases que diga qué muestra y qué 
 
 - Zwicky, F. (1933). Helvetica Physica Acta, 6, 110.
 - Rubin, V. C., & Ford, W. K. (1970). ApJ, 159, 379.
-- Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016). AJ, 152, 157. (SPARC; el sitio pide citar este paper)
+- Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016). AJ, 152, 157. https://doi.org/10.3847/0004-6256/152/6/157 (SPARC; el sitio pide citar este paper). **Verificado 2026-10-31 en el abstract:** adopta Υ = 0,5 M☉/L☉ para el disco a 3,6 µm "as suggested by stellar population models". El 0,7 del bulbo está en el cuerpo del paper (no verificado en el abstract); NGC 3198 no tiene bulbo, así que no afecta ningún número del informe.
 - Milgrom, M. (1983). ApJ, 270, 365. (MOND)
 - Clowe, D., et al. (2006). ApJ, 648, L109. (Cúmulo Bala)
 - Riess, A. G., et al. (1998). AJ, 116, 1009; Perlmutter, S., et al. (1999). ApJ, 517, 565.
 - Planck Collaboration (2020). A&A, 641, A6.
 - Scolnic, D., et al. (2022). ApJ, 938, 113; Brout, D., et al. (2022). ApJ, 938, 110. (Pantheon+)
 - Riess, A. G., et al. (2022). ApJL, 934, L7. (SH0ES, H₀ ≈ 73)
-- DESI Collaboration (2024/2025): buscar el paper más reciente sobre energía oscura.
+- DESI Collaboration (2025). *DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and Cosmological Constraints*. Phys. Rev. D, 112, 083515. arXiv:2503.14738. **Verificado 2026-10-31 en el abstract:** un modelo con energía oscura variable (w₀ > −1, wₐ < 0) se prefiere sobre ΛCDM a 3,1σ con BAO + CMB, y entre 2,8σ y 4,2σ agregando supernovas según la muestra. Citar como "indicio", no como resultado establecido.
 - Hairer, E., Lubich, C., & Wanner, G. (2003). Acta Numerica, 12, 399. (por qué leapfrog conserva energía)
 - Ryden, B. (2017). *Introduction to Cosmology* (2.ª ed.). Cambridge University Press.
 - Harris, C. R., et al. (2020). Nature, 585, 357 (numpy); Pyodide y Plotly.js: citar la documentación oficial con versión.
