@@ -5,6 +5,7 @@ import { Plot } from "../components/Plot";
 import { fmt } from "../format";
 import { useColors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
+import { Story, Takeaway } from "../components/Story";
 import { PRESETS } from "./Universe";
 
 type ModelRow = { name: string; om: number; ol: number; z: number[]; mu: number[]; res: number[]; chi2: number; delta: number };
@@ -23,9 +24,11 @@ export function Supernovae() {
 
   return (
     <section>
-      <p className="lead">
-        Las supernovas Ia son candelas estándar: su brillo aparente da su distancia. Su corrimiento al rojo dice cuánto se estiró el Universo desde que salió la luz. Cada universo predice una curva distinta; solo el acelerado reproduce las {result?.n ?? "1.500"} supernovas de Pantheon+.
-      </p>
+      <Story
+        question="¿Cuál de esos universos es el nuestro?"
+        did={<>Lo deciden los datos. Una supernova de tipo Ia brilla siempre casi igual, así que lo tenue que se ve dice a qué distancia está; su corrimiento al rojo z dice cuánto se estiró el Universo desde que salió la luz. Para cada universo calculamos qué tan tenue debería verse una supernova a cada z, y lo comparamos con {result ? fmt(result.n, 0) : "1.580"} supernovas reales del catálogo Pantheon+.</>}
+        found={<>Las supernovas lejanas se ven más tenues de lo que permite cualquier universo de solo materia: están más lejos de lo esperado, porque la expansión se aceleró. Solo el universo con energía oscura calza con los datos{result ? ` (χ² = ${fmt(result.models[3].chi2, 0)}, contra ${fmt(result.models[2].chi2, 0)} del abierto y ${fmt(result.models[1].chi2, 0)} del crítico)` : ""}. Es el descubrimiento de 1998, Premio Nobel de Física 2011, reproducido con el mismo código que movía los planetas.</>}
+      />
       <Controls>
         <Slider label="H₀ (km/s/Mpc)" value={h0} min={60} max={80} step={0.1} onChange={setH0} />
         <Slider label="Ωm (personalizado)" value={om} min={0} max={2} step={0.01} onChange={setOm} />
@@ -74,6 +77,10 @@ export function Supernovae() {
           </div>
         )}
       </Outcome>
+      <Takeaway>
+        <p>Las tres escalas cierran el círculo. El motor se validó donde Kepler ya sabía la respuesta; en la galaxia mostró que falta masa; aquí muestra que, además, algo empuja la expansión. Materia oscura y energía oscura no son suposiciones del programa: son lo que hay que agregar para que la misma gravedad reproduzca lo que se mide.</p>
+        <p>Límites que hay que decir: las distancias usan la relatividad general, no Newton; los errores son solo diagonales, así que el χ² compara modelos pero no es un ajuste publicable; y Pantheon+ está calibrado con H₀ ≈ 73, por eso cada curva lleva un desplazamiento δ que absorbe esa calibración. Solo la forma de la curva distingue los universos, y esa forma favorece la aceleración.</p>
+      </Takeaway>
     </section>
   );
 }

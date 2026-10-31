@@ -4,6 +4,7 @@ import { Plot } from "../components/Plot";
 import { fmt, fmtAuto } from "../format";
 import { useColors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
+import { Story, Takeaway } from "../components/Story";
 
 type GalaxyResult = {
   distance_mpc: number; r: number[]; v_obs: number[]; v_err: number[]; v_vis: number[]; v_halo: number[]; v_tot: number[];
@@ -23,9 +24,11 @@ export function Galaxy() {
 
   return (
     <section>
-      <p className="lead">
-        NGC 3198, una galaxia espiral a {fmtAuto(result?.distance_mpc ?? 13.8)} Mpc (datos SPARC). La materia visible (gas + disco) predice velocidades que caen hacia afuera, como los planetas. Las medidas se mantienen planas: hace falta un halo de materia oscura.
-      </p>
+      <Story
+        question="¿Alcanza la materia que vemos para explicar cómo gira una galaxia?"
+        did={<>Tomamos NGC 3198, una espiral a {fmtAuto(result?.distance_mpc ?? 13.8)} Mpc con su curva de rotación medida (SPARC): a qué velocidad orbita el gas a cada distancia del centro. Con la misma relación del Sistema Solar, v² = GM/r, calculamos la velocidad que producirían sus estrellas y su gas, y la comparamos con la medida.</>}
+        found={<>La materia visible predice que, lejos del centro, la velocidad cae como con los planetas. La curva medida no cae: se mantiene plana en 150 km/s. Para sostenerla hace falta masa que no brilla: {result ? `${fmt(100 * (1 - result.m_vis / result.m_dyn), 0)} %` : "alrededor del 80 %"} de la masa dentro de {result ? fmt(result.r_last, 0) : "44"} kpc es oscura.</>}
+      />
       <Controls>
         <Slider label="Υ disco (M☉/L☉)" value={upsDisk} min={0.1} max={1.5} step={0.05} onChange={setUpsDisk} />
         <Slider label="Υ bulbo" value={upsBulge} min={0.1} max={1.5} step={0.05} onChange={setUpsBulge} />
@@ -36,7 +39,7 @@ export function Galaxy() {
       <Outcome error={error} busy={busy}>
         {result && (
           <div className="grid2">
-            <Figure caption={<>Figura 4. Curva de rotación de NGC 3198: observada (gris, con error), materia visible con Υ_disco = {fmtAuto(upsDisk)} (naranja), halo pseudo-isotermo con r_c = {fmt(result.r_core, 1)} kpc y v_∞ = {fmt(result.v_inf, 0)} km/s (verde) y la suma en cuadratura (azul).</>}>
+            <Figure caption={<>Figura 4. Velocidad de rotación de NGC 3198 contra la distancia al centro. Puntos grises: medida, con su error. Naranja: lo que produciría la materia visible (gas más estrellas, con Υ_disco = {fmtAuto(upsDisk)}); baja hacia afuera como en el Sistema Solar. Verde: un halo de materia oscura con r_c = {fmt(result.r_core, 1)} kpc y v_∞ = {fmt(result.v_inf, 0)} km/s, ajustado a los datos. Azul: visible más halo, que sigue la curva medida.</>}>
               <Plot filename="fig4_curva_rotacion_ngc3198" data={[
                 { x: result.r, y: result.v_obs, error_y: { type: "data", array: result.v_err, visible: true, color: C.obs, thickness: 1, width: 3 }, type: "scatter", mode: "markers", name: "observada (SPARC)", marker: { color: C.obs, size: 7 } },
                 { x: result.r, y: result.v_vis, type: "scatter", mode: "lines", name: "materia visible", line: { color: C.orange, width: 2 } },
@@ -62,6 +65,10 @@ export function Galaxy() {
           </div>
         )}
       </Outcome>
+      <Takeaway>
+        <p>Es la misma física de la primera escala. Un planeta lejano orbita lento porque toda la masa del Sol queda adentro de su órbita; una estrella lejana en NGC 3198 debería hacer lo mismo, y no lo hace. La curva plana es evidencia directa de masa que no vemos, la misma que Rubin y Ford midieron en Andrómeda en 1970.</p>
+        <p>Lo que esta escala no demuestra: que esa masa sea materia oscura y no una gravedad distinta a aceleraciones muy bajas (MOND). Eso lo deciden otras evidencias, como el Cúmulo Bala y las lentes gravitacionales. El simulador aporta una pieza del argumento, no el argumento entero.</p>
+      </Takeaway>
     </section>
   );
 }

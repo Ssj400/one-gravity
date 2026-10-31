@@ -92,6 +92,15 @@ export default function App() {
         ))}
       </nav>
 
+      <div className="thesis">
+        <p>
+          La idea del proyecto: una sola ley, la gravedad de Newton, y un solo método numérico, aplicados a tres escalas. En la primera, el Sistema Solar, la respuesta se conoce desde Kepler; la usamos para comprobar que el programa es correcto.
+        </p>
+        <p>
+          En las otras dos, el mismo programa muestra que la materia que vemos no alcanza: una galaxia gira demasiado rápido sin materia oscura, y las supernovas lejanas solo se explican si la expansión del Universo se acelera. Cada escala responde una pregunta; las figuras son la evidencia.
+        </p>
+      </div>
+
       <main className="main" id="contenido" tabIndex={-1}>{current.el}</main>
 
       <footer className="footer">

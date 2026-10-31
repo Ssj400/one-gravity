@@ -4,6 +4,7 @@ import { Plot } from "../components/Plot";
 import { fmt } from "../format";
 import { useColors, type Colors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
+import { Story, Takeaway } from "../components/Story";
 
 type Model = { name: string; om: number; ol: number };
 type UniverseRow = Model & { t: number[]; a: number[]; age: number; age_exact: number | null; recollapses: boolean };
@@ -28,9 +29,11 @@ export function Universe() {
 
   return (
     <section>
-      <p className="lead">
-        El tamaño del Universo es un número, el factor de escala a (a = 1 hoy). Su ecuación es la de una pelota lanzada hacia arriba: la materia la frena, la energía oscura la empuja. El mismo integrador de la pestaña anterior calcula su pasado y su futuro.
-      </p>
+      <Story
+        question="¿Qué le pasa al Universo si solo actúa la gravedad? ¿Y si además hay energía oscura?"
+        did={<>El tamaño del Universo cabe en un número, el factor de escala a (a = 1 hoy). Su ecuación es la de una pelota lanzada hacia arriba: la materia la frena y la energía oscura la empuja. Con el mismo integrador de los planetas corrimos cuatro universos con distinto contenido, todos con la expansión que se mide hoy, hacia el futuro y hacia atrás hasta el Big Bang.</>}
+        found={<>Con solo materia la expansión frena siempre, y el Universo resulta joven: entre 6 y 12 mil millones de años según cuánta materia haya. Con energía oscura (Ωm = 0,31, ΩΛ = 0,69) acelera y tiene 13,86 mil millones de años, lo que da la fórmula exacta y lo que mide el satélite Planck. Las estrellas más viejas tienen 12–13 mil millones de años: un universo de solo materia sería más joven que sus estrellas.</>}
+      />
       <Controls>
         <Slider label="H₀ (km/s/Mpc)" value={h0} min={60} max={80} step={0.1} onChange={setH0} />
         <Slider label="Ωm (personalizado)" value={om} min={0} max={5} step={0.01} onChange={setOm} />
@@ -70,6 +73,10 @@ export function Universe() {
           </div>
         )}
       </Outcome>
+      <Takeaway>
+        <p>La ecuación de la pelota y la del Universo son la misma, y por eso el mismo código resuelve las dos. También se conserva lo mismo: la "energía" de la pelota es aquí la curvatura del Universo, y el programa comprueba que no cambia, igual que comprobó la energía de la órbita.</p>
+        <p>La edad es una prueba independiente de las supernovas: no usa ninguna medición de distancia, solo el contenido del Universo y la expansión de hoy. Cambia H₀ a 73 (el valor de la escalera de distancias) y la misma mezcla da 12,8 mil millones de años: esa diferencia es la tensión de Hubble, un problema abierto.</p>
+      </Takeaway>
     </section>
   );
 }
