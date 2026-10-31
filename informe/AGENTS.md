@@ -98,19 +98,20 @@ Cada figura lleva número y un pie de 1–3 frases que diga qué muestra y qué 
 ## 10. Referencias (verificar cada una en NASA ADS antes de citar; estilo APA 7)
 
 - Zwicky, F. (1933). Helvetica Physica Acta, 6, 110.
-- Rubin, V. C., & Ford, W. K. (1970). ApJ, 159, 379.
+- Rubin, V. C., & Ford, W. K., Jr. (1970). Rotation of the Andromeda Nebula from a spectroscopic survey of emission regions. ApJ, 159, 379. https://doi.org/10.1086/150317 **(verificada 2026-10-31, Crossref)**
 - Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016). AJ, 152, 157. https://doi.org/10.3847/0004-6256/152/6/157 (SPARC; el sitio pide citar este paper). **Verificado 2026-10-31 en el abstract:** adopta Υ = 0,5 M☉/L☉ para el disco a 3,6 µm "as suggested by stellar population models". El 0,7 del bulbo está en el cuerpo del paper (no verificado en el abstract); NGC 3198 no tiene bulbo, así que no afecta ningún número del informe.
 - Milgrom, M. (1983). ApJ, 270, 365. (MOND)
-- Clowe, D., et al. (2006). ApJ, 648, L109. (Cúmulo Bala)
+- Clowe, D., et al. (2006). A direct empirical proof of the existence of dark matter. ApJ, 648(2), L109–L113. https://doi.org/10.1086/508162 (Cúmulo Bala) **(verificada 2026-10-31, arXiv)**
 - Riess, A. G., et al. (1998). AJ, 116, 1009; Perlmutter, S., et al. (1999). ApJ, 517, 565.
 - Planck Collaboration (2020). A&A, 641, A6.
 - Scolnic, D., et al. (2022). ApJ, 938, 113; Brout, D., et al. (2022). ApJ, 938, 110. (Pantheon+)
 - Riess, A. G., et al. (2022). ApJL, 934, L7. (SH0ES, H₀ ≈ 73)
 - DESI Collaboration (2025). *DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and Cosmological Constraints*. Phys. Rev. D, 112, 083515. arXiv:2503.14738. **Verificado 2026-10-31 en el abstract:** un modelo con energía oscura variable (w₀ > −1, wₐ < 0) se prefiere sobre ΛCDM a 3,1σ con BAO + CMB, y entre 2,8σ y 4,2σ agregando supernovas según la muestra. Citar como "indicio", no como resultado establecido.
-- Hairer, E., Lubich, C., & Wanner, G. (2003). Acta Numerica, 12, 399. (por qué leapfrog conserva energía)
+- Hairer, E., Lubich, C., & Wanner, G. (2003). Geometric numerical integration illustrated by the Störmer–Verlet method. Acta Numerica, 12, 399–450. https://doi.org/10.1017/S0962492902000144 (por qué leapfrog conserva energía) **(verificada 2026-10-31, Crossref)**
 - Ryden, B. (2017). *Introduction to Cosmology* (2.ª ed.). Cambridge University Press.
-- Harris, C. R., et al. (2020). Nature, 585, 357 (numpy); Pyodide y Plotly.js: citar la documentación oficial con versión.
-- Falta una fuente para la edad de los cúmulos globulares (≈ 12–13 Gyr).
+- Harris, C. R., et al. (2020). Array programming with NumPy. Nature, 585, 357–362. https://doi.org/10.1038/s41586-020-2649-2 **(verificada 2026-10-31, Crossref)**
+- Software, fuera del conteo académico: Pyodide 314.0.7 (CPython 3.14.2 en WebAssembly, numpy 2.4.6), Plotly.js 4.1.2, React 19.2, Vite 8.3. Localmente: Python 3.14.7, numpy 2.5.4, pytest 9.1.
+- Edad de los cúmulos globulares: Valcin, D., Bernal, J. L., Jimenez, R., Verde, L., & Wandelt, B. D. (2020). Inferring the age of the universe with globular clusters. JCAP, 2020(12), 002. https://doi.org/10.1088/1475-7516/2020/12/002. Abstract: t_GC = 13,32 ± 0,10 (est.) ± 0,50 (sist.) Gyr para los más viejos; edad del Universo 13,5 (+0,16/−0,14) ± 0,5 Gyr. **(verificada 2026-10-31, arXiv)**
 - Láminas del curso AST101 (clases 4–5, 9 y 10): citar como material de curso.
 
 Detalles de los datos y cómo citarlos: `../data/FUENTES.md`.

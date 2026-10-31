@@ -8,7 +8,7 @@ Plantear el hilo conductor y anunciar los cinco puntos.
 ## 4.1 Artefactos que parecen física
 - Euler: la Tierra se aleja en espiral; parece real, es error del método (figura 1a).
 - Criterio: confiamos solo cuando el método pasa pruebas con respuesta conocida (Kepler, energía). Es el método científico aplicado al software.
-- Distinguir error del método (Euler) de error de la máquina (~10⁻¹⁴). `[confirmar con José: cifra del 57 % de AGENTS §6 vs ">10 % en el primer año" de §5]`
+- Cifras: Euler gana 34,6 % de energía en el primer año y 57,6 % a los 5 años. Distinguir error del método de error de la máquina (~10⁻¹⁴).
 
 ## 4.2 ¿Podría la materia oscura ser un artefacto?
 - Curva plana tiene dos lecturas: masa no vista o gravedad modificada (MOND, Milgrom 1983).
@@ -17,13 +17,13 @@ Plantear el hilo conductor y anunciar los cinco puntos.
 
 ## 4.3 Qué deja fuera el modelo
 - Cosmología newtoniana da la ecuación correcta para materia + Λ, pero curvatura y camino de la luz necesitan relatividad general (para d_L usamos el resultado de la RG).
-- Se ignora la radiación; la galaxia es simétrica; Λ constante (DESI 2024–2025 sugiere que podría variar `[buscar referencia]`).
+- Se ignora la radiación; la galaxia es simétrica; Λ constante (DESI DR2, 2025, prefiere energía oscura variable a 2,8–4,2σ según la muestra de supernovas; citarlo como indicio, no como resultado establecido).
 - Errores de Pantheon+ solo diagonales: el χ² compara modelos, no es un ajuste publicable.
-- Calibración SH0ES: corrimiento δ ≈ −0,19 mag `[confirmar con José: el valor era ≈ −0,17 en otra nota]`.
+- Calibración SH0ES: el ajuste da δ ≈ −0,19 mag, consistente con los −0,17 esperados por la calibración con Cefeidas (H₀ ≈ 73).
 
 ## 4.4 Un "¿qué pasaría si…?": la tensión de Hubble
 - H₀ = 73 (escalera de distancias) vs 67,4 (fondo cósmico): edad 13,86 → 12,8 Gyr.
-- Conexión con edad de cúmulos globulares `[buscar referencia]`. El control deslizante de la web lo muestra.
+- Conexión con edad de cúmulos globulares `[verificar en ADS antes de citar]`. El control deslizante de la web lo muestra.
 
 ## 4.5 Impacto
 - Cualquiera puede poner un titular de cosmología en el simulador y ver qué implica.

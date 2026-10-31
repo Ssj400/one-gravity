@@ -14,8 +14,8 @@
 - Curva de rotación, velocidad circular, masa encerrada `M(<r) = v²r/G`.
 - Esperado por la masa visible (disco + gas, cociente masa-luz Υ) vs observado: curva plana (Rubin & Ford 1970; Zwicky 1933).
 - Halo pseudo-isotermo (parámetros r_c, v_∞).
-- NGC 3198 (SPARC, Lelli et al. 2016): plana en ≈ 150 km/s; visible sola ≈ 65 km/s afuera; ≈ 81 % de la masa oscura `[confirmar con José]`.
-- Aviso: Υ de SPARC verificar (disco 0,5 / bulbo 0,7 recordado de memoria) `[buscar referencia]`.
+- NGC 3198 (SPARC, Lelli et al. 2016): plana en ≈ 150 km/s; visible sola ≈ 65 km/s afuera; ≈ 81 % de la masa es oscura (dinámica 2,28 × 10¹¹ M☉ vs visible 4,29 × 10¹⁰ M☉; r_c = 2,67 kpc, v_∞ = 142,0 km/s).
+- Υ: SPARC adopta 0,5 M☉/L☉ para el disco a 3,6 µm (verificado en el resumen de Lelli et al. 2016). NGC 3198 no tiene bulbo, así que el valor del bulbo no entra.
 
 ## 2.3 Cosmología: expansión y energía oscura (≈ 1,2 pág.)
 
@@ -25,7 +25,8 @@
 - Cuatro destinos del Universo según los parámetros (figura 6).
 - Edad: crítico 9,67 Gyr = 2/(3H₀); abierto 11,7; acelerado 13,86 (Planck: 13,8). Tensión de Hubble: H₀ = 73 → 12,8 Gyr.
 - Distancias: comóvil, de luminosidad, módulo de distancia μ; supernovas Ia como candelas estándar (escalera de distancias, clase 9). Pantheon+ (Scolnic/Brout 2022), calibración SH0ES (Riess 2022).
-- Edad de cúmulos globulares (≈ 12–13 Gyr) como chequeo independiente `[buscar referencia]`.
+- Edad de cúmulos globulares (≈ 12–13 Gyr) como chequeo independiente `[verificar en ADS: Valcin et al. 2020; O'Malley et al. 2017]`.
+- Pantheon+: 1.701 filas; 1.580 tras excluir calibradoras (IS_CALIBRATOR = 1) y exigir z > 0,01, como en Brout et al. 2022.
 
 ## 2.4 Herramientas numéricas y de ingeniería (≈ 0,6 pág., **escribe José**)
 
