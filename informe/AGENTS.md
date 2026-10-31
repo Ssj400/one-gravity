@@ -55,7 +55,7 @@ Un simulador de gravedad con interfaz web. La misma ley (gravitación de Newton)
 | Supernova a z = 0,5 | 0,39 mag más tenue en el acelerado que en el crítico; 0,21 que en el abierto | `test_supernovae.py` |
 | Pantheon+ (1.580 SNe del flujo de Hubble) | χ²: acelerado 686 < abierto 817 < crítico 1.331 < recolapso 5.702; δ ≈ −0,19 mag por la calibración SH0ES | web (escala Supernovas) |
 
-**Estado del código al 2026-10-31:** motor y Sistema Solar implementados y verificados (34 tests pasan). Las funciones de Universo, Supernovas y Galaxia aún son *stubs*; sus escalas en la web dicen "Pendiente". Los valores de la tabla para esas escalas vienen de una corrida de referencia verificada y se confirman cuando José termine el código. **No describas como "hecho" lo que la web aún muestra como pendiente**; escribe la sección y deja marcado `[confirmar con José]` donde dependa de eso.
+**Estado del código al 2026-10-31 (tarde):** las tres escalas están implementadas y **los 66 tests pasan**; la web muestra las cuatro escalas con figuras. El motor y el Sistema Solar los escribió José; las funciones de Universo, Supernovas y Galaxia se escribieron con asistencia de IA (Claude) por el plazo, y José las revisa. **Esto debe quedar en la declaración de uso de IA del informe** (§12, punto 5): decir qué partes del código se hicieron con asistencia y que todas pasan los tests de física escritos antes que el código.
 
 ## 6. Integración interdisciplinaria (criterio 1): qué aporta cada ramo
 

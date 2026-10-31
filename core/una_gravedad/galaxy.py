@@ -16,12 +16,12 @@ UPSILON_BULGE = 0.7
 
 def circular_velocity(enclosed_mass: np.ndarray, r: np.ndarray, g: float = G_KPC_KMS2_MSUN) -> np.ndarray:
     """v_c = √( G M(<r) / r ). Con kpc y M☉ devuelve km/s."""
-    raise NotImplementedError("Unidad 5: escribe circular_velocity (galaxy.py)")
+    return np.sqrt(g * np.asarray(enclosed_mass, dtype=float) / np.asarray(r, dtype=float))
 
 
 def enclosed_mass(v: np.ndarray, r: np.ndarray, g: float = G_KPC_KMS2_MSUN) -> np.ndarray:
     """Masa dinámica dentro de r a partir de la velocidad circular: M(<r) = v² r / G. M☉."""
-    raise NotImplementedError("Unidad 5: escribe enclosed_mass (galaxy.py)")
+    return np.asarray(v, dtype=float) ** 2 * np.asarray(r, dtype=float) / g
 
 
 def visible_velocity(
@@ -39,7 +39,9 @@ def visible_velocity(
     y v² ∝ a·r. SPARC tabula v_disk y v_bulge para Υ = 1; v_gas puede ser
     negativo donde el gas tira hacia afuera, por eso v·|v| y no v².
     """
-    raise NotImplementedError("Unidad 5: escribe visible_velocity (galaxy.py)")
+    v_gas = np.asarray(v_gas, dtype=float)
+    v2 = v_gas * np.abs(v_gas) + upsilon_disk * np.asarray(v_disk, dtype=float) ** 2 + upsilon_bulge * np.asarray(v_bulge, dtype=float) ** 2
+    return np.sqrt(v2)
 
 
 def halo_velocity(r: np.ndarray, r_core: float, v_inf: float) -> np.ndarray:
@@ -49,12 +51,13 @@ def halo_velocity(r: np.ndarray, r_core: float, v_inf: float) -> np.ndarray:
 
     Tiende a v_∞ para r ≫ r_c (curva plana) y crece como r para r ≪ r_c.
     """
-    raise NotImplementedError("Unidad 5: escribe halo_velocity (galaxy.py)")
+    r = np.asarray(r, dtype=float)
+    return v_inf * np.sqrt(1.0 - (r_core / r) * np.arctan(r / r_core))
 
 
 def total_velocity(v_visible: np.ndarray, v_halo: np.ndarray) -> np.ndarray:
     """v_tot² = v_vis² + v_halo²."""
-    raise NotImplementedError("Unidad 5: escribe total_velocity (galaxy.py)")
+    return np.sqrt(np.asarray(v_visible, dtype=float) ** 2 + np.asarray(v_halo, dtype=float) ** 2)
 
 
 def fit_halo(
@@ -71,4 +74,14 @@ def fit_halo(
     np.linspace(0.5, 20, 100) kpc, v_∞ en np.linspace(50, 300, 126) km/s.
     Pista: construye las dos grillas con np.meshgrid y evalúa todo vectorizado.
     """
-    raise NotImplementedError("Unidad 5: escribe fit_halo (galaxy.py)")
+    if r_core_grid is None:
+        r_core_grid = np.linspace(0.5, 20.0, 100)
+    if v_inf_grid is None:
+        v_inf_grid = np.linspace(50.0, 300.0, 126)
+    rc, vi = np.meshgrid(r_core_grid, v_inf_grid, indexing="ij")
+    # Un eje extra al final para que cada punto de la grilla se evalúe en todos los radios a la vez.
+    v_h = halo_velocity(r, rc[..., None], vi[..., None])
+    v_tot = total_velocity(v_visible, v_h)
+    chi2 = np.sum(((v_obs - v_tot) / v_err) ** 2, axis=-1)
+    i, j = np.unravel_index(np.argmin(chi2), chi2.shape)
+    return float(r_core_grid[i]), float(v_inf_grid[j]), float(chi2[i, j])

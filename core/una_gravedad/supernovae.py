@@ -14,7 +14,9 @@ def hubble_function(z: np.ndarray, omega_m: float, omega_l: float) -> np.ndarray
 
     Es la primera integral de Friedmann escrita en función de z (1 + z = 1/a).
     """
-    raise NotImplementedError("Unidad 4: escribe hubble_function (supernovae.py)")
+    z = np.asarray(z, dtype=float)
+    omega_k = 1.0 - omega_m - omega_l
+    return np.sqrt(omega_m * (1.0 + z) ** 3 + omega_k * (1.0 + z) ** 2 + omega_l)
 
 
 def comoving_distance(z: np.ndarray, h0: float, omega_m: float, omega_l: float, n: int = 2000) -> np.ndarray:
@@ -23,7 +25,13 @@ def comoving_distance(z: np.ndarray, h0: float, omega_m: float, omega_l: float, 
     ``z`` escalar o arreglo. Para cada z integra sobre ``n`` subintervalos
     (np.linspace + np.trapezoid). Esta integral es una suma de Riemann: Cálculo I.
     """
-    raise NotImplementedError("Unidad 4: escribe comoving_distance (supernovae.py)")
+    z_arr = np.atleast_1d(np.asarray(z, dtype=float))
+    out = np.empty_like(z_arr)
+    for i, zi in enumerate(z_arr):
+        zz = np.linspace(0.0, zi, n + 1)
+        out[i] = np.trapezoid(1.0 / hubble_function(zz, omega_m, omega_l), zz)
+    out *= C_KM_S / h0
+    return out if np.ndim(z) else out[0]
 
 
 def luminosity_distance(z: np.ndarray, h0: float, omega_m: float, omega_l: float) -> np.ndarray:
@@ -35,12 +43,24 @@ def luminosity_distance(z: np.ndarray, h0: float, omega_m: float, omega_l: float
 
     Trata |Ω_k| < 1e-8 como plano.
     """
-    raise NotImplementedError("Unidad 4: escribe luminosity_distance (supernovae.py)")
+    z = np.asarray(z, dtype=float)
+    d_c = comoving_distance(z, h0, omega_m, omega_l)
+    d_h = C_KM_S / h0
+    omega_k = 1.0 - omega_m - omega_l
+    if abs(omega_k) < 1e-8:
+        d_m = d_c
+    elif omega_k > 0:
+        sk = np.sqrt(omega_k)
+        d_m = d_h / sk * np.sinh(sk * d_c / d_h)
+    else:
+        sk = np.sqrt(-omega_k)
+        d_m = d_h / sk * np.sin(sk * d_c / d_h)
+    return (1.0 + z) * d_m
 
 
 def distance_modulus(d_l_mpc: np.ndarray) -> np.ndarray:
     """μ = 5 log10( d_L / 10 pc ) = 5 log10( d_L[Mpc] ) + 25."""
-    raise NotImplementedError("Unidad 4: escribe distance_modulus (supernovae.py)")
+    return 5.0 * np.log10(np.asarray(d_l_mpc, dtype=float)) + 25.0
 
 
 def chi_square(z: np.ndarray, mu_obs: np.ndarray, mu_err: np.ndarray, h0: float, omega_m: float, omega_l: float) -> tuple[float, float]:
@@ -54,7 +74,11 @@ def chi_square(z: np.ndarray, mu_obs: np.ndarray, mu_err: np.ndarray, h0: float,
     Solo errores diagonales: sirve para comparar modelos en el informe, no para
     un ajuste publicable (el README de Pantheon+ exige la covarianza completa).
     """
-    raise NotImplementedError("Unidad 4: escribe chi_square (supernovae.py)")
+    mu_model = distance_modulus(luminosity_distance(z, h0, omega_m, omega_l))
+    w = 1.0 / np.asarray(mu_err, dtype=float) ** 2
+    diff = np.asarray(mu_obs, dtype=float) - mu_model
+    delta = float(np.sum(w * diff) / np.sum(w))
+    return float(np.sum(w * (diff - delta) ** 2)), delta
 
 
 # --- Oráculos exactos, para los tests ---------------------------------------

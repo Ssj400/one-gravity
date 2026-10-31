@@ -21,7 +21,8 @@ def scale_factor_acceleration(a: np.ndarray, h0: float, omega_m: float, omega_l:
     frena (como la gravedad de un planeta sobre una pelota); el de Λ empuja y
     crece con ``a``.
     """
-    raise NotImplementedError("Unidad 3: escribe scale_factor_acceleration (universe.py)")
+    a = np.asarray(a, dtype=float)
+    return h0**2 * (omega_l * a - omega_m / (2.0 * a**2))
 
 
 def curvature_energy(a: np.ndarray, adot: np.ndarray, h0: float, omega_m: float, omega_l: float) -> np.ndarray:
@@ -31,7 +32,9 @@ def curvature_energy(a: np.ndarray, adot: np.ndarray, h0: float, omega_m: float,
 
     Devuelve el lado izquierdo. Negativo: universo cerrado; cero: plano; positivo: abierto.
     """
-    raise NotImplementedError("Unidad 3: escribe curvature_energy (universe.py)")
+    a = np.asarray(a, dtype=float)
+    adot = np.asarray(adot, dtype=float)
+    return 0.5 * adot**2 - 0.5 * h0**2 * (omega_m / a + omega_l * a**2)
 
 
 def expand(
@@ -51,7 +54,30 @@ def expand(
     Pista: la condición inicial es a0 = 1, ȧ0 = H0 (en 1/Gyr). Integra en
     trozos de pocos pasos y corta cuando a < a_min.
     """
-    raise NotImplementedError("Unidad 3: escribe expand (universe.py)")
+    h0 = h0_per_gyr(h0_km_s_mpc)
+    accel = lambda a: scale_factor_acceleration(a, h0, omega_m, omega_l)
+    # Estado inicial: hoy. Arreglos de un elemento para reutilizar integrate/leapfrog tal cual.
+    a = np.array([1.0])
+    adot = np.array([h0])
+    t_list, a_list, adot_list = [0.0], [1.0], [h0]
+    n_total = int(round(abs(t_max_gyr) / abs(dt_gyr)))
+    chunk = 100
+    done = 0
+    while done < n_total:
+        n = min(chunk, n_total - done)
+        t, r, v = integrate(a, adot, dt_gyr, n, accel, "leapfrog")
+        # ¿Llegamos a a_min (Big Bang hacia atrás, o Big Crunch hacia adelante)?
+        below = np.nonzero(r[1:, 0] < a_min)[0]
+        last = below[0] + 1 if below.size else n
+        base = done * dt_gyr
+        t_list.extend((base + t[1 : last + 1]).tolist())
+        a_list.extend(r[1 : last + 1, 0].tolist())
+        adot_list.extend(v[1 : last + 1, 0].tolist())
+        if below.size:
+            break
+        a, adot = r[-1], v[-1]
+        done += n
+    return np.array(t_list), np.array(a_list), np.array(adot_list)
 
 
 def age_numeric(omega_m: float, omega_l: float, h0_km_s_mpc: float, dt_gyr: float = -1e-3) -> float:
@@ -62,7 +88,12 @@ def age_numeric(omega_m: float, omega_l: float, h0_km_s_mpc: float, dt_gyr: floa
     ``a_min`` y suma el tramo restante con la aproximación a ∝ t^{2/3}
     (universo dominado por materia): t_rest = (2/3) · a_min / ȧ(a_min).
     """
-    raise NotImplementedError("Unidad 3: escribe age_numeric (universe.py)")
+    a_min = 1e-3
+    t, a, adot = expand(omega_m, omega_l, h0_km_s_mpc, t_max_gyr=60.0, dt_gyr=-abs(dt_gyr), a_min=a_min)
+    # Tramo final de a_min a 0: a ∝ t^{2/3} si hay materia (t = (2/3) a/ȧ); a ∝ t si el universo está vacío.
+    frac = 2.0 / 3.0 if omega_m > 0 else 1.0
+    t_rest = frac * a[-1] / abs(adot[-1])
+    return float(-t[-1] + t_rest)
 
 
 # --- Oráculos exactos, para los tests y para comparar con los cálculos a mano ---
