@@ -28,6 +28,24 @@ export function Solar() {
         did={<>Pusimos el Sol y un planeta, con la fuerza de Newton y nada más: ninguna ley de Kepler está programada. Avanzamos el tiempo de dos maneras, con Euler (el método ingenuo) y con leapfrog (el que conserva la energía), y medimos el período de los ocho planetas.</>}
         found={<>Con Euler la Tierra se escapa del Sol en cinco años: el método inventa energía en cada paso. Con leapfrog la órbita se cierra y las tres leyes de Kepler aparecen solas: T²/a³ = 1 para los ocho planetas, con error menor que 0,1 %.</>}
       />
+      <section className="methods" aria-label="Los dos métodos">
+        <p className="story-label">Cómo se avanza el tiempo</p>
+        <p>
+          El computador no puede seguir la órbita de forma continua: la corta en pasos pequeños de duración Δt y, en cada uno, usa la fuerza de Newton para decidir dónde estará el planeta un instante después. Todo el problema es cómo dar ese paso.
+        </p>
+        <div className="methods-cols">
+          <div>
+            <h3>Euler (el método ingenuo)</h3>
+            <p className="method-formula">r<sub>nuevo</sub> = r + v·Δt<br />v<sub>nuevo</sub> = v + a(r)·Δt</p>
+            <p>Mueve el planeta con la velocidad que tenía al inicio del paso y después corrige la velocidad. Como la velocidad es tangente a la órbita, cada paso sale un poco hacia afuera. El error no se compensa: se acumula, y la órbita se abre en espiral.</p>
+          </div>
+          <div>
+            <h3>Leapfrog (patada, avance, patada)</h3>
+            <p className="method-formula">v<sub>½</sub> = v + a(r)·Δt/2<br />r<sub>nuevo</sub> = r + v<sub>½</sub>·Δt<br />v<sub>nuevo</sub> = v<sub>½</sub> + a(r<sub>nuevo</sub>)·Δt/2</p>
+            <p>Media patada a la velocidad, avance completo con esa velocidad intermedia, y la otra media patada con la fuerza en la posición nueva. El paso es simétrico: hecho al revés se deshace solo. Por eso el error de energía no crece, oscila, y la órbita se cierra. Cuesta lo mismo que Euler.</p>
+          </div>
+        </div>
+      </section>
       <Controls>
         <label className="slider"><span className="slider-label">Planeta</span>
           <select value={planet} onChange={(e) => setPlanet(e.target.value)}>{PLANETS.map((p) => <option key={p}>{p}</option>)}</select>

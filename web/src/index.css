@@ -148,6 +148,13 @@ h1 { font-size: 2rem; font-weight: 500; letter-spacing: -0.015em; line-height: 1
 @media (max-width: 760px) { .story-cols { grid-template-columns: 1fr; } }
 .story-cols p { margin: 0; max-width: 56ch; }
 .story-label { font-size: 0.82rem; color: var(--sol); margin: 0 0 4px !important; font-weight: 500; }
+.methods { margin: 4px 0 22px; max-width: 110ch; }
+.methods > p { max-width: 68ch; margin: 0 0 10px; }
+.methods-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; }
+@media (max-width: 760px) { .methods-cols { grid-template-columns: 1fr; } }
+.methods h3 { font-size: 1rem; font-weight: 500; margin: 0 0 6px; }
+.methods-cols p { margin: 0 0 8px; max-width: 56ch; }
+.method-formula { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 0.9rem; line-height: 1.6; color: var(--ink); background: var(--panel); padding: 8px 12px; border-radius: 4px; display: inline-block; }
 .takeaway { margin: 28px 0 8px; padding: 14px 16px; border-left: 2px solid var(--sol); max-width: 72ch; }
 .takeaway p { margin: 0 0 8px; }
 .takeaway p:last-child { margin-bottom: 0; }
