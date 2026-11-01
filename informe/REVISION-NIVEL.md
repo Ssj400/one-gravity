@@ -16,12 +16,20 @@ La rúbrica pide precisión conceptual, desarrollo fundamentado y comunicación 
 - Corregimos las afirmaciones de que cualquier halo puede ajustar una curva plana y de que una comparación simple excluye definitivamente modelos o resuelve la tensión de Hubble.
 - Renumeramos los pies de figura de manera consecutiva y separamos la comparación de energía de cinco años de la prueba distinta de 100 órbitas.
 
+## Estado de la versión (1 de noviembre, cierre)
+
+- **Figuras insertadas.** Siete PNG exportados del simulador público (`figuras/`) con tema claro y sin barra de herramientas: 1a/1b, 2, 3, 4 y 5a/5b. Van dentro de párrafos `Figure` con `keepNext`, pie de 9,5 pt y ancho de 10,2 cm (pares, 7,0 cm).
+- **Extensión.** El PDF exportado con Word tiene **12 páginas**: portada, cuerpo en las páginas 2–11 y bibliografía en 11–12. Cumple el rango de 8–12.
+- **Formato.** Times New Roman 12, interlineado 1,5 y texto justificado; títulos de sección en Arial 16 y subtítulos en Times 13; márgenes de 1,8 cm. Los pies de figura usan 9,5 pt y las referencias interlineado simple con sangría francesa, para no salir del límite de páginas.
+- **Portada.** Título centrado en negrita, autores en cursiva y dos enlaces con etiqueta legible (simulador y repositorio). Sin correos.
+- **Integridad.** ZIP y XML válidos; 7 relaciones de imagen y 2 hipervínculos de portada, sin relaciones huérfanas; el código de leapfrog se conserva literal; las 15 referencias académicas y las de curso/software siguen intactas.
+- **Exportación.** `informe_final.pdf` se generó con Microsoft Word (COM) desde el DOCX, no con un conversor alternativo.
+
 ## Antes de entregar
 
-- **Insertar figuras reales.** El Word recibido no contenía imágenes; los pies y las referencias no equivalen a figuras insertadas. Exportar las corridas con las condiciones indicadas, en tema claro, y ubicarlas junto a sus resultados.
-- **Reflexión personal.** Luis debe completar el párrafo pendiente de aprendizaje colaborativo; no inventamos experiencias personales.
-- **Declaración de IA.** Ambos autores deben confirmar su revisión efectiva y aprobar el texto.
-- **Formato y extensión.** El enunciado exige PDF de 8–12 páginas, Arial 11 o Times New Roman 12 e interlineado 1,5. El DOCX usa Times New Roman 12 e interlineado 1,5; falta comprobar la paginación al abrirlo y al exportar el PDF con las figuras. No hay Word ni LibreOffice disponible en el entorno de edición.
+- **Reflexión personal.** Luis debe completar el párrafo marcado en cursiva en 5.1 (aprendizaje colaborativo); no inventamos experiencias personales.
+- **Declaración de IA.** Ambos autores deben confirmar la revisión efectiva y aprobar el texto marcado en cursiva en 5.2.
+- Al reemplazar esos dos fragmentos, volver a exportar y comprobar que el PDF siga en 12 páginas.
 - Las copias `informe_borrador.antes-*.docx` son respaldos auxiliares, no versiones para entregar.
 
 La entrega entre dos integrantes ya fue autorizada por el docente, según lo informado por el usuario; no es un pendiente.

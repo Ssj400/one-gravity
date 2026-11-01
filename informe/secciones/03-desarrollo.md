@@ -1,20 +1,20 @@
 # 3. Desarrollo de la Propuesta / Prototipo
 
-## 3.1 De una pregunta a una figura
+## 3.1 Organización del programa
 
-Construimos una web con cuatro pestañas: Sistema Solar, Galaxia, Universo y Supernovas. Las dos últimas exploran la misma escala cosmológica desde el modelo y las observaciones. La persona elige parámetros, el programa calcula los resultados y las figuras se actualizan; no son animaciones con resultados pregrabados.
+Con las ideas anteriores construimos una web con cuatro pestañas: Sistema Solar, Galaxia, Universo y Supernovas. Las últimas dos abordan la misma escala desde el modelo y desde las observaciones. El usuario cambia los parámetros y el programa vuelve a calcular, de modo que puede seguir las consecuencias de una decisión y no solo mirar un resultado fijo.
 
-Separamos el proyecto en cuatro partes: ecuaciones y métodos de cálculo, pruebas automáticas, datos originales e interfaz. El recorrido básico es:
+Separamos los cálculos, las pruebas, los datos y la interfaz para poder revisar cada parte:
 
 ```text
 Parámetros elegidos → cálculo en Python + datos → resultados → figuras
 ```
 
-React organiza los controles. El cálculo se ejecuta con Pyodide en un Web Worker, un proceso de trabajo separado que evita bloquear la interfaz. Plotly representa los resultados. Usamos el mismo paquete Python en la web y en las pruebas locales, para no mantener dos versiones distintas de las ecuaciones.
+React organiza los controles y Pyodide ejecuta Python en un **Web Worker**, un contexto de trabajo separado que permite calcular sin bloquear la interfaz. Plotly muestra los resultados, y el mismo código se usa en el navegador y en las pruebas, para no mantener dos versiones del cálculo.
 
-## 3.2 El avance temporal y sus pruebas
+## 3.2 Implementación y comprobación
 
-El motor recibe una posición, una velocidad, un paso de tiempo y una función que calcula la aceleración. Repite el avance y guarda la evolución. Este extracto de `integrators.py` realiza un paso de leapfrog; `r` es la posición, `v` la velocidad, `dt` el paso y `accel` la función de aceleración:
+El motor recibe la posición, la velocidad, el paso de tiempo y una función de aceleración. En `integrators.py`, un paso de leapfrog se realiza así; `r` es la posición, `v` la velocidad, `dt` el paso y `accel` la aceleración:
 
 ```python
 vn12 = v + accel(r)*dt*1/2
@@ -23,38 +23,42 @@ vn1 = vn12 + accel(rn1)*dt*1/2
 return rn1,vn1
 ```
 
-Las instrucciones corresponden a la media corrección de velocidad, el avance de posición y la segunda media corrección. Podemos reutilizarlas cambiando la función de aceleración. En cosmología, la variable que evoluciona es el factor de escala, no la posición de un planeta.
+Las tres actualizaciones corresponden al procedimiento ya explicado y se reutilizan cambiando la función de aceleración; en cosmología, la variable que avanzamos es el factor de escala. Así, una decisión de programación queda ligada al problema físico que buscamos representar.
 
-No comprobamos el programa solo mirando sus figuras. Las pruebas comparan órbitas con las leyes de Kepler y edades cosmológicas con soluciones conocidas para ciertos parámetros. También revisan propiedades del código, como no modificar los datos de entrada. Esto detecta errores concretos, sin demostrar que el modelo incluya toda la física real.
+Para comprobarlo usamos las leyes de Kepler y soluciones cosmológicas conocidas para ciertos parámetros, y revisamos condiciones del código, como no modificar los datos de entrada. Cada prueba responde una pregunta concreta; aprobarlas nos da razones para confiar en esos cálculos dentro de las condiciones comprobadas.
 
-## 3.3 Sistema Solar: empezar por un caso conocido
+## 3.3 Sistema Solar
 
-Simulamos por separado cada planeta alrededor del Sol. Para la Tierra, con pasos de 0,01 años durante cinco años, Euler produce una espiral y un error de energía de 57,6 %. El planeta termina a 2,01 UA del Sol. Leapfrog mantiene una trayectoria aproximadamente cerrada con la misma fuerza y el mismo paso (figuras 1a y 1b). La diferencia está en cómo calculamos el movimiento, no en una fuerza nueva.
+Comenzamos simulando los planetas por separado. Para la Tierra, con pasos de 0,01 años durante cinco años, Euler produce una espiral: el error de energía llega al 57,6 % y la distancia final al Sol es de 2,01 UA. Con la misma fuerza y el mismo paso, leapfrog mantiene una trayectoria aproximadamente cerrada. A partir de esto reconocemos que la diferencia proviene del método elegido.
 
-En una prueba más exigente y distinta de esa figura, una Tierra inicialmente circular con leapfrog y pasos de 0,001 años mantiene un error relativo de energía menor que 10⁻⁶ durante 100 órbitas. Conservamos esa cifra como control técnico, no como requisito para entender el resultado visual.
+![Figura 1. (a) Movimiento de la Tierra durante cinco años, con pasos de 0,01 años. La espiral de Euler y la órbita cerrada de leapfrog muestran el efecto del método. (b) Error relativo de energía en la misma simulación: Euler llega al 57,6 %, mientras que leapfrog se mantiene muy por debajo.](figuras/fig1a_orbita.png|figuras/fig1b_energia.png)
 
-También medimos el período de los ocho planetas de la interfaz y obtenemos T²/a³ cercano a 1, con diferencias menores que 0,1 % (figura 2). La prueba automática de esta relación cubre de Mercurio a Saturno. Así conectamos la simulación con un contenido conocido del curso antes de pasar a escalas menos intuitivas.
+En una prueba distinta, con una órbita terrestre inicialmente circular y pasos de 0,001 años, leapfrog mantiene un error relativo de energía menor que 10⁻⁶ durante 100 vueltas. También obtenemos T²/a³ cercano a 1 para los ocho planetas de la interfaz, con diferencias menores que 0,1 %; la prueba automática de esa relación cubre de Mercurio a Saturno.
 
-## 3.4 Galaxia: lo visible no explica toda la rotación
+![Figura 2. Relación entre período y semieje mayor para los ocho planetas, en ejes logarítmicos. Los resultados se acercan a T²/a³ = 1, con diferencias menores que 0,1 % en las unidades adoptadas.](figuras/fig2_kepler3.png)
 
-Para NGC 3198 usamos 43 mediciones de SPARC, hasta unos 44 kpc del centro (Lelli et al., 2016). Aquí no avanzamos órbitas en el tiempo: calculamos las contribuciones gravitacionales del gas, las estrellas y un posible halo, y comparamos la curva resultante con los datos.
+## 3.4 Rotación de NGC 3198
 
-En la región exterior, la materia visible predice unos 65 km/s, frente a los aproximadamente 150 km/s observados. Al añadir el halo obtenemos un mejor acuerdo (figura 3). El ajuste de referencia entrega un radio central de unos 2,7 kpc y una velocidad límite de 142 km/s.
+Para esta galaxia usamos 43 mediciones de SPARC, que llegan hasta unos 44 kpc del centro (Lelli et al., 2016). Calculamos las velocidades debidas al gas, las estrellas y un posible halo, sin avanzar órbitas en el tiempo. La materia visible predice unos 65 km/s en la región exterior, frente a cerca de 150 km/s observados; agregar el halo mejora el acuerdo, con un radio central de aproximadamente 2,7 kpc y una velocidad límite de 142 km/s.
 
-Con M ≈ v²r/G estimamos que cerca del 81 % de la masa dentro del último radio sería oscura, bajo los supuestos adoptados. Esta proporción corresponde a este modelo de NGC 3198: no es una medición de la composición de todo el Universo ni determina de qué está hecha la materia oscura.
+![Figura 3. Rotación de NGC 3198: datos de SPARC y aportes calculados. En la región exterior la materia visible predice unos 65 km/s, mientras que el halo permite acercarse a los 150 km/s observados (Lelli et al., 2016).](figuras/fig3_rotacion_ngc3198.png)
 
-## 3.5 Universo: comparar historias posibles
+Con M ≈ v²r/G estimamos que alrededor del 81 % de la masa dentro del último radio sería oscura. Esta cifra depende de nuestros supuestos y corresponde a NGC 3198; sería incorrecto extenderla a la composición de todo el Universo o tomarla como una explicación de qué es la materia oscura.
 
-Tomamos el presente como a = 1 y calculamos hacia el futuro y hacia el pasado. Comparamos los cuatro escenarios de la clase 10: crítico, abierto, acelerado y de recolapso (*Cosmología, materia y energía oscura*, s. f.). Cambiar la cantidad de materia y energía oscura cambia la forma de las curvas (figura 4).
+## 3.5 Expansión del Universo
 
-Con H₀ = 67,4 km/s/Mpc, obtenemos edades aproximadas de 9,67 mil millones de años para el escenario crítico (Ωm = 1, ΩΛ = 0), 11,7 para el abierto (0,3; 0) y 13,86 para el acelerado (0,31; 0,69). El cuarto caso, con mucha más materia (5; 0), ilustra una expansión que se detiene y luego se invierte. Gyr es la abreviatura de mil millones de años.
+Tomando el presente como a = 1, calculamos hacia el pasado y el futuro. Comparamos los escenarios crítico, abierto, acelerado y de recolapso de la clase 10 (*Cosmología, materia y energía oscura*, s. f.).
 
-El escenario acelerado tiene una edad cercana a los 13,8 Gyr inferidos por Planck (Planck Collaboration, 2020). Es una comparación, no una condición que impongamos al programa para que todos los modelos den la misma respuesta.
+![Figura 4. Evolución del factor de escala en los cuatro escenarios. Con H₀ = 67,4 km/s/Mpc, el crítico, el abierto y el acelerado tienen edades de 9,67, 11,7 y 13,86 Gyr; el de recolapso termina invirtiendo su expansión.](figuras/fig4_factor_escala.png)
 
-## 3.6 Supernovas: mirar cuál curva sigue los datos
+Con H₀ = 67,4 km/s/Mpc obtenemos edades de 9,67 Gyr para el caso crítico (Ωm = 1, ΩΛ = 0), 11,7 para el abierto (0,3; 0) y 13,86 para el acelerado (0,31; 0,69). Gyr significa mil millones de años. En el escenario de recolapso (5; 0), la mayor cantidad de materia detiene la expansión y luego la invierte. La edad del acelerado se acerca a los 13,8 Gyr inferidos por Planck (Planck Collaboration, 2020): nos interesa esa comparación precisamente porque el programa permite obtener edades distintas.
 
-Seleccionamos 1.580 mediciones de Pantheon+, al excluir las calibradoras y exigir z > 0,01 (Scolnic et al., 2022; Brout et al., 2022). Son filas de datos, no necesariamente 1.580 objetos distintos. La figura 5a relaciona el corrimiento al rojo con el módulo de distancia; la figura 5b muestra las diferencias respecto de un universo vacío de referencia para distinguir mejor las curvas.
+## 3.6 Comparación con supernovas
 
-El escenario acelerado obtiene el menor χ², aproximadamente 686, seguido del abierto (817), el crítico (1.331) y el de recolapso (5.702). Con el mismo procedimiento y datos, el primero representa mejor las observaciones entre las alternativas elegidas. No usamos estos valores para declarar una certeza estadística ni para afirmar que hemos descubierto nuevamente la energía oscura.
+Para contrastar esas historias seleccionamos 1.580 mediciones de Pantheon+, excluyendo las calibradoras y exigiendo z > 0,01 (Scolnic et al., 2022; Brout et al., 2022). Son filas de datos, que pueden incluir observaciones de un mismo objeto. La figura 5a muestra el módulo de distancia frente al corrimiento al rojo; en la 5b restamos un universo vacío de referencia para distinguir mejor las diferencias.
 
-Publicamos el código, la procedencia de los datos y las pruebas para que se puedan revisar y repetir los cálculos. Además, antes de publicar cambios en la web se ejecutan las pruebas automáticamente. El resultado es un prototipo didáctico que conecta parámetros, predicciones y observaciones.
+![Figura 5. (a) Diagrama de Hubble con las 1.580 mediciones y los cuatro modelos. (b) Diferencias respecto de un universo vacío de referencia, que hacen visible la separación entre escenarios sin agregar una prueba estadística.](figuras/fig5a_hubble.png|figuras/fig5b_residuos.png)
+
+El escenario acelerado obtiene el menor χ², aproximadamente 686, seguido del abierto (817), el crítico (1.331) y el de recolapso (5.702). Dentro de esta comparación, el primero sigue mejor los datos. El resultado ilustra por qué es relevante contrastar las curvas con observaciones, aunque nuestro procedimiento simplificado no permite asignarle una certeza estadística.
+
+Dejamos disponibles el código, la procedencia de los datos y las pruebas para que este recorrido pueda repetirse; además, las pruebas se ejecutan antes de publicar cambios en la web.

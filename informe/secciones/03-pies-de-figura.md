@@ -1,13 +1,13 @@
 # Pies de figura
 
-> Pendiente de montaje: insertar las figuras exportadas de la web. La numeración siguiente es la del informe y no necesita coincidir con los nombres de exportación del simulador.
+> Figuras ya insertadas en el Word y en el PDF (exportadas del simulador público en tema claro). Los pies del documento condensan estos textos; esta lista conserva la versión extensa. La numeración coincide con la del informe.
 
-- **Figura 1a.** Órbita terrestre durante cinco años, con pasos de 0,01 años. Euler produce una espiral artificial; leapfrog mantiene una trayectoria aproximadamente cerrada. La diferencia proviene del método, no de una fuerza nueva.
-- **Figura 1b.** Error relativo de energía en la misma comparación de cinco años y pasos de 0,01 años. Con Euler llega al 57,6 %; leapfrog presenta un error mucho menor. La prueba de 100 órbitas con pasos de 0,001 años es una comprobación distinta, no la corrida de esta figura.
-- **Figura 2.** Período T frente al semieje mayor a para los ocho planetas, en ejes logarítmicos. Los puntos siguen la relación de Kepler T²/a³ ≈ 1 con diferencias menores que 0,1 % en las unidades adoptadas.
-- **Figura 3.** Rotación de NGC 3198: datos de SPARC y predicciones con materia visible, halo y ambas contribuciones. En la región exterior, la materia visible predice unos 65 km/s frente a cerca de 150 km/s observados; el halo mejora el acuerdo (Lelli et al., 2016).
-- **Figura 4.** Factor de escala a(t) para los escenarios crítico, abierto, acelerado y de recolapso. Con H₀ = 67,4 km/s/Mpc, los tres primeros tienen edades de 9,67, 11,7 y 13,86 Gyr, respectivamente. Las curvas permiten comparar cómo cambian la historia y el futuro de la expansión.
-- **Figura 5a.** Corrimiento al rojo y módulo de distancia de las 1.580 mediciones seleccionadas de Pantheon+, junto con los cuatro modelos. El escenario acelerado tiene el menor χ² entre las alternativas comparadas (Scolnic et al., 2022; Brout et al., 2022).
-- **Figura 5b.** Diferencias de los datos y los modelos respecto de un universo vacío de referencia. Restar esa curva hace más visibles las diferencias entre escenarios; no constituye por sí solo una prueba estadística de aceleración.
+- **Figura 1a.** Movimiento de la Tierra durante cinco años, con pasos de 0,01 años. La espiral de Euler y la órbita aproximadamente cerrada de leapfrog muestran el efecto de cambiar el método de cálculo.
+- **Figura 1b.** Error relativo de energía en la misma simulación. Euler llega al 57,6 %, mientras que leapfrog mantiene un error mucho menor. La prueba de 100 órbitas mencionada en el texto corresponde a otro cálculo, con pasos de 0,001 años.
+- **Figura 2.** Relación entre período T y semieje mayor a para los ocho planetas, en ejes logarítmicos. Los resultados se acercan a T²/a³ = 1, con diferencias menores que 0,1 % en las unidades adoptadas.
+- **Figura 3.** Datos de rotación de NGC 3198 y aportes calculados de materia visible y halo. Agregar el halo permite acercarse a los 150 km/s observados en la región exterior, donde la materia visible predice unos 65 km/s (Lelli et al., 2016).
+- **Figura 4.** Evolución del factor de escala en los cuatro escenarios. Para H₀ = 67,4 km/s/Mpc, el crítico, el abierto y el acelerado tienen edades de 9,67, 11,7 y 13,86 Gyr. El de recolapso muestra una expansión que termina invirtiéndose.
+- **Figura 5a.** Comparación de los modelos con 1.580 mediciones de Pantheon+. El escenario acelerado sigue mejor los datos según el χ² calculado con nuestro procedimiento (Scolnic et al., 2022; Brout et al., 2022).
+- **Figura 5b.** Diferencias respecto de un universo vacío de referencia. Restar esa curva permite reconocer mejor la separación entre los escenarios, sin agregar una prueba estadística independiente.
 
-El esquema de recorrido del cálculo está incluido en la sección 3.1. No se anuncia una imagen de arquitectura adicional que todavía no existe.
+El recorrido del cálculo se presenta como esquema de texto en la sección 3.1.
