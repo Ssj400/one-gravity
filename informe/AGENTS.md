@@ -1,6 +1,6 @@
 # Informe de la Tarea 2 (AST101) — contexto para el agente de Luis
 
-Este archivo le da a un agente de IA todo lo que necesita para ayudar a **Luis** a escribir el informe del proyecto *Una sola gravedad, tres escalas*. Léelo completo antes de escribir una línea. Última actualización: 2026-10-31.
+Este archivo le da a un agente de IA todo lo que necesita para ayudar a **Luis** a escribir el informe del proyecto *Una sola gravedad, tres escalas*. Léelo completo antes de escribir una línea. Última actualización: 2026-11-01, al cerrar la reescritura, las figuras y el PDF de 12 páginas.
 
 ## 1. Qué es el proyecto, en tres frases
 
@@ -8,12 +8,14 @@ Un simulador de gravedad con interfaz web. La misma ley (gravitación de Newton)
 
 - Web pública: https://ssj400.github.io/one-gravity/ (el código Python corre en el navegador; cada escala tiene figuras, controles y un bloque "Qué hicimos / Qué encontramos / Por qué importa").
 - Repositorio: https://github.com/Ssj400/one-gravity
-- Equipo: **José Santiago Garrillo Fernández** (código, tests, figuras, sección 3 y teoría numérica) y **Luis** (teoría astronómica, cálculos a mano, datos, referencias, secciones 1, 2, 4 y 5, pies de figura y formato final). Ambos estudian Computación (Ingeniería) en la UC.
+- Equipo: **José Santiago Garrillo Fernández** (código, tests, figuras, sección 3 y teoría numérica) y **Luis Erazo** (teoría astronómica, datos, referencias, secciones 1, 2, 4 y 5, pies de figura y revisión final). Ambos estudian Computación (Ingeniería) en la UC y entregan de a dos porque el tercer integrante abandonó el curso.
 
 ## 2. Entrega
 
 - **Fecha:** lunes 2 de noviembre de 2026 (hora y canal de entrega: confirmar en Canvas; asumir que es durante el día, no a medianoche).
 - **Formato obligatorio:** PDF, **entre 8 y 12 páginas**, Arial 11 o Times New Roman 12, **interlineado 1,5**. Portada incluida.
+- **Documento principal:** `informe_borrador.docx` (Word). El cuerpo se genera desde `secciones/*.md` con la herramienta de §14 y el PDF se exporta con Word. No editar el DOCX a mano sin conciliar antes: hay respaldo por hash y la herramienta se niega a sobrescribir cambios no revisados.
+- **Estado actual:** 12 páginas, 7 figuras insertadas y PDF en `informe_final.pdf`. Los únicos pendientes personales son la reflexión de Luis (5.1) y la confirmación de la declaración de IA (5.2), marcadas en cursiva.
 - **Idioma:** español. Redacción propia; nada de pegar texto de la web ni de este archivo sin reescribirlo.
 - Vale 7,5 % de la nota final del curso. Nota 4,0 con 60/100 puntos.
 
@@ -82,18 +84,17 @@ Hilo conductor: *cuando un computador muestra algo sorprendente, ¿cómo sabemos
 4. **Un "¿qué pasaría si…?": la tensión de Hubble.** H₀ = 73 (escalera de distancias) vs 67,4 (fondo cósmico) cambia la edad de 13,86 a 12,8 Gyr. La web lo muestra con un control deslizante.
 5. **Impacto.** Cualquiera puede poner un titular de cosmología en el simulador y ver qué implica; el código con sus tests es público: reproducibilidad en la práctica.
 
-## 9. Figuras (las exporta José desde la web, en "Modo informe", fondo blanco)
+## 9. Figuras (exportadas de la web pública en tema claro)
 
-| Fig. | Contenido | Escala |
+| Fig. | Archivo | Contenido |
 | --- | --- | --- |
-| 1a, 1b | Órbita Euler vs leapfrog; error de energía vs tiempo | Sistema Solar |
-| 2 | log T vs log a, pendiente 3/2 (tercera ley) | Sistema Solar |
-| 4 | Curva de rotación de NGC 3198: datos, visible, halo, total | Galaxia |
-| 6 | a(t) para cuatro universos | Universo |
-| 7, 7b | Diagrama de Hubble con Pantheon+; residuos respecto al universo vacío | Supernovas |
-| 9 | Diagrama de arquitectura del software y figura de "pilares" (ramos) | Sección 3 / 1 |
+| 1a, 1b | `fig1a_orbita.png`, `fig1b_energia.png` | Órbita de Euler frente a leapfrog; error relativo de energía en la misma simulación |
+| 2 | `fig2_kepler3.png` | log T vs log a para los ocho planetas; T²/a³ ≈ 1 |
+| 3 | `fig3_rotacion_ngc3198.png` | Curva de rotación de NGC 3198: datos, materia visible, halo y total |
+| 4 | `fig4_factor_escala.png` | a(t) para los cuatro escenarios cosmológicos |
+| 5a, 5b | `fig5a_hubble.png`, `fig5b_residuos.png` | Diagrama de Hubble con Pantheon+; residuos respecto de un universo vacío |
 
-Cada figura lleva número y un pie de 1–3 frases que diga qué muestra y qué se concluye (Luis los redacta; los pies de la web sirven de base).
+Se exportan con Playwright desde https://ssj400.github.io/one-gravity/, sin barra de herramientas y con fondo claro; luego se recortan los márgenes. En el Word van a 10,2 cm las individuales y 7,0 cm los pares, con pie de 9,5 pt y `keepNext` para que la figura no se separe de su texto. Los pies extensos viven en `secciones/03-pies-de-figura.md`; el Word usa una versión condensada. Cada pie dice qué se ve y qué se concluye, en 2–3 frases.
 
 ## 10. Referencias (verificar cada una en NASA ADS antes de citar; estilo APA 7)
 
@@ -126,10 +127,69 @@ Detalles de los datos y cómo citarlos: `../data/FUENTES.md`.
 
 ## 12. Reglas para el agente
 
-1. Escribe en español, en primera persona del plural, con frases cortas. Una idea por párrafo.
+1. Escribe en español, en primera persona del plural, con frases cortas y la voz descrita en §13. Una idea por párrafo.
 2. No inventes números, citas ni resultados. Si falta algo, deja `[confirmar con José]` o `[buscar referencia]`.
 3. No modifiques nada fuera de `informe/`. El código, los tests y la web son de José.
-4. Guarda cada sección como Markdown en `informe/secciones/0N-nombre.md` (por ejemplo `01-introduccion.md`, `02-fundamentacion.md`, `04-discusion.md`, `05-conclusiones.md`). José integra todo en el documento final (Google Docs) y exporta el PDF.
+4. Guarda cada sección como Markdown en `informe/secciones/0N-nombre.md` (por ejemplo `01-introduccion.md`, `02-fundamentacion.md`, `04-discusion.md`, `05-conclusiones.md`). El Word se reconstruye con la herramienta de §14; no lo edites a mano sin conciliar y respaldar.
 5. El informe debe **declarar el uso de herramientas de IA** (Código de Honor UC). Redacta un párrafo breve para la sección 5 que diga que se usaron asistentes de IA para apoyo en redacción, revisión y desarrollo, y que todos los resultados fueron verificados por los autores con los tests y las fuentes citadas.
 6. Define cada término técnico la primera vez que aparece. Distingue siempre lo que el simulador demuestra de lo que solo ilustra.
-7. Longitud: apunta al centro del rango (10 páginas en total). Las secciones de Luis suman unas 5,5 páginas.
+7. Longitud: 8–12 páginas. La versión actual tiene 12 (portada, cuerpo y bibliografía). Si agregas texto, recorta o ajusta figuras para no pasar de 12.
+
+**Fuera del informe por decisión del usuario:** el cálculo a mano de Mercurio/vis-viva, la tabla ley→test y las masas detalladas de NGC 3198. No reinsertarlos sin pedirlo. Williams y NASA quedan fuera de la bibliografía; las citas de curso van por título y «s. f.».
+
+## 13. Voz y estilo: imitar la escritura de José
+
+**Regla principal.** El informe debe sonar a José —un estudiante de computación que estudió astronomía—, no a un paper, a una guía docente ni a un texto de IA. Imitar la voz no es copiar frases: es reproducir su forma de pensar y de avanzar.
+
+**Leer antes de escribir.** Toma dos o tres páginas de los ensayos de José en `C:\Users\José Santiago\Documents` (*Fenomenología del comportamiento teorético*, *El futuro de la IA*, *Ideal de físico masculino* y su comentario crítico). Fíjate en el ritmo y en cómo explica, no en el contenido.
+
+**Rasgos que hay que reproducir**
+
+1. **Abre con una pregunta concreta** y respóndela en el texto. En este informe: «¿Qué podemos entender del Universo a partir de un programa?», seguida de «¿cómo sabemos que lo que aparece en pantalla corresponde al fenómeno?».
+2. **Primera persona plural.** «Comprobamos», «calculamos», «nos preguntamos»; nunca «el autor» ni «se procedió».
+3. **Frases cortas y una idea por párrafo.** Si una frase pasa de 30 palabras, se corta. Si un párrafo tiene dos ideas, se separa.
+4. **Explica antes de calcular.** Primero qué buscamos y qué significa cada símbolo; después la ecuación; después el resultado y su límite. Nunca una fórmula sola.
+5. **Cada resultado con su condición.** «Con pasos de 0,01 años», «bajo nuestros supuestos», «en NGC 3198». Nada de cifras sueltas.
+6. **Precisión sin jerga.** Define el término la primera vez («corrimiento al rojo», «halo», «factor de escala») y usa «computador», «programa» y «herramienta», no «ordenador» ni «software» porque sí.
+7. **Transiciones simples.** «Ahora», «Por eso», «Volvamos a», «A fin de cuentas». Evita «en el marco de», «cabe destacar», «es importante señalar».
+8. **Nada de retórica.** Sin exclamaciones, sin «revolucionario» ni «fascinante», sin listas de tres adjetivos. La sorpresa la produce el resultado, no el adjetivo.
+9. **Cierra volviendo a la pregunta inicial**, con lo que quedó claro y lo que no. El texto no termina en una lista de logros.
+10. **Pies de figura sobrios:** qué se ve y qué se concluye, en dos o tres frases; no repiten el párrafo.
+
+**Cómo se traduce**
+
+| En vez de | Escribir |
+| --- | --- |
+| «La presente investigación tiene como objetivo principal analizar…» | «¿Qué podemos entender del Universo a partir de un programa?» |
+| «Es fundamental destacar que la materia oscura constituye…» | «La materia visible no alcanza para explicar la velocidad observada.» |
+| «Se procedió a la implementación de un integrador simpléctico…» | «Para avanzar en el tiempo dividimos el movimiento en pasos pequeños.» |
+| «Los resultados obtenidos evidencian de manera concluyente…» | «El escenario acelerado obtiene el menor χ², aproximadamente 686.» |
+| «Diversos autores sostienen que…» | «Rubin y Ford (1970) encontraron…» |
+
+**Prohibido**
+
+- «En el marco de», «cabe destacar», «es importante señalar», «diversos autores», «la presente investigación».
+- Adjetivos grandilocuentes, signos de exclamación y frases que prometen más de lo que el cálculo muestra.
+- Copiar oraciones de la web o de los ensayos de José: se imita el ritmo, no se traslada el texto.
+- Inventar anécdotas, la experiencia de Luis o citas que no estén verificadas.
+
+**Checklist antes de dar una sección por terminada**
+
+- ¿La primera frase plantea algo que el lector quiere saber?
+- ¿Cada ecuación tiene los símbolos definidos y una frase que explique qué significa?
+- ¿Cada resultado numérico tiene unidades y condiciones?
+- ¿Hay algún límite explícito?
+- ¿Algún párrafo tiene dos ideas o alguna frase pasa de 30 palabras?
+- ¿Suena a José o a informe genérico? Léelo en voz alta.
+
+## 14. Flujo del DOCX, figuras y PDF
+
+- **Documento principal:** `informe_borrador.docx`. El cuerpo se reconstruye desde `secciones/00-portada.md` y las cinco secciones; la bibliografía se conserva desde «5.3 Referencias (APA 7)» y no se regenera.
+- **Reconstrucción:** desde `informe/`, ejecutar
+  `H=$(sha256sum informe_borrador.docx | cut -d' ' -f1); python3 -B herramientas/aplicar_estilo_personal_docx.py --expected-sha256 $H --force`
+  La herramienta exige el hash actual; si el Word cambió, hay que conciliar a mano antes. Guarda un respaldo `informe_borrador.antes-estilo-personal-*.docx`.
+- **Qué aplica:** portada, estilos (Times New Roman 12, interlineado 1,5, títulos Arial 16, márgenes de 1,8 cm), figuras con pie de 9,5 pt y bibliografía compacta con sangría francesa. Es idempotente con `--force`.
+- **Figuras:** se exportan de la web pública en tema claro y se recortan; viven en `figuras/` y se insertan a 10,2 cm (individuales) o 7,0 cm (pares). Detalle en §9.
+- **PDF:** copiar el DOCX a `C:\Users\José Santiago\AppData\Local\Temp\ast101-render\informe.docx` y ejecutar `render.ps1` con Word COM. No guardar cambios de Word sobre el original. Comprobar páginas, figuras y que el cuerpo siga en 12.
+- **Pendientes personales:** la reflexión de Luis (5.1) y la confirmación de la declaración de IA (5.2) están en cursiva. Al completarlas, reconstruir, exportar y verificar que no se pase de 12 páginas.
+- **Commit:** incluir `informe_borrador.docx`, `informe_final.pdf`, `secciones/`, `figuras/`, `herramientas/*.py` y `REVISION-NIVEL.md`. Excluir los respaldos `informe_borrador.antes-*`, los PDF del enunciado y la rúbrica, el artículo de Zwicky y `__pycache__/`.
