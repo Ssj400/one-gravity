@@ -15,6 +15,7 @@ Un simulador de gravedad con interfaz web. La misma ley (gravitación de Newton)
 - **Fecha:** lunes 2 de noviembre de 2026 (hora y canal de entrega: confirmar en Canvas; asumir que es durante el día, no a medianoche).
 - **Formato obligatorio:** PDF, **entre 8 y 12 páginas**, Arial 11 o Times New Roman 12, **interlineado 1,5**. Portada incluida.
 - **Documento principal:** `informe_borrador.docx` (Word). El cuerpo se genera desde `secciones/*.md` con la herramienta de §14 y el PDF se exporta con Word. No editar el DOCX a mano sin conciliar antes: hay respaldo por hash y la herramienta se niega a sobrescribir cambios no revisados.
+- **Título y portada:** «La gravedad en tres escalas: una exploración desde la computación». Autores en cursiva «Erazo, L., Garrillo, J.»; institución, carrera, curso, fecha y enlaces con etiquetas legibles. Sin correos.
 - **Estado actual:** 12 páginas, 7 figuras insertadas y PDF en `informe_final.pdf`. Los únicos pendientes personales son la reflexión de Luis (5.1) y la confirmación de la declaración de IA (5.2), marcadas en cursiva.
 - **Idioma:** español. Redacción propia; nada de pegar texto de la web ni de este archivo sin reescribirlo.
 - Vale 7,5 % de la nota final del curso. Nota 4,0 con 60/100 puntos.
@@ -141,7 +142,17 @@ Detalles de los datos y cómo citarlos: `../data/FUENTES.md`.
 
 **Regla principal.** El informe debe sonar a José —un estudiante de computación que estudió astronomía—, no a un paper, a una guía docente ni a un texto de IA. Imitar la voz no es copiar frases: es reproducir su forma de pensar y de avanzar.
 
-**Leer antes de escribir.** Toma dos o tres páginas de los ensayos de José en `C:\Users\José Santiago\Documents` (*Fenomenología del comportamiento teorético*, *El futuro de la IA*, *Ideal de físico masculino* y su comentario crítico). Fíjate en el ritmo y en cómo explica, no en el contenido.
+**Leer antes de escribir.** Toma dos o tres páginas de los textos de José en `C:\Users\José Santiago\Documents`: `Fenomenología del comportamiento teorético.docx`, `El futuro de la IA y sus efectos en el medio ambiente.docx`, `Ideal de físico masculino2.docx` y `Comentario crítico.docx`. Fíjate en cómo arma el argumento y en el ritmo, no en el contenido.
+
+**Lo que se toma de esos textos**
+
+- La **tesis explícita** al comienzo y el cierre que vuelve sobre ella.
+- La **primera persona plural** y las preguntas que ordenan el texto («¿Qué entendemos por…?», «¿Por qué es relevante…?»).
+- Los **conectores simples** para avanzar: «Pero», «Por eso», «Esto nos muestra», «En la actualidad».
+- Los **ejemplos concretos** y las comparaciones cotidianas para aterrizar una idea abstracta.
+- La **cautela ante lo que se afirma**: «aunque sea de manera ínfima», «no es sencillo ni mucho menos».
+
+José tiende a oraciones largas y a enumerar matices. En el informe se conserva esa voz, pero se acortan las frases y se recortan las enumeraciones para cumplir el límite de páginas: no se copian muletillas ni giros coloquiales.
 
 **Rasgos que hay que reproducir**
 
