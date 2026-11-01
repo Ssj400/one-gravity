@@ -21,10 +21,10 @@ const TICKS = [
 ];
 
 const SCALES = [
-  { id: "solar", label: "Sistema Solar", where: "hasta Neptuno, 30 UA", logPc: -3.84, row: 0, el: <Solar /> },
-  { id: "galaxy", label: "Galaxia", where: "NGC 3198, 44 kpc", logPc: 4.64, row: 0, el: <Galaxy /> },
-  { id: "universe", label: "Universo", where: "distancia de Hubble, 4,4 Gpc", logPc: 9.65, row: 0, el: <Universe /> },
-  { id: "sn", label: "Supernovas", where: "z = 2, 18 Gpc", logPc: 10.27, row: 1, el: <Supernovae /> },
+  { id: "solar", label: "Sistema Solar", where: "hasta Neptuno, 30 UA", logPc: -3.84, el: <Solar /> },
+  { id: "galaxy", label: "Galaxia", where: "NGC 3198, 44 kpc", logPc: 4.64, el: <Galaxy /> },
+  { id: "universe", label: "Universo", where: "distancia de Hubble, 4,4 Gpc", logPc: 9.65, el: <Universe /> },
+  { id: "sn", label: "Supernovas", where: "z = 2, 18 Gpc", logPc: 10.27, el: <Supernovae /> },
 ] as const;
 
 type ScaleId = (typeof SCALES)[number]["id"];
@@ -59,8 +59,8 @@ export default function App() {
           <p className="subtitle">La misma ecuación de Newton, integrada con el mismo método, desde Mercurio hasta las supernovas más lejanas.</p>
         </div>
         <div className="header-right">
-          <button className="theme-toggle" onClick={() => setMode(mode === "dark" ? "light" : "dark")} title="Modo claro para exportar las figuras del informe">
-            {mode === "dark" ? "Modo informe" : "Modo espacial"}
+          <button className="theme-toggle" onClick={() => setMode(mode === "dark" ? "light" : "dark")} title="Cambiar entre el tema oscuro y el tema claro para el informe" aria-pressed={mode === "light"}>
+            {mode === "dark" ? "Usar tema claro" : "Usar tema oscuro"}
           </button>
           <div className={`status ${status.ready ? "ready" : ""}`} aria-live="polite" title="El código Python corre en tu navegador con Pyodide">
             {status.ready ? "Python listo" : status.text}
@@ -68,38 +68,46 @@ export default function App() {
         </div>
       </header>
 
-      <nav className="ruler" aria-label="Escala de distancias">
-        <div className="ruler-line" />
-        {TICKS.map((t) => (
-          <div key={t.label} className="tick" style={{ left: `${pct(t.logPc)}%` }}>
-            <span className="tick-mark" />
-            <span className="tick-label">{t.label}</span>
-          </div>
-        ))}
-        <div className="cursor" style={{ left: `${pct(current.logPc)}%` }} aria-hidden="true" />
+      <div className="distance-scale" role="img" aria-label={`Escala logarítmica de distancias. ${current.label}: ${current.where}.`}>
+        <span className="distance-label">Distancia · escala logarítmica</span>
+        <div className="ruler">
+          <div className="ruler-line" />
+          {TICKS.map((t) => (
+            <div key={t.label} className="tick" style={{ left: `${pct(t.logPc)}%` }}>
+              <span className="tick-mark" />
+              <span className="tick-label">{t.label}</span>
+            </div>
+          ))}
+          <div className="cursor" style={{ left: `${pct(current.logPc)}%` }} aria-hidden="true" />
+          {SCALES.map((s) => <span key={s.id} className={`scale-point ${scale === s.id ? "selected" : ""}`} style={{ left: `${pct(s.logPc)}%` }} />)}
+        </div>
+      </div>
+
+      <nav className="scale-nav" aria-label="Explorar las escalas">
         {SCALES.map((s) => (
           <a
             key={s.id}
             href={`#${s.id}`}
-            className={`mark row-${s.row} ${scale === s.id ? "active" : ""}`}
-            style={{ left: `${pct(s.logPc)}%` }}
+            className={`mark ${scale === s.id ? "active" : ""}`}
             aria-current={scale === s.id ? "page" : undefined}
           >
-            <span className="mark-dot" />
             <span className="mark-label">{s.label}</span>
             <span className="mark-where">{s.where}</span>
           </a>
         ))}
       </nav>
 
-      <div className="thesis">
+      <details className="thesis">
+        <summary>Sobre el proyecto y su método</summary>
+        <div className="thesis-content">
         <p>
           La idea del proyecto: una sola ley, la gravedad de Newton, y un solo método numérico, aplicados a tres escalas. En la primera, el Sistema Solar, la respuesta se conoce desde Kepler; la usamos para comprobar que el programa es correcto.
         </p>
         <p>
           En las otras dos, el mismo programa muestra que la materia que vemos no alcanza: una galaxia gira demasiado rápido sin materia oscura, y las supernovas lejanas solo se explican si la expansión del Universo se acelera. Cada escala responde una pregunta; las figuras son la evidencia.
         </p>
-      </div>
+        </div>
+      </details>
 
       <main className="main" id="contenido" tabIndex={-1}>{current.el}</main>
 

@@ -10,7 +10,7 @@ export function Slider({ label, value, min, max, step, unit = "", format = fmtAu
   return (
     <label className="slider">
       <span className="slider-label">{label}</span>
-      <input type="range" name={slug(label)} min={min} max={max} step={step} value={value} onChange={(e) => onChange(Number(e.target.value))} />
+      <input type="range" name={slug(label)} min={min} max={max} step={step} value={value} aria-valuetext={`${format(value)}${unit}`} onChange={(e) => onChange(Number(e.target.value))} />
       <span className="slider-value">{format(value)}{unit}</span>
     </label>
   );
