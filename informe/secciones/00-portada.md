@@ -1,4 +1,4 @@
-# La gravedad en tres escalas: una exploración desde la computación
+# Un solo modelo de gravedad a tres escalas distintas
 
 *José Garrillo y Luis Erazo*
 
