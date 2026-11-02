@@ -23,7 +23,7 @@ La rúbrica pide precisión conceptual, desarrollo fundamentado y comunicación 
 - **Formato.** Times New Roman 12, interlineado 1,5 y texto justificado; títulos de sección en Arial 16 y subtítulos en Times 13; márgenes de 1,8 cm. Los pies de figura usan 9,5 pt y las referencias interlineado simple con sangría francesa, para no salir del límite de páginas.
 - **Portada.** Título centrado en negrita, autores en cursiva y dos enlaces con etiqueta legible (simulador y repositorio). Sin correos.
 - **Integridad.** ZIP y XML válidos; 7 relaciones de imagen y 2 hipervínculos de portada, sin relaciones huérfanas; el código de leapfrog se conserva literal; las 15 referencias académicas y las de curso/software siguen intactas.
-- **Exportación.** `informe_final.pdf` se generó con Microsoft Word (COM) desde el DOCX, no con un conversor alternativo.
+- **Exportación (1 nov, noche).** `informe_final.pdf` se regeneró con LibreOffice 26.8 como PDF/A-2 con Times New Roman, Arial y Courier New incrustadas (fuentes core de Microsoft instaladas en el equipo Linux). 12 páginas. Ya no quedan marcas pendientes en el texto.
 
 ## Antes de entregar
 
