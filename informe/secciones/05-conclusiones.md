@@ -12,7 +12,7 @@ Como continuación proponemos considerar las relaciones entre los errores de las
 
 ## 5.2 Declaración de uso de herramientas de IA
 
-Usamos asistentes de IA para apoyar el desarrollo, revisar fuentes y trabajar la redacción. José escribió el motor numérico y el Sistema Solar; las funciones de Universo, Supernovas y Galaxia se desarrollaron con asistencia de Claude (Anthropic) el 31 de octubre de 2026. También usamos un modelo GPT de OpenAI mediante OpenCode para revisar el nivel técnico y adaptar la redacción tomando como referencia textos previos de José. Las pruebas de física escritas antes de las implementaciones asistidas comprueban resultados concretos. La responsabilidad de revisar el código, las fuentes y lo que afirmamos en este informe es nuestra. *[José y Luis: confirmar la revisión personal de los resultados y las fuentes, y aprobar o ajustar esta declaración antes de entregar.]*
+Usamos asistentes de IA para apoyar el desarrollo, revisar fuentes y trabajar la redacción. José escribió el motor numérico y el Sistema Solar; las funciones de Universo, Supernovas y Galaxia se desarrollaron con asistencia de Claude (Anthropic) el 31 de octubre de 2026. También usamos un modelo GPT de OpenAI mediante OpenCode para revisar el nivel técnico y adaptar la redacción tomando como referencia textos previos de José. Las pruebas de física escritas antes de las implementaciones asistidas comprueban resultados concretos. La responsabilidad de revisar el código, las fuentes y lo que afirmamos en este informe es nuestra.
 
 ## 5.3 Referencias (APA 7)
 
