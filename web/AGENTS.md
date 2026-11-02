@@ -16,3 +16,9 @@ La página usa la misma voz que el informe: estudiantes de computación que expl
 ## Alcance y comprobación
 
 Al pedir una reescritura, conservar diseño, navegación, parámetros y motor numérico. Revisar `src/App.tsx`, las cuatro pestañas, los pies de figura y los estados visibles. Ejecutar `npm run build` y `npm run lint`; comprobar las cuatro pestañas en escritorio y móvil. El criterio visual existente está en `DESIGN.md`.
+
+## Edición de José en Word
+
+José puede editar la página en `textos/textos-pagina.docx`, un documento separado del informe. `textos/mapa-textos.json` guarda la copia de origen y la correspondencia entre los IDs del Word y los textos del código. Ambos archivos forman una revisión: no regenerarlos sobre cambios del usuario. Cada bloque editable tiene un control de contenido de Word (`w:sdt`) con su ID.
+
+Al recibir la revisión, comparar los bloques con el mapa, preservar las marcas dinámicas `⟦…⟧` y conciliar cualquier cambio posterior del código antes de aplicar. Tras comprobar la página, hacer commit/push cuando el usuario lo haya autorizado. No modificar `informe/`. Procedimiento y herramientas en `textos/LEEME.md`.

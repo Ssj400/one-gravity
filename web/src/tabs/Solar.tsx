@@ -25,7 +25,7 @@ export function Solar() {
     <section>
       <Story
         question="¿Podemos confiar en lo que calcula el simulador?"
-        did={<>Comenzamos con un planeta alrededor del Sol. Calculamos su movimiento con la gravedad de Newton y dos métodos: Euler y leapfrog. No imponemos las leyes de Kepler durante el avance; las usamos después para revisar el resultado. También medimos el período de los ocho planetas.</>}
+        did={<>Comenzamos con un planeta cualquiera alrededor del Sol midiendo su periodo. Calculamos su movimiento con la gravedad de Newton y dos métodos numéricos, Euler y leapfrog. No usamos  las leyes de Kepler en ningún momento, solo para revisar el resultado al final. </>}
         found={<>Para la Tierra, con pasos de 0,01 años durante cinco años, Euler produce una espiral y un error de energía del 57,6 %. Con el mismo paso, leapfrog mantiene una órbita aproximadamente cerrada. En la comprobación de los ocho planetas, T²/a³ se acerca a 1 con diferencias menores que 0,1 %.</>}
       />
       <section className="methods" aria-label="Los dos métodos">
@@ -56,7 +56,7 @@ export function Solar() {
       <Outcome error={error} busy={busy}>
         {result && (
           <div className="grid2">
-            <Figure caption={<>Figura 1a. Movimiento de {result.planet} durante {years} años, con pasos de {fmtAuto(dt)} años. Euler termina a {fmt(result.euler.r_final, 2)} UA del Sol y leapfrog a {fmt(result.leapfrog.r_final, 2)} UA. Una UA es aproximadamente la distancia media entre la Tierra y el Sol. Usamos la misma fuerza y el mismo paso: la diferencia proviene del método de cálculo.</>}>
+            <Figure caption={<>Figura 1a. Movimiento de {result.planet} durante {years} años, con pasos de {fmtAuto(dt)} años. Euler termina a {fmt(result.euler.r_final, 2)} UA del Sol y leapfrog a {fmt(result.leapfrog.r_final, 2)} UA. Una UA es aproximadamente la distancia media entre la Tierra y el Sol. Usamos la misma fuerza y el mismo paso, la diferencia proviene del método de cálculo.</>}>
               <Plot filename={`fig1a_orbita_${planet}`} data={[
                 { x: result.euler.x, y: result.euler.y, type: "scatter", mode: "lines", name: "Euler", line: { color: C.orange, width: 1.5 } },
                 { x: result.leapfrog.x, y: result.leapfrog.y, type: "scatter", mode: "lines", name: "Leapfrog", line: { color: C.blue, width: 2 } },
@@ -74,7 +74,7 @@ export function Solar() {
       </Outcome>
       <h2>¿El movimiento respeta las leyes de Kepler?</h2>
       <p className="lead">
-        Las leyes de Kepler nos dan una referencia independiente del método. Revisamos las órbitas elípticas y las áreas iguales en tiempos iguales con pruebas automáticas. Abajo comparamos la tercera ley: el período T es el tiempo de una vuelta y el semieje mayor a describe el tamaño de la órbita. Para la masa solar, usando años y UA, esperamos T²/a³ = 1.
+        Las leyes de Kepler nos dan una referencia independiente del método. Revisamos las órbitas elípticas y las áreas iguales en tiempos iguales con pruebas automáticas. Abajo comparamos la tercera ley, el período T es el tiempo de una vuelta y el semieje mayor a describe el tamaño de la órbita. Para la masa solar, usando años y UA, esperamos T²/a³ = 1.
       </p>
       <Outcome error={k3.error} busy={k3.busy}>
         {k3.result && (
@@ -95,7 +95,7 @@ export function Solar() {
         )}
       </Outcome>
       <Takeaway>
-        <p>Volvamos a la pregunta inicial: una órbita convincente en pantalla no basta para confiar en el programa. Compararla con Kepler y revisar la energía nos da razones para confiar en el cálculo dentro de las condiciones comprobadas.</p>
+        <p>Volvamos a la pregunta inicial, una órbita convincente en pantalla no nos basta para confiar en el programa. Gracias a la comparación con Kepler y la revisión de energía tenemos da razones para confiar en el cálculo dentro de las condiciones comprobadas.</p>
         <p>La espiral de Euler muestra por qué importa esa distinción. El computador puede seguir correctamente las instrucciones y aun así representar mal el movimiento. Estas pruebas ayudan a revisar el motor, pero no validan por sí solas los modelos de galaxias y del Universo.</p>
       </Takeaway>
     </section>

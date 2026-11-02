@@ -55,8 +55,8 @@ export default function App() {
       <a className="skip" href="#contenido">Ir al contenido</a>
       <header className="header">
         <div className="masthead">
-          <h1>Una sola gravedad, tres escalas</h1>
-          <p className="subtitle">¿Qué podemos entender del Universo a partir de un programa? Exploramos órbitas, galaxias y expansión, y revisamos hasta dónde podemos confiar en lo que calculamos.</p>
+          <h1>Un solo modelo de gravedad  a tres escalas distintas</h1>
+          <p className="subtitle">¿Qué podemos entender del Universo a partir de un programa? Exploramos órbitas, galaxias y expansión, y revisamos que tan confiable es lo que calculamos en cada una de ellas. </p>
         </div>
         <div className="header-right">
           <button className="theme-toggle" onClick={() => setMode(mode === "dark" ? "light" : "dark")} title="Cambiar entre el tema oscuro y el tema claro para el informe" aria-pressed={mode === "light"}>
@@ -101,10 +101,10 @@ export default function App() {
         <summary>Sobre el proyecto y su método</summary>
         <div className="thesis-content">
         <p>
-          Como estudiantes de computación, nos preguntamos cómo llevar los contenidos de astronomía a instrucciones que podamos revisar. Comenzamos con el Sistema Solar: las leyes de Kepler nos dan resultados conocidos con los que comprobar el cálculo. Después pasamos a la rotación de una galaxia y a la expansión del Universo, donde también necesitamos relaciones basadas en relatividad general.
+          Como estudiantes de computación, nos preguntamos cómo llevar los contenidos de astronomía a instrucciones que podamos revisar. Comenzamos con el Sistema Solar,gracias a las leyes de Kepler tenemos resultados conocidos con los que comprobar nuestros  cálculos propios. Después pasamos a la rotación de una galaxia y a la expansión del Universo, donde también necesitamos relaciones basadas en relatividad general.
         </p>
         <p>
-          La gravedad conecta los tres problemas, aunque no los resolvemos de la misma forma. En la galaxia comparamos velocidades con datos de SPARC; en el Universo calculamos distintas historias de expansión y las contrastamos con Pantheon+. Los controles permiten cambiar los supuestos y observar sus consecuencias. Las pruebas del código y las observaciones cumplen tareas distintas: comprobar el cálculo y revisar qué tan bien representa la realidad.
+          La gravedad conecta los tres problemas, aunque no los resolvemos de la misma forma. En la galaxia comparamos velocidades con datos de SPARC, en el Universo calculamos distintas historias de expansión y las contrastamos con Pantheon+. Los controles realizados nos permiten cambiar los supuestos y observar sus consecuencias a menor o mayor escala. Luego,  las pruebas del código y las observaciones cumplen dos tareas distintas, comprobar el cálculo y revisar qué tan bien representa la realidad.
         </p>
         </div>
       </details>

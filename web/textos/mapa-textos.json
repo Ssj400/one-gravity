@@ -1,0 +1,2418 @@
+{
+  "version": 1,
+  "offsetEncoding": "utf16-code-units",
+  "purpose": "Editable website copy; not the report",
+  "files": {
+    "src/App.tsx": {
+      "sha256": "6efbedd8d816e7815fbd5ad7a02f02cfd4b8dd6bd2da40e888824461ccb964ac"
+    },
+    "src/tabs/Solar.tsx": {
+      "sha256": "c56db7a9cec0bd59a3ff69211030cec683a3dfb3cabad3645ca47d3a9e488991"
+    },
+    "src/tabs/Galaxy.tsx": {
+      "sha256": "56091f48c8f583c0133f92fb34e58acd85b8824aad661c400b7f1686938a53ac"
+    },
+    "src/tabs/Universe.tsx": {
+      "sha256": "8aa4525c5fe869c835b1823d85d36f6bad701a4692f62ac513e452b9ce4cc71b"
+    },
+    "src/tabs/Supernovae.tsx": {
+      "sha256": "891dcc23197e3c8361c8695190f6307bcf27450adc673fea41cf1811e36b2a06"
+    },
+    "src/components/Story.tsx": {
+      "sha256": "35c717950baba0cb1b44f8850e8b389a56e5704751ec11deada3235e59165677"
+    },
+    "src/components/Controls.tsx": {
+      "sha256": "6744360df30e1fe36012dcfbda224c125d1bd1ee631829c166ed1b1bcc5ecedb"
+    },
+    "src/worker.ts": {
+      "sha256": "448254eae467663c138257f0f5e11d39e1061182ff674928d9609c80b58b84b5"
+    },
+    "src/engine.ts": {
+      "sha256": "9bb2d243c024cb6cc43e7c981aeefdae86a0952365572688634f88fa4045bc0a"
+    },
+    "index.html": {
+      "sha256": "c4f0d57213b4db62cd6809eb388fd7c1d56112b6b8bd678fdc67d65ae679791b"
+    }
+  },
+  "groups": [
+    {
+      "prefix": "GEN",
+      "title": "Portada, navegación y pie de página",
+      "entries": [
+        {
+          "file": "src/App.tsx",
+          "start": 709,
+          "end": 715,
+          "original": "\"1 UA\"",
+          "text": "1 UA",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 16,
+          "id": "GEN-001"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 740,
+          "end": 746,
+          "original": "\"1 pc\"",
+          "text": "1 pc",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 17,
+          "id": "GEN-002"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 771,
+          "end": 778,
+          "original": "\"1 kpc\"",
+          "text": "1 kpc",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 18,
+          "id": "GEN-003"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 803,
+          "end": 810,
+          "original": "\"1 Mpc\"",
+          "text": "1 Mpc",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 19,
+          "id": "GEN-004"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 835,
+          "end": 842,
+          "original": "\"1 Gpc\"",
+          "text": "1 Gpc",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 20,
+          "id": "GEN-005"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 891,
+          "end": 906,
+          "original": "\"Sistema Solar\"",
+          "text": "Sistema Solar",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 24,
+          "id": "GEN-006"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 915,
+          "end": 937,
+          "original": "\"hasta Neptuno, 30 UA\"",
+          "text": "hasta Neptuno, 30 UA",
+          "kind": "Referencia de distancia",
+          "tokens": [],
+          "line": 24,
+          "id": "GEN-007"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 995,
+          "end": 1004,
+          "original": "\"Galaxia\"",
+          "text": "Galaxia",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 25,
+          "id": "GEN-008"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 1013,
+          "end": 1031,
+          "original": "\"NGC 3198, 44 kpc\"",
+          "text": "NGC 3198, 44 kpc",
+          "kind": "Referencia de distancia",
+          "tokens": [],
+          "line": 25,
+          "id": "GEN-009"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 1091,
+          "end": 1101,
+          "original": "\"Universo\"",
+          "text": "Universo",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 26,
+          "id": "GEN-010"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 1110,
+          "end": 1140,
+          "original": "\"distancia de Hubble, 4,4 Gpc\"",
+          "text": "distancia de Hubble, 4,4 Gpc",
+          "kind": "Referencia de distancia",
+          "tokens": [],
+          "line": 26,
+          "id": "GEN-011"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 1196,
+          "end": 1208,
+          "original": "\"Supernovas\"",
+          "text": "Supernovas",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 27,
+          "id": "GEN-012"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 1217,
+          "end": 1232,
+          "original": "\"z = 2, 18 Gpc\"",
+          "text": "z = 2, 18 Gpc",
+          "kind": "Referencia de distancia",
+          "tokens": [],
+          "line": 27,
+          "id": "GEN-013"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 2168,
+          "end": 2183,
+          "original": "Ir al contenido",
+          "text": "Ir al contenido",
+          "kind": "Enlace",
+          "tokens": [],
+          "line": 55,
+          "id": "GEN-014"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 2271,
+          "end": 2302,
+          "original": "Una sola gravedad, tres escalas",
+          "text": "Una sola gravedad, tres escalas",
+          "kind": "Título principal",
+          "tokens": [],
+          "line": 58,
+          "id": "GEN-015"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 2342,
+          "end": 2505,
+          "original": "¿Qué podemos entender del Universo a partir de un programa? Exploramos órbitas, galaxias y expansión, y revisamos hasta dónde podemos confiar en lo que calculamos.",
+          "text": "¿Qué podemos entender del Universo a partir de un programa? Exploramos órbitas, galaxias y expansión, y revisamos hasta dónde podemos confiar en lo que calculamos.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 59,
+          "id": "GEN-016"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 2673,
+          "end": 2735,
+          "original": "\"Cambiar entre el tema oscuro y el tema claro para el informe\"",
+          "text": "Cambiar entre el tema oscuro y el tema claro para el informe",
+          "kind": "Ayuda o título",
+          "tokens": [],
+          "line": 62,
+          "id": "GEN-017"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 2800,
+          "end": 2817,
+          "original": "\"Usar tema claro\"",
+          "text": "Usar tema claro",
+          "kind": "Texto alternativo o dinámico",
+          "tokens": [],
+          "line": 63,
+          "id": "GEN-018"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 2820,
+          "end": 2838,
+          "original": "\"Usar tema oscuro\"",
+          "text": "Usar tema oscuro",
+          "kind": "Texto alternativo o dinámico",
+          "tokens": [],
+          "line": 63,
+          "id": "GEN-019"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 2952,
+          "end": 3004,
+          "original": "\"El código Python corre en tu navegador con Pyodide\"",
+          "text": "El código Python corre en tu navegador con Pyodide",
+          "kind": "Ayuda o título",
+          "tokens": [],
+          "line": 65,
+          "id": "GEN-020"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 3034,
+          "end": 3048,
+          "original": "\"Python listo\"",
+          "text": "Python listo",
+          "kind": "Texto alternativo o dinámico",
+          "tokens": [],
+          "line": 66,
+          "id": "GEN-021"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 3174,
+          "end": 3245,
+          "original": "`Escala logarítmica de distancias. ${current.label}: ${current.where}.`",
+          "text": "Escala logarítmica de distancias. ⟦ESCALA_ACTUAL⟧: ⟦DISTANCIA_ACTUAL⟧.",
+          "kind": "Descripción accesible",
+          "tokens": [
+            {
+              "marker": "⟦ESCALA_ACTUAL⟧",
+              "expression": "current.label"
+            },
+            {
+              "marker": "⟦DISTANCIA_ACTUAL⟧",
+              "expression": "current.where"
+            }
+          ],
+          "line": 71,
+          "id": "GEN-022"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 3289,
+          "end": 3319,
+          "original": "Distancia · escala logarítmica",
+          "text": "Distancia · escala logarítmica",
+          "kind": "Etiqueta",
+          "tokens": [],
+          "line": 72,
+          "id": "GEN-023"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 3976,
+          "end": 3998,
+          "original": "\"Explorar las escalas\"",
+          "text": "Explorar las escalas",
+          "kind": "Descripción accesible",
+          "tokens": [],
+          "line": 86,
+          "id": "GEN-024"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 4444,
+          "end": 4473,
+          "original": "Sobre el proyecto y su método",
+          "text": "Sobre el proyecto y su método",
+          "kind": "Texto desplegable",
+          "tokens": [],
+          "line": 101,
+          "id": "GEN-025"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 4536,
+          "end": 4943,
+          "original": "\n          Como estudiantes de computación, nos preguntamos cómo llevar los contenidos de astronomía a instrucciones que podamos revisar. Comenzamos con el Sistema Solar: las leyes de Kepler nos dan resultados conocidos con los que comprobar el cálculo. Después pasamos a la rotación de una galaxia y a la expansión del Universo, donde también necesitamos relaciones basadas en relatividad general.\n        ",
+          "text": "Como estudiantes de computación, nos preguntamos cómo llevar los contenidos de astronomía a instrucciones que podamos revisar. Comenzamos con el Sistema Solar: las leyes de Kepler nos dan resultados conocidos con los que comprobar el cálculo. Después pasamos a la rotación de una galaxia y a la expansión del Universo, donde también necesitamos relaciones basadas en relatividad general.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 103,
+          "id": "GEN-026"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 4959,
+          "end": 5424,
+          "original": "\n          La gravedad conecta los tres problemas, aunque no los resolvemos de la misma forma. En la galaxia comparamos velocidades con datos de SPARC; en el Universo calculamos distintas historias de expansión y las contrastamos con Pantheon+. Los controles permiten cambiar los supuestos y observar sus consecuencias. Las pruebas del código y las observaciones cumplen tareas distintas: comprobar el cálculo y revisar qué tan bien representa la realidad.\n        ",
+          "text": "La gravedad conecta los tres problemas, aunque no los resolvemos de la misma forma. En la galaxia comparamos velocidades con datos de SPARC; en el Universo calculamos distintas historias de expansión y las contrastamos con Pantheon+. Los controles permiten cambiar los supuestos y observar sus consecuencias. Las pruebas del código y las observaciones cumplen tareas distintas: comprobar el cálculo y revisar qué tan bien representa la realidad.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 106,
+          "id": "GEN-027"
+        },
+        {
+          "file": "src/App.tsx",
+          "start": 5574,
+          "end": 5795,
+          "original": "\n        Datos: SPARC (Lelli, McGaugh y Schombert, 2016) y Pantheon+ (Scolnic et al., 2022; Brout et al., 2022). El código Python que usamos aquí es el mismo que revisamos con las pruebas de física del repositorio.\n      ",
+          "text": "Datos: SPARC (Lelli, McGaugh y Schombert, 2016) y Pantheon+ (Scolnic et al., 2022; Brout et al., 2022). El código Python que usamos aquí es el mismo que revisamos con las pruebas de física del repositorio.",
+          "kind": "Pie de página",
+          "tokens": [],
+          "line": 114,
+          "id": "GEN-028"
+        }
+      ]
+    },
+    {
+      "prefix": "SOL",
+      "title": "Sistema Solar",
+      "entries": [
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 619,
+          "end": 629,
+          "original": "\"Mercurio\"",
+          "text": "Mercurio",
+          "kind": "Nombre de planeta",
+          "tokens": [],
+          "line": 13,
+          "id": "SOL-001"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 631,
+          "end": 638,
+          "original": "\"Venus\"",
+          "text": "Venus",
+          "kind": "Nombre de planeta",
+          "tokens": [],
+          "line": 13,
+          "id": "SOL-002"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 640,
+          "end": 648,
+          "original": "\"Tierra\"",
+          "text": "Tierra",
+          "kind": "Nombre de planeta",
+          "tokens": [],
+          "line": 13,
+          "id": "SOL-003"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 650,
+          "end": 657,
+          "original": "\"Marte\"",
+          "text": "Marte",
+          "kind": "Nombre de planeta",
+          "tokens": [],
+          "line": 13,
+          "id": "SOL-004"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 659,
+          "end": 668,
+          "original": "\"Júpiter\"",
+          "text": "Júpiter",
+          "kind": "Nombre de planeta",
+          "tokens": [],
+          "line": 13,
+          "id": "SOL-005"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 670,
+          "end": 679,
+          "original": "\"Saturno\"",
+          "text": "Saturno",
+          "kind": "Nombre de planeta",
+          "tokens": [],
+          "line": 13,
+          "id": "SOL-006"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 681,
+          "end": 688,
+          "original": "\"Urano\"",
+          "text": "Urano",
+          "kind": "Nombre de planeta",
+          "tokens": [],
+          "line": 13,
+          "id": "SOL-007"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 690,
+          "end": 699,
+          "original": "\"Neptuno\"",
+          "text": "Neptuno",
+          "kind": "Nombre de planeta",
+          "tokens": [],
+          "line": 13,
+          "id": "SOL-008"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 1143,
+          "end": 1193,
+          "original": "\"¿Podemos confiar en lo que calcula el simulador?\"",
+          "text": "¿Podemos confiar en lo que calcula el simulador?",
+          "kind": "Pregunta de entrada",
+          "tokens": [],
+          "line": 27,
+          "id": "SOL-009"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 1209,
+          "end": 1484,
+          "original": "Comenzamos con un planeta alrededor del Sol. Calculamos su movimiento con la gravedad de Newton y dos métodos: Euler y leapfrog. No imponemos las leyes de Kepler durante el avance; las usamos después para revisar el resultado. También medimos el período de los ocho planetas.",
+          "text": "Comenzamos con un planeta alrededor del Sol. Calculamos su movimiento con la gravedad de Newton y dos métodos: Euler y leapfrog. No imponemos las leyes de Kepler durante el avance; las usamos después para revisar el resultado. También medimos el período de los ocho planetas.",
+          "kind": "Qué hicimos",
+          "tokens": [],
+          "line": 28,
+          "id": "SOL-010"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 1506,
+          "end": 1793,
+          "original": "Para la Tierra, con pasos de 0,01 años durante cinco años, Euler produce una espiral y un error de energía del 57,6 %. Con el mismo paso, leapfrog mantiene una órbita aproximadamente cerrada. En la comprobación de los ocho planetas, T²/a³ se acerca a 1 con diferencias menores que 0,1 %.",
+          "text": "Para la Tierra, con pasos de 0,01 años durante cinco años, Euler produce una espiral y un error de energía del 57,6 %. Con el mismo paso, leapfrog mantiene una órbita aproximadamente cerrada. En la comprobación de los ocho planetas, T²/a³ se acerca a 1 con diferencias menores que 0,1 %.",
+          "kind": "Qué encontramos",
+          "tokens": [],
+          "line": 29,
+          "id": "SOL-011"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 1853,
+          "end": 1870,
+          "original": "\"Los dos métodos\"",
+          "text": "Los dos métodos",
+          "kind": "Descripción accesible",
+          "tokens": [],
+          "line": 31,
+          "id": "SOL-012"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 1907,
+          "end": 1931,
+          "original": "Cómo se avanza el tiempo",
+          "text": "Cómo se avanza el tiempo",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 32,
+          "id": "SOL-013"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 1947,
+          "end": 2194,
+          "original": "\n          Para llevar el movimiento al computador dividimos el tiempo en pasos de duración Δt. En cada uno calculamos una posición r y una velocidad v nuevas a partir de la aceleración a(r). Ahora, ¿cómo influye la forma de dar ese paso?\n        ",
+          "text": "Para llevar el movimiento al computador dividimos el tiempo en pasos de duración Δt. En cada uno calculamos una posición r y una velocidad v nuevas a partir de la aceleración a(r). Ahora, ¿cómo influye la forma de dar ese paso?",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 33,
+          "id": "SOL-014"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 2270,
+          "end": 2310,
+          "original": "Euler: un paso con los valores iniciales",
+          "text": "Euler: un paso con los valores iniciales",
+          "kind": "Subtítulo",
+          "tokens": [],
+          "line": 38,
+          "id": "SOL-015"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 2358,
+          "end": 2423,
+          "original": "r<sub>nuevo</sub> = r + v·Δt<br />v<sub>nuevo</sub> = v + a(r)·Δt",
+          "text": "r_nuevo = r + v·Δt v_nuevo = v + a(r)·Δt",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 39,
+          "id": "SOL-016"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 2443,
+          "end": 2743,
+          "original": "Calculamos la posición con la velocidad al inicio del paso, y la velocidad con la aceleración en esa misma posición inicial. En la prueba terrestre el error se acumula: la energía aumenta y la trayectoria se abre en espiral. Reducir Δt permite revisar cuánto depende el resultado de esa aproximación.",
+          "text": "Calculamos la posición con la velocidad al inicio del paso, y la velocidad con la aceleración en esa misma posición inicial. En la prueba terrestre el error se acumula: la energía aumenta y la trayectoria se abre en espiral. Reducir Δt permite revisar cuánto depende el resultado de esa aproximación.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 40,
+          "id": "SOL-017"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 2797,
+          "end": 2838,
+          "original": "Leapfrog: medio paso, avance y medio paso",
+          "text": "Leapfrog: medio paso, avance y medio paso",
+          "kind": "Subtítulo",
+          "tokens": [],
+          "line": 43,
+          "id": "SOL-018"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 2886,
+          "end": 3028,
+          "original": "v<sub>½</sub> = v + a(r)·Δt/2<br />r<sub>nuevo</sub> = r + v<sub>½</sub>·Δt<br />v<sub>nuevo</sub> = v<sub>½</sub> + a(r<sub>nuevo</sub>)·Δt/2",
+          "text": "v_½ = v + a(r)·Δt/2 r_nuevo = r + v_½·Δt v_nuevo = v_½ + a(r_nuevo)·Δt/2",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 44,
+          "id": "SOL-019"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 3048,
+          "end": 3363,
+          "original": "Primero actualizamos la velocidad durante medio paso. Con ella avanzamos la posición y completamos la velocidad usando la aceleración nueva. Esta secuencia es simétrica en el tiempo. Con pasos suficientemente pequeños mantiene acotado el error de energía en nuestras pruebas; no significa que el cálculo sea exacto.",
+          "text": "Primero actualizamos la velocidad durante medio paso. Con ella avanzamos la posición y completamos la velocidad usando la aceleración nueva. Esta secuencia es simétrica en el tiempo. Con pasos suficientemente pequeños mantiene acotado el error de energía en nuestras pruebas; no significa que el cálculo sea exacto.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 45,
+          "id": "SOL-020"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 3499,
+          "end": 3506,
+          "original": "Planeta",
+          "text": "Planeta",
+          "kind": "Etiqueta",
+          "tokens": [],
+          "line": 50,
+          "id": "SOL-021"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 3690,
+          "end": 3707,
+          "original": "\"Tiempo simulado\"",
+          "text": "Tiempo simulado",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 53,
+          "id": "SOL-022"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 3753,
+          "end": 3760,
+          "original": "\" años\"",
+          "text": " años",
+          "kind": "Unidad del control",
+          "tokens": [],
+          "line": 53,
+          "id": "SOL-023"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 3806,
+          "end": 3825,
+          "original": "\"Paso de tiempo Δt\"",
+          "text": "Paso de tiempo Δt",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 54,
+          "id": "SOL-024"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 3874,
+          "end": 3881,
+          "original": "\" años\"",
+          "text": " años",
+          "kind": "Unidad del control",
+          "tokens": [],
+          "line": 54,
+          "id": "SOL-025"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 4092,
+          "end": 4453,
+          "original": "Figura 1a. Movimiento de {result.planet} durante {years} años, con pasos de {fmtAuto(dt)} años. Euler termina a {fmt(result.euler.r_final, 2)} UA del Sol y leapfrog a {fmt(result.leapfrog.r_final, 2)} UA. Una UA es aproximadamente la distancia media entre la Tierra y el Sol. Usamos la misma fuerza y el mismo paso: la diferencia proviene del método de cálculo.",
+          "text": "Figura 1a. Movimiento de ⟦PLANETA⟧ durante ⟦AÑOS⟧ años, con pasos de ⟦PASO_AÑOS⟧ años. Euler termina a ⟦DISTANCIA_EULER⟧ UA del Sol y leapfrog a ⟦DISTANCIA_LEAPFROG⟧ UA. Una UA es aproximadamente la distancia media entre la Tierra y el Sol. Usamos la misma fuerza y el mismo paso: la diferencia proviene del método de cálculo.",
+          "kind": "Pie de figura",
+          "tokens": [
+            {
+              "marker": "⟦PLANETA⟧",
+              "expression": "result.planet"
+            },
+            {
+              "marker": "⟦AÑOS⟧",
+              "expression": "years"
+            },
+            {
+              "marker": "⟦PASO_AÑOS⟧",
+              "expression": "fmtAuto(dt)"
+            },
+            {
+              "marker": "⟦DISTANCIA_EULER⟧",
+              "expression": "fmt(result.euler.r_final, 2)"
+            },
+            {
+              "marker": "⟦DISTANCIA_LEAPFROG⟧",
+              "expression": "fmt(result.leapfrog.r_final, 2)"
+            }
+          ],
+          "line": 59,
+          "id": "SOL-026"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 4617,
+          "end": 4624,
+          "original": "\"Euler\"",
+          "text": "Euler",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 61,
+          "id": "SOL-027"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 4767,
+          "end": 4777,
+          "original": "\"Leapfrog\"",
+          "text": "Leapfrog",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 62,
+          "id": "SOL-028"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 4890,
+          "end": 4895,
+          "original": "\"Sol\"",
+          "text": "Sol",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 63,
+          "id": "SOL-029"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 4989,
+          "end": 4997,
+          "original": "\"x (UA)\"",
+          "text": "x (UA)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 64,
+          "id": "SOL-030"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 5045,
+          "end": 5053,
+          "original": "\"y (UA)\"",
+          "text": "y (UA)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 64,
+          "id": "SOL-031"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 5130,
+          "end": 5438,
+          "original": "Figura 1b. Error relativo de energía en la misma simulación, en escala logarítmica. Lo comparamos con la energía inicial, que debería conservarse en este modelo. Cambia el paso de tiempo para revisar cómo responde cada método; una variación de energía aquí refleja el error numérico, no una fuerza adicional.",
+          "text": "Figura 1b. Error relativo de energía en la misma simulación, en escala logarítmica. Lo comparamos con la energía inicial, que debería conservarse en este modelo. Cambia el paso de tiempo para revisar cómo responde cada método; una variación de energía aquí refleja el error numérico, no una fuerza adicional.",
+          "kind": "Pie de figura",
+          "tokens": [],
+          "line": 66,
+          "id": "SOL-032"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 5612,
+          "end": 5619,
+          "original": "\"Euler\"",
+          "text": "Euler",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 68,
+          "id": "SOL-033"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 5769,
+          "end": 5779,
+          "original": "\"Leapfrog\"",
+          "text": "Leapfrog",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 69,
+          "id": "SOL-034"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 5869,
+          "end": 5884,
+          "original": "\"tiempo (años)\"",
+          "text": "tiempo (años)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 70,
+          "id": "SOL-035"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 5914,
+          "end": 5941,
+          "original": "\"error relativo de energía\"",
+          "text": "error relativo de energía",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 70,
+          "id": "SOL-036"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 6080,
+          "end": 6123,
+          "original": "¿El movimiento respeta las leyes de Kepler?",
+          "text": "¿El movimiento respeta las leyes de Kepler?",
+          "kind": "Título",
+          "tokens": [],
+          "line": 75,
+          "id": "SOL-037"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 6155,
+          "end": 6521,
+          "original": "\n        Las leyes de Kepler nos dan una referencia independiente del método. Revisamos las órbitas elípticas y las áreas iguales en tiempos iguales con pruebas automáticas. Abajo comparamos la tercera ley: el período T es el tiempo de una vuelta y el semieje mayor a describe el tamaño de la órbita. Para la masa solar, usando años y UA, esperamos T²/a³ = 1.\n      ",
+          "text": "Las leyes de Kepler nos dan una referencia independiente del método. Revisamos las órbitas elípticas y las áreas iguales en tiempos iguales con pruebas automáticas. Abajo comparamos la tercera ley: el período T es el tiempo de una vuelta y el semieje mayor a describe el tamaño de la órbita. Para la masa solar, usando años y UA, esperamos T²/a³ = 1.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 76,
+          "id": "SOL-038"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 6660,
+          "end": 6945,
+          "original": "\"Figura 2. Período y semieje mayor de los ocho planetas, en ejes logarítmicos. La línea punteada representa T² = a³ en años y UA. La tabla permite revisar cuánto se acerca cada resultado al valor esperado; e indica la excentricidad, es decir, cuánto se aparta la órbita de un círculo.\"",
+          "text": "Figura 2. Período y semieje mayor de los ocho planetas, en ejes logarítmicos. La línea punteada representa T² = a³ en años y UA. La tabla permite revisar cuánto se acerca cada resultado al valor esperado; e indica la excentricidad, es decir, cuánto se aparta la órbita de un círculo.",
+          "kind": "Pie de figura",
+          "tokens": [],
+          "line": 82,
+          "id": "SOL-039"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7113,
+          "end": 7126,
+          "original": "\"T = a^(3/2)\"",
+          "text": "T = a^(3/2)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 84,
+          "id": "SOL-040"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7368,
+          "end": 7380,
+          "original": "\"simulación\"",
+          "text": "simulación",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 85,
+          "id": "SOL-041"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7471,
+          "end": 7479,
+          "original": "\"a (UA)\"",
+          "text": "a (UA)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 86,
+          "id": "SOL-042"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7564,
+          "end": 7574,
+          "original": "\"T (años)\"",
+          "text": "T (años)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 86,
+          "id": "SOL-043"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7730,
+          "end": 7737,
+          "original": "Planeta",
+          "text": "Planeta",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 89,
+          "id": "SOL-044"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7746,
+          "end": 7752,
+          "original": "a (UA)",
+          "text": "a (UA)",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 89,
+          "id": "SOL-045"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7761,
+          "end": 7762,
+          "original": "e",
+          "text": "e",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 89,
+          "id": "SOL-046"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7771,
+          "end": 7783,
+          "original": "T medido (a)",
+          "text": "T medido (a)",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 89,
+          "id": "SOL-047"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 7792,
+          "end": 7797,
+          "original": "T²/a³",
+          "text": "T²/a³",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 89,
+          "id": "SOL-048"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 8117,
+          "end": 8345,
+          "original": "Volvamos a la pregunta inicial: una órbita convincente en pantalla no basta para confiar en el programa. Compararla con Kepler y revisar la energía nos da razones para confiar en el cálculo dentro de las condiciones comprobadas.",
+          "text": "Volvamos a la pregunta inicial: una órbita convincente en pantalla no basta para confiar en el programa. Compararla con Kepler y revisar la energía nos da razones para confiar en el cálculo dentro de las condiciones comprobadas.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 98,
+          "id": "SOL-049"
+        },
+        {
+          "file": "src/tabs/Solar.tsx",
+          "start": 8361,
+          "end": 8630,
+          "original": "La espiral de Euler muestra por qué importa esa distinción. El computador puede seguir correctamente las instrucciones y aun así representar mal el movimiento. Estas pruebas ayudan a revisar el motor, pero no validan por sí solas los modelos de galaxias y del Universo.",
+          "text": "La espiral de Euler muestra por qué importa esa distinción. El computador puede seguir correctamente las instrucciones y aun así representar mal el movimiento. Estas pruebas ayudan a revisar el motor, pero no validan por sí solas los modelos de galaxias y del Universo.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 99,
+          "id": "SOL-050"
+        }
+      ]
+    },
+    {
+      "prefix": "GAL",
+      "title": "Galaxia",
+      "entries": [
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 613,
+          "end": 644,
+          "original": "`${fmt(m / 1e10, 1)} × 10¹⁰ M☉`",
+          "text": "⟦VALOR_1⟧ × 10¹⁰ M☉",
+          "kind": "Formato de masa",
+          "tokens": [
+            {
+              "marker": "⟦VALOR_1⟧",
+              "expression": "fmt(m / 1e10, 1)"
+            }
+          ],
+          "line": 14,
+          "id": "GAL-001"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 1120,
+          "end": 1188,
+          "original": "\"¿Alcanza la materia que vemos para explicar cómo gira una galaxia?\"",
+          "text": "¿Alcanza la materia que vemos para explicar cómo gira una galaxia?",
+          "kind": "Pregunta de entrada",
+          "tokens": [],
+          "line": 28,
+          "id": "GAL-002"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 1204,
+          "end": 1605,
+          "original": "Usamos NGC 3198, una galaxia espiral a {fmtAuto(result?.distance_mpc ?? 13.8)} Mpc, y las mediciones de SPARC. Su curva de rotación muestra la velocidad del gas a distintas distancias del centro. Comparamos esos datos con el aporte del gas y las estrellas, y con un modelo que agrega un halo: una distribución extendida de materia oscura. Aquí calculamos velocidades, sin avanzar órbitas en el tiempo.",
+          "text": "Usamos NGC 3198, una galaxia espiral a ⟦DISTANCIA_MPC⟧ Mpc, y las mediciones de SPARC. Su curva de rotación muestra la velocidad del gas a distintas distancias del centro. Comparamos esos datos con el aporte del gas y las estrellas, y con un modelo que agrega un halo: una distribución extendida de materia oscura. Aquí calculamos velocidades, sin avanzar órbitas en el tiempo.",
+          "kind": "Qué hicimos",
+          "tokens": [
+            {
+              "marker": "⟦DISTANCIA_MPC⟧",
+              "expression": "fmtAuto(result?.distance_mpc ?? 13.8)"
+            }
+          ],
+          "line": 29,
+          "id": "GAL-003"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 1627,
+          "end": 2084,
+          "original": "En las regiones exteriores, las velocidades observadas se mantienen cerca de 150 km/s. Con los parámetros iniciales, la materia visible predice unos 65 km/s y agregar un halo mejora el acuerdo. Bajo los supuestos elegidos estimamos que {result ? `${fmt(100 * (1 - result.m_vis / result.m_dyn), 0)} %` : \"alrededor del 81 %\"} de la masa dentro de {result ? fmt(result.r_last, 0) : \"44\"} kpc sería oscura. Esa cifra cambia con el cociente masa-luz que elijas.",
+          "text": "En las regiones exteriores, las velocidades observadas se mantienen cerca de 150 km/s. Con los parámetros iniciales, la materia visible predice unos 65 km/s y agregar un halo mejora el acuerdo. Bajo los supuestos elegidos estimamos que ⟦PORCENTAJE_OSCURO⟧ de la masa dentro de ⟦RADIO_KPC⟧ kpc sería oscura. Esa cifra cambia con el cociente masa-luz que elijas.",
+          "kind": "Qué encontramos",
+          "tokens": [
+            {
+              "marker": "⟦PORCENTAJE_OSCURO⟧",
+              "expression": "result ? `${fmt(100 * (1 - result.m_vis / result.m_dyn), 0)} %` : \"alrededor del 81 %\""
+            },
+            {
+              "marker": "⟦RADIO_KPC⟧",
+              "expression": "result ? fmt(result.r_last, 0) : \"44\""
+            }
+          ],
+          "line": 30,
+          "id": "GAL-004"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 1873,
+          "end": 1927,
+          "original": "`${fmt(100 * (1 - result.m_vis / result.m_dyn), 0)} %`",
+          "text": "⟦PORCENTAJE_OSCURO⟧ %",
+          "kind": "Qué encontramos",
+          "tokens": [
+            {
+              "marker": "⟦PORCENTAJE_OSCURO⟧",
+              "expression": "fmt(100 * (1 - result.m_vis / result.m_dyn), 0)"
+            }
+          ],
+          "line": 30,
+          "id": "GAL-005"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 1930,
+          "end": 1950,
+          "original": "\"alrededor del 81 %\"",
+          "text": "alrededor del 81 %",
+          "kind": "Qué encontramos",
+          "tokens": [],
+          "line": 30,
+          "id": "GAL-006"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 2007,
+          "end": 2011,
+          "original": "\"44\"",
+          "text": "44",
+          "kind": "Qué encontramos",
+          "tokens": [],
+          "line": 30,
+          "id": "GAL-007"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 2124,
+          "end": 2439,
+          "original": "El cociente masa-luz Υ permite convertir la luz de las estrellas en masa; M☉ y L☉ representan la masa y la luminosidad del Sol. Un kpc equivale a mil pársecs y un Mpc, a un millón. El halo tiene un radio central r_c y una velocidad límite v_∞. NGC 3198 no tiene bulbo, por lo que ese control no cambia el resultado.",
+          "text": "El cociente masa-luz Υ permite convertir la luz de las estrellas en masa; M☉ y L☉ representan la masa y la luminosidad del Sol. Un kpc equivale a mil pársecs y un Mpc, a un millón. El halo tiene un radio central r_c y una velocidad límite v_∞. NGC 3198 no tiene bulbo, por lo que ese control no cambia el resultado.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 32,
+          "id": "GAL-008"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 2483,
+          "end": 2513,
+          "original": "\"Masa-luz del disco Υ (M☉/L☉)\"",
+          "text": "Masa-luz del disco Υ (M☉/L☉)",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 34,
+          "id": "GAL-009"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 2609,
+          "end": 2639,
+          "original": "\"Masa-luz del bulbo Υ (M☉/L☉)\"",
+          "text": "Masa-luz del bulbo Υ (M☉/L☉)",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 35,
+          "id": "GAL-010"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 2780,
+          "end": 2811,
+          "original": "Ajustar el halo automáticamente",
+          "text": "Ajustar el halo automáticamente",
+          "kind": "Etiqueta",
+          "tokens": [],
+          "line": 36,
+          "id": "GAL-011"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 2940,
+          "end": 2968,
+          "original": "\"Radio central del halo r_c\"",
+          "text": "Radio central del halo r_c",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 37,
+          "id": "GAL-012"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 3018,
+          "end": 3024,
+          "original": "\" kpc\"",
+          "text": " kpc",
+          "kind": "Unidad del control",
+          "tokens": [],
+          "line": 37,
+          "id": "GAL-013"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 3080,
+          "end": 3111,
+          "original": "\"Velocidad límite del halo v_∞\"",
+          "text": "Velocidad límite del halo v_∞",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 38,
+          "id": "GAL-014"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 3158,
+          "end": 3165,
+          "original": "\" km/s\"",
+          "text": " km/s",
+          "kind": "Unidad del control",
+          "tokens": [],
+          "line": 38,
+          "id": "GAL-015"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 3335,
+          "end": 3726,
+          "original": "Figura 3. Rotación de NGC 3198: datos de SPARC con sus incertidumbres y aportes calculados. Usamos Υ_disco = {fmtAuto(upsDisk)} y un halo con r_c = {fmt(result.r_core, 1)} kpc y v_∞ = {fmt(result.v_inf, 0)} km/s, {fit ? \"ajustado automáticamente\" : \"elegido con los controles\"}. Compara la curva de materia visible con la suma de visible y halo para revisar el acuerdo con las observaciones.",
+          "text": "Figura 3. Rotación de NGC 3198: datos de SPARC con sus incertidumbres y aportes calculados. Usamos Υ_disco = ⟦MASA_LUZ_DISCO⟧ y un halo con r_c = ⟦RADIO_HALO⟧ kpc y v_∞ = ⟦VELOCIDAD_HALO⟧ km/s, ⟦TIPO_DE_AJUSTE⟧. Compara la curva de materia visible con la suma de visible y halo para revisar el acuerdo con las observaciones.",
+          "kind": "Pie de figura",
+          "tokens": [
+            {
+              "marker": "⟦MASA_LUZ_DISCO⟧",
+              "expression": "fmtAuto(upsDisk)"
+            },
+            {
+              "marker": "⟦RADIO_HALO⟧",
+              "expression": "fmt(result.r_core, 1)"
+            },
+            {
+              "marker": "⟦VELOCIDAD_HALO⟧",
+              "expression": "fmt(result.v_inf, 0)"
+            },
+            {
+              "marker": "⟦TIPO_DE_AJUSTE⟧",
+              "expression": "fit ? \"ajustado automáticamente\" : \"elegido con los controles\""
+            }
+          ],
+          "line": 43,
+          "id": "GAL-016"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 3555,
+          "end": 3581,
+          "original": "\"ajustado automáticamente\"",
+          "text": "ajustado automáticamente",
+          "kind": "Pie de figura",
+          "tokens": [],
+          "line": 43,
+          "id": "GAL-017"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 3584,
+          "end": 3611,
+          "original": "\"elegido con los controles\"",
+          "text": "elegido con los controles",
+          "kind": "Pie de figura",
+          "tokens": [],
+          "line": 43,
+          "id": "GAL-018"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 3988,
+          "end": 4007,
+          "original": "\"observada (SPARC)\"",
+          "text": "observada (SPARC)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 45,
+          "id": "GAL-019"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4132,
+          "end": 4149,
+          "original": "\"materia visible\"",
+          "text": "materia visible",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 46,
+          "id": "GAL-020"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4277,
+          "end": 4290,
+          "original": "\"halo oscuro\"",
+          "text": "halo oscuro",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 47,
+          "id": "GAL-021"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4429,
+          "end": 4445,
+          "original": "\"visible + halo\"",
+          "text": "visible + halo",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 48,
+          "id": "GAL-022"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4537,
+          "end": 4550,
+          "original": "\"radio (kpc)\"",
+          "text": "radio (kpc)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 49,
+          "id": "GAL-023"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4601,
+          "end": 4628,
+          "original": "\"velocidad circular (km/s)\"",
+          "text": "velocidad circular (km/s)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 49,
+          "id": "GAL-024"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4803,
+          "end": 4812,
+          "original": "Halo: r_c",
+          "text": "Halo: r_c",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 54,
+          "id": "GAL-025"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4821,
+          "end": 4848,
+          "original": "{fmt(result.r_core, 2)} kpc",
+          "text": "⟦RADIO_HALO⟧ kpc",
+          "kind": "Texto de tabla",
+          "tokens": [
+            {
+              "marker": "⟦RADIO_HALO⟧",
+              "expression": "fmt(result.r_core, 2)"
+            }
+          ],
+          "line": 54,
+          "id": "GAL-026"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4885,
+          "end": 4894,
+          "original": "Halo: v_∞",
+          "text": "Halo: v_∞",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 55,
+          "id": "GAL-027"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4903,
+          "end": 4930,
+          "original": "{fmt(result.v_inf, 1)} km/s",
+          "text": "⟦VELOCIDAD_HALO⟧ km/s",
+          "kind": "Texto de tabla",
+          "tokens": [
+            {
+              "marker": "⟦VELOCIDAD_HALO⟧",
+              "expression": "fmt(result.v_inf, 1)"
+            }
+          ],
+          "line": 55,
+          "id": "GAL-028"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 4967,
+          "end": 4979,
+          "original": "χ² / (N − 2)",
+          "text": "χ² / (N − 2)",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 56,
+          "id": "GAL-029"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 5063,
+          "end": 5114,
+          "original": "Masa dinámica dentro de {fmt(result.r_last, 1)} kpc",
+          "text": "Masa dinámica dentro de ⟦RADIO_KPC⟧ kpc",
+          "kind": "Encabezado de tabla",
+          "tokens": [
+            {
+              "marker": "⟦RADIO_KPC⟧",
+              "expression": "fmt(result.r_last, 1)"
+            }
+          ],
+          "line": 57,
+          "id": "GAL-030"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 5183,
+          "end": 5233,
+          "original": "Masa visible dentro de {fmt(result.r_last, 1)} kpc",
+          "text": "Masa visible dentro de ⟦RADIO_KPC⟧ kpc",
+          "kind": "Encabezado de tabla",
+          "tokens": [
+            {
+              "marker": "⟦RADIO_KPC⟧",
+              "expression": "fmt(result.r_last, 1)"
+            }
+          ],
+          "line": 58,
+          "id": "GAL-031"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 5302,
+          "end": 5317,
+          "original": "Fracción oscura",
+          "text": "Fracción oscura",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 59,
+          "id": "GAL-032"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 5326,
+          "end": 5377,
+          "original": "{fmt(100 * (1 - result.m_vis / result.m_dyn), 0)} %",
+          "text": "⟦PORCENTAJE_OSCURO⟧ %",
+          "kind": "Texto de tabla",
+          "tokens": [
+            {
+              "marker": "⟦PORCENTAJE_OSCURO⟧",
+              "expression": "fmt(100 * (1 - result.m_vis / result.m_dyn), 0)"
+            }
+          ],
+          "line": 59,
+          "id": "GAL-033"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 5470,
+          "end": 5939,
+          "original": "\n                Si aproximamos la masa como esférica y el movimiento como circular, M(&lt;r) ≈ v²r/G: estimamos la masa encerrada dentro del radio r a partir de la velocidad v. La galaxia tiene un disco, así que esta aproximación limita el resultado. χ² resume las diferencias con los datos considerando sus incertidumbres; N es el número de mediciones. El denominador N − 2 corresponde al ajuste de los dos parámetros del halo, no a su elección manual.\n              ",
+          "text": "Si aproximamos la masa como esférica y el movimiento como circular, M(<r) ≈ v²r/G: estimamos la masa encerrada dentro del radio r a partir de la velocidad v. La galaxia tiene un disco, así que esta aproximación limita el resultado. χ² resume las diferencias con los datos considerando sus incertidumbres; N es el número de mediciones. El denominador N − 2 corresponde al ajuste de los dos parámetros del halo, no a su elección manual.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 62,
+          "id": "GAL-034"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 6036,
+          "end": 6346,
+          "original": "La pregunta era si la materia visible alcanza. Con el cociente masa-luz inicial, su aporte queda por debajo de las velocidades exteriores observadas. El halo permite acercarnos a ellas. Este tipo de diferencia, estudiada también en Andrómeda por Rubin y Ford (1970), es una de las evidencias de materia oscura.",
+          "text": "La pregunta era si la materia visible alcanza. Con el cociente masa-luz inicial, su aporte queda por debajo de las velocidades exteriores observadas. El halo permite acercarnos a ellas. Este tipo de diferencia, estudiada también en Andrómeda por Rubin y Ford (1970), es una de las evidencias de materia oscura.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 70,
+          "id": "GAL-035"
+        },
+        {
+          "file": "src/tabs/Galaxy.tsx",
+          "start": 6362,
+          "end": 6694,
+          "original": "Pero ajustar un halo no responde qué es esa materia ni descarta una descripción distinta de la gravedad, como MOND. No la implementamos. Para avanzar necesitamos otras evidencias, como las lentes gravitacionales y el Cúmulo Bala. Además, la fracción estimada corresponde a esta galaxia y a nuestros supuestos, no a todo el Universo.",
+          "text": "Pero ajustar un halo no responde qué es esa materia ni descarta una descripción distinta de la gravedad, como MOND. No la implementamos. Para avanzar necesitamos otras evidencias, como las lentes gravitacionales y el Cúmulo Bala. Además, la fracción estimada corresponde a esta galaxia y a nuestros supuestos, no a todo el Universo.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 71,
+          "id": "GAL-036"
+        }
+      ]
+    },
+    {
+      "prefix": "UNI",
+      "title": "Universo",
+      "entries": [
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 593,
+          "end": 613,
+          "original": "\"Recolapso (Ωm = 5)\"",
+          "text": "Recolapso (Ωm = 5)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 13,
+          "id": "UNI-001"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 652,
+          "end": 691,
+          "original": "\"La expansión se detiene y se invierte\"",
+          "text": "La expansión se detiene y se invierte",
+          "kind": "Destino del escenario",
+          "tokens": [],
+          "line": 13,
+          "id": "UNI-002"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 705,
+          "end": 723,
+          "original": "\"Crítico (Ωm = 1)\"",
+          "text": "Crítico (Ωm = 1)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 14,
+          "id": "UNI-003"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 762,
+          "end": 817,
+          "original": "\"Se expande por siempre, frenando hacia velocidad cero\"",
+          "text": "Se expande por siempre, frenando hacia velocidad cero",
+          "kind": "Destino del escenario",
+          "tokens": [],
+          "line": 14,
+          "id": "UNI-004"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 831,
+          "end": 851,
+          "original": "\"Abierto (Ωm = 0,3)\"",
+          "text": "Abierto (Ωm = 0,3)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 15,
+          "id": "UNI-005"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 890,
+          "end": 943,
+          "original": "\"Se expande por siempre, frenando pero sin detenerse\"",
+          "text": "Se expande por siempre, frenando pero sin detenerse",
+          "kind": "Destino del escenario",
+          "tokens": [],
+          "line": 15,
+          "id": "UNI-006"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 957,
+          "end": 991,
+          "original": "\"Acelerado (Ωm = 0,31, ΩΛ = 0,69)\"",
+          "text": "Acelerado (Ωm = 0,31, ΩΛ = 0,69)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 16,
+          "id": "UNI-007"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 1034,
+          "end": 1066,
+          "original": "\"Se expande cada vez más rápido\"",
+          "text": "Se expande cada vez más rápido",
+          "kind": "Destino del escenario",
+          "tokens": [],
+          "line": 16,
+          "id": "UNI-008"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 1320,
+          "end": 1360,
+          "original": "`Personalizado (Ωm = ${om}, ΩΛ = ${ol})`",
+          "text": "Personalizado (Ωm = ⟦MATERIA⟧, ΩΛ = ⟦ENERGÍA_OSCURA⟧)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [
+            {
+              "marker": "⟦MATERIA⟧",
+              "expression": "om"
+            },
+            {
+              "marker": "⟦ENERGÍA_OSCURA⟧",
+              "expression": "ol"
+            }
+          ],
+          "line": 25,
+          "id": "UNI-009"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 1696,
+          "end": 1756,
+          "original": "\"¿Cómo cambia la expansión según el contenido del Universo?\"",
+          "text": "¿Cómo cambia la expansión según el contenido del Universo?",
+          "kind": "Pregunta de entrada",
+          "tokens": [],
+          "line": 33,
+          "id": "UNI-010"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 1772,
+          "end": 2123,
+          "original": "Representamos su tamaño relativo con el factor de escala a, cuyo valor actual fijamos en 1. Usamos una ecuación cosmológica basada en relatividad general: la materia frena la expansión y una constante cosmológica positiva puede acelerarla. Con el integrador leapfrog calculamos hacia el pasado y el futuro cuatro escenarios y uno que puedes modificar.",
+          "text": "Representamos su tamaño relativo con el factor de escala a, cuyo valor actual fijamos en 1. Usamos una ecuación cosmológica basada en relatividad general: la materia frena la expansión y una constante cosmológica positiva puede acelerarla. Con el integrador leapfrog calculamos hacia el pasado y el futuro cuatro escenarios y uno que puedes modificar.",
+          "kind": "Qué hicimos",
+          "tokens": [],
+          "line": 34,
+          "id": "UNI-011"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 2145,
+          "end": 2472,
+          "original": "Con H₀ = 67,4 km/s/Mpc, los escenarios crítico, abierto y acelerado tienen edades de 9,67, 11,7 y 13,86 mil millones de años. El último se acerca a los 13,8 inferidos por Planck. El escenario con más materia termina invirtiendo su expansión. No fijamos una edad que todos deban cumplir: la obtenemos de los parámetros elegidos.",
+          "text": "Con H₀ = 67,4 km/s/Mpc, los escenarios crítico, abierto y acelerado tienen edades de 9,67, 11,7 y 13,86 mil millones de años. El último se acerca a los 13,8 inferidos por Planck. El escenario con más materia termina invirtiendo su expansión. No fijamos una edad que todos deban cumplir: la obtenemos de los parámetros elegidos.",
+          "kind": "Qué encontramos",
+          "tokens": [],
+          "line": 35,
+          "id": "UNI-012"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 2512,
+          "end": 2894,
+          "original": "H₀ describe la expansión actual. Ωm representa la densidad de materia y ΩΛ la de una constante cosmológica, con la que modelamos la energía oscura; ambas se comparan con la densidad crítica, asociada a una geometría plana. Gyr significa mil millones de años y Mpc, un millón de pársecs. Aquí ignoramos la radiación, por lo que el modelo no describe las primeras etapas del Universo.",
+          "text": "H₀ describe la expansión actual. Ωm representa la densidad de materia y ΩΛ la de una constante cosmológica, con la que modelamos la energía oscura; ambas se comparan con la densidad crítica, asociada a una geometría plana. Gyr significa mil millones de años y Mpc, un millón de pársecs. Aquí ignoramos la radiación, por lo que el modelo no describe las primeras etapas del Universo.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 37,
+          "id": "UNI-013"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 2938,
+          "end": 2953,
+          "original": "\"H₀ (km/s/Mpc)\"",
+          "text": "H₀ (km/s/Mpc)",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 39,
+          "id": "UNI-014"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 3036,
+          "end": 3064,
+          "original": "\"Materia Ωm (personalizado)\"",
+          "text": "Materia Ωm (personalizado)",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 40,
+          "id": "UNI-015"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 3146,
+          "end": 3181,
+          "original": "\"Energía oscura ΩΛ (personalizado)\"",
+          "text": "Energía oscura ΩΛ (personalizado)",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 41,
+          "id": "UNI-016"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 3265,
+          "end": 3282,
+          "original": "\"Futuro simulado\"",
+          "text": "Futuro simulado",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 42,
+          "id": "UNI-017"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 3330,
+          "end": 3336,
+          "original": "\" Gyr\"",
+          "text": " Gyr",
+          "kind": "Unidad del control",
+          "tokens": [],
+          "line": 42,
+          "id": "UNI-018"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 3508,
+          "end": 3788,
+          "original": "Figura 4. Factor de escala a(t) para cuatro escenarios y el personalizado, con H₀ = {fmt(h0, 1)} km/s/Mpc. Todos pasan por a = 1 hoy. Compara cuánto tiempo ha transcurrido desde el inicio de cada expansión y cómo cambia hacia el futuro; la curva personalizada aparece discontinua.",
+          "text": "Figura 4. Factor de escala a(t) para cuatro escenarios y el personalizado, con H₀ = ⟦CONSTANTE_HUBBLE⟧ km/s/Mpc. Todos pasan por a = 1 hoy. Compara cuánto tiempo ha transcurrido desde el inicio de cada expansión y cómo cambia hacia el futuro; la curva personalizada aparece discontinua.",
+          "kind": "Pie de figura",
+          "tokens": [
+            {
+              "marker": "⟦CONSTANTE_HUBBLE⟧",
+              "expression": "fmt(h0, 1)"
+            }
+          ],
+          "line": 47,
+          "id": "UNI-019"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4109,
+          "end": 4133,
+          "original": "\"tiempo desde hoy (Gyr)\"",
+          "text": "tiempo desde hoy (Gyr)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 51,
+          "id": "UNI-020"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4202,
+          "end": 4222,
+          "original": "\"factor de escala a\"",
+          "text": "factor de escala a",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 52,
+          "id": "UNI-021"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4416,
+          "end": 4421,
+          "original": "\"hoy\"",
+          "text": "hoy",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 54,
+          "id": "UNI-022"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4631,
+          "end": 4639,
+          "original": "Universo",
+          "text": "Universo",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 59,
+          "id": "UNI-023"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4648,
+          "end": 4650,
+          "original": "Ωm",
+          "text": "Ωm",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 59,
+          "id": "UNI-024"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4659,
+          "end": 4661,
+          "original": "ΩΛ",
+          "text": "ΩΛ",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 59,
+          "id": "UNI-025"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4670,
+          "end": 4689,
+          "original": "Edad numérica (Gyr)",
+          "text": "Edad numérica (Gyr)",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 59,
+          "id": "UNI-026"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4698,
+          "end": 4715,
+          "original": "Edad exacta (Gyr)",
+          "text": "Edad exacta (Gyr)",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 59,
+          "id": "UNI-027"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 4724,
+          "end": 4731,
+          "original": "Destino",
+          "text": "Destino",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 59,
+          "id": "UNI-028"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 5075,
+          "end": 5078,
+          "original": "\"—\"",
+          "text": "—",
+          "kind": "Texto alternativo o dinámico",
+          "tokens": [],
+          "line": 65,
+          "id": "UNI-029"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 5174,
+          "end": 5183,
+          "original": "\"Colapsa\"",
+          "text": "Colapsa",
+          "kind": "Texto alternativo o dinámico",
+          "tokens": [],
+          "line": 66,
+          "id": "UNI-030"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 5186,
+          "end": 5198,
+          "original": "\"Se expande\"",
+          "text": "Se expande",
+          "kind": "Texto alternativo o dinámico",
+          "tokens": [],
+          "line": 66,
+          "id": "UNI-031"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 5314,
+          "end": 5765,
+          "original": "\n                La edad numérica se obtiene avanzando en pasos pequeños; la exacta usa una fórmula conocida cuando está disponible. Compararlas permite comprobar el cálculo, no contrastarlo por sí solo con observaciones. Las estrellas antiguas aportan otra referencia: Valcin et al. (2020) estiman unos 13,3 Gyr para los cúmulos globulares más antiguos, con incertidumbres importantes. El Universo debe ser más viejo que sus estrellas.\n              ",
+          "text": "La edad numérica se obtiene avanzando en pasos pequeños; la exacta usa una fórmula conocida cuando está disponible. Compararlas permite comprobar el cálculo, no contrastarlo por sí solo con observaciones. Las estrellas antiguas aportan otra referencia: Valcin et al. (2020) estiman unos 13,3 Gyr para los cúmulos globulares más antiguos, con incertidumbres importantes. El Universo debe ser más viejo que sus estrellas.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 70,
+          "id": "UNI-032"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 5862,
+          "end": 6184,
+          "original": "Reutilizar el integrador de las órbitas no convierte la cosmología en un problema de Newton. Cambiamos la ecuación y la variable que avanzamos: aquí calculamos el factor de escala. Las soluciones conocidas permiten revisar ese cálculo, mientras que las edades de estrellas y otras observaciones ayudan a evaluar el modelo.",
+          "text": "Reutilizar el integrador de las órbitas no convierte la cosmología en un problema de Newton. Cambiamos la ecuación y la variable que avanzamos: aquí calculamos el factor de escala. Las soluciones conocidas permiten revisar ese cálculo, mientras que las edades de estrellas y otras observaciones ayudan a evaluar el modelo.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 78,
+          "id": "UNI-033"
+        },
+        {
+          "file": "src/tabs/Universe.tsx",
+          "start": 6200,
+          "end": 6501,
+          "original": "Prueba cambiar H₀ de 67,4 a 73 manteniendo la mezcla acelerada: su edad baja de 13,86 a unos 12,8 Gyr. Es una consecuencia de la tensión de Hubble, la diferencia entre valores inferidos con el fondo cósmico de microondas y con la escalera de distancias. El control permite visualizarla, no resolverla.",
+          "text": "Prueba cambiar H₀ de 67,4 a 73 manteniendo la mezcla acelerada: su edad baja de 13,86 a unos 12,8 Gyr. Es una consecuencia de la tensión de Hubble, la diferencia entre valores inferidos con el fondo cósmico de microondas y con la escalera de distancias. El control permite visualizarla, no resolverla.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 79,
+          "id": "UNI-034"
+        }
+      ]
+    },
+    {
+      "prefix": "SUP",
+      "title": "Supernovas",
+      "entries": [
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 1024,
+          "end": 1064,
+          "original": "`Personalizado (Ωm = ${om}, ΩΛ = ${ol})`",
+          "text": "Personalizado (Ωm = ⟦MATERIA⟧, ΩΛ = ⟦ENERGÍA_OSCURA⟧)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [
+            {
+              "marker": "⟦MATERIA⟧",
+              "expression": "om"
+            },
+            {
+              "marker": "⟦ENERGÍA_OSCURA⟧",
+              "expression": "ol"
+            }
+          ],
+          "line": 21,
+          "id": "SUP-001"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 1283,
+          "end": 1346,
+          "original": "\"¿Qué historia de expansión se acerca más a las observaciones?\"",
+          "text": "¿Qué historia de expansión se acerca más a las observaciones?",
+          "kind": "Pregunta de entrada",
+          "tokens": [],
+          "line": 28,
+          "id": "SUP-002"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 1362,
+          "end": 1805,
+          "original": "Las supernovas de tipo Ia permiten estimar distancias al estandarizar su luminosidad con sus curvas de luz; no todas brillan igual. El corrimiento al rojo z mide cuánto se estiró la luz desde su emisión. Calculamos el brillo esperado en cada escenario y lo comparamos con {result ? fmt(result.n, 0) : \"1.580\"} mediciones de Pantheon+, excluyendo las calibradoras y exigiendo z &gt; 0,01. Son filas de datos, que pueden incluir un mismo objeto.",
+          "text": "Las supernovas de tipo Ia permiten estimar distancias al estandarizar su luminosidad con sus curvas de luz; no todas brillan igual. El corrimiento al rojo z mide cuánto se estiró la luz desde su emisión. Calculamos el brillo esperado en cada escenario y lo comparamos con ⟦NÚMERO_MEDICIONES⟧ mediciones de Pantheon+, excluyendo las calibradoras y exigiendo z > 0,01. Son filas de datos, que pueden incluir un mismo objeto.",
+          "kind": "Qué hicimos",
+          "tokens": [
+            {
+              "marker": "⟦NÚMERO_MEDICIONES⟧",
+              "expression": "result ? fmt(result.n, 0) : \"1.580\""
+            }
+          ],
+          "line": 29,
+          "id": "SUP-003"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 1663,
+          "end": 1670,
+          "original": "\"1.580\"",
+          "text": "1.580",
+          "kind": "Qué hicimos",
+          "tokens": [],
+          "line": 29,
+          "id": "SUP-004"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 1827,
+          "end": 2307,
+          "original": "Entre los cuatro escenarios de referencia, el acelerado obtiene el menor χ²{result ? ` (${fmt(result.models[3].chi2, 0)}, frente a ${fmt(result.models[2].chi2, 0)} del abierto y ${fmt(result.models[1].chi2, 0)} del crítico)` : \"\"}. Ese valor resume las diferencias con los datos considerando sus incertidumbres: con el mismo procedimiento, menor χ² indica mejor acuerdo. La comparación ilustra la evidencia de expansión acelerada, sin reemplazar el análisis completo de Pantheon+.",
+          "text": "Entre los cuatro escenarios de referencia, el acelerado obtiene el menor χ²⟦COMPARACIÓN_CHI2⟧. Ese valor resume las diferencias con los datos considerando sus incertidumbres: con el mismo procedimiento, menor χ² indica mejor acuerdo. La comparación ilustra la evidencia de expansión acelerada, sin reemplazar el análisis completo de Pantheon+.",
+          "kind": "Qué encontramos",
+          "tokens": [
+            {
+              "marker": "⟦COMPARACIÓN_CHI2⟧",
+              "expression": "result ? ` (${fmt(result.models[3].chi2, 0)}, frente a ${fmt(result.models[2].chi2, 0)} del abierto y ${fmt(result.models[1].chi2, 0)} del crítico)` : \"\""
+            }
+          ],
+          "line": 30,
+          "id": "SUP-005"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 1912,
+          "end": 2051,
+          "original": "` (${fmt(result.models[3].chi2, 0)}, frente a ${fmt(result.models[2].chi2, 0)} del abierto y ${fmt(result.models[1].chi2, 0)} del crítico)`",
+          "text": " (⟦COMPARACIÓN_CHI2⟧, frente a ⟦VALOR_2⟧ del abierto y ⟦VALOR_3⟧ del crítico)",
+          "kind": "Qué encontramos",
+          "tokens": [
+            {
+              "marker": "⟦COMPARACIÓN_CHI2⟧",
+              "expression": "fmt(result.models[3].chi2, 0)"
+            },
+            {
+              "marker": "⟦VALOR_2⟧",
+              "expression": "fmt(result.models[2].chi2, 0)"
+            },
+            {
+              "marker": "⟦VALOR_3⟧",
+              "expression": "fmt(result.models[1].chi2, 0)"
+            }
+          ],
+          "line": 30,
+          "id": "SUP-006"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 2347,
+          "end": 2664,
+          "original": "El módulo de distancia μ relaciona el brillo con la distancia: un valor mayor corresponde a una distancia mayor. H₀ describe la expansión actual, en km/s por megapársec (Mpc). En el modelo personalizado, Ωm y ΩΛ representan las densidades de materia y de una constante cosmológica, comparadas con la densidad crítica.",
+          "text": "El módulo de distancia μ relaciona el brillo con la distancia: un valor mayor corresponde a una distancia mayor. H₀ describe la expansión actual, en km/s por megapársec (Mpc). En el modelo personalizado, Ωm y ΩΛ representan las densidades de materia y de una constante cosmológica, comparadas con la densidad crítica.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 32,
+          "id": "SUP-007"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 2708,
+          "end": 2723,
+          "original": "\"H₀ (km/s/Mpc)\"",
+          "text": "H₀ (km/s/Mpc)",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 34,
+          "id": "SUP-008"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 2806,
+          "end": 2834,
+          "original": "\"Materia Ωm (personalizado)\"",
+          "text": "Materia Ωm (personalizado)",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 35,
+          "id": "SUP-009"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 2916,
+          "end": 2951,
+          "original": "\"Energía oscura ΩΛ (personalizado)\"",
+          "text": "Energía oscura ΩΛ (personalizado)",
+          "kind": "Etiqueta de control o navegación",
+          "tokens": [],
+          "line": 36,
+          "id": "SUP-010"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 3078,
+          "end": 3113,
+          "original": "Mostrar incertidumbres individuales",
+          "text": "Mostrar incertidumbres individuales",
+          "kind": "Etiqueta",
+          "tokens": [],
+          "line": 37,
+          "id": "SUP-011"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 3379,
+          "end": 3670,
+          "original": "Figura 5a. Diagrama de Hubble con {fmt(result.n, 0)} mediciones de Pantheon+: módulo de distancia μ frente al corrimiento al rojo z. Comparamos los datos con cuatro escenarios y el personalizado. Cada curva lleva un desplazamiento constante δ, elegido para ajustar la calibración del brillo.",
+          "text": "Figura 5a. Diagrama de Hubble con ⟦NÚMERO_MEDICIONES⟧ mediciones de Pantheon+: módulo de distancia μ frente al corrimiento al rojo z. Comparamos los datos con cuatro escenarios y el personalizado. Cada curva lleva un desplazamiento constante δ, elegido para ajustar la calibración del brillo.",
+          "kind": "Pie de figura",
+          "tokens": [
+            {
+              "marker": "⟦NÚMERO_MEDICIONES⟧",
+              "expression": "fmt(result.n, 0)"
+            }
+          ],
+          "line": 42,
+          "id": "SUP-012"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 3850,
+          "end": 3869,
+          "original": "\"Pantheon+ (datos)\"",
+          "text": "Pantheon+ (datos)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 45,
+          "id": "SUP-013"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 4382,
+          "end": 4405,
+          "original": "\"corrimiento al rojo z\"",
+          "text": "corrimiento al rojo z",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 52,
+          "id": "SUP-014"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 4448,
+          "end": 4477,
+          "original": "\"módulo de distancia μ (mag)\"",
+          "text": "módulo de distancia μ (mag)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 52,
+          "id": "SUP-015"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 4571,
+          "end": 4883,
+          "original": "Figura 5b. Diferencias respecto de un universo vacío de referencia (Ωm = ΩΛ = 0), representado por la línea cero. Agrupamos los datos por intervalos de z y mostramos su promedio ponderado con incertidumbres. Restar la referencia hace más visible la separación entre curvas, pero no agrega una prueba estadística.",
+          "text": "Figura 5b. Diferencias respecto de un universo vacío de referencia (Ωm = ΩΛ = 0), representado por la línea cero. Agrupamos los datos por intervalos de z y mostramos su promedio ponderado con incertidumbres. Restar la referencia hace más visible la separación entre curvas, pero no agrega una prueba estadística.",
+          "kind": "Pie de figura",
+          "tokens": [],
+          "line": 54,
+          "id": "SUP-016"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 5046,
+          "end": 5073,
+          "original": "\"Pantheon+ (cada medición)\"",
+          "text": "Pantheon+ (cada medición)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 56,
+          "id": "SUP-017"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 5390,
+          "end": 5426,
+          "original": "\"Pantheon+ (promedio por intervalo)\"",
+          "text": "Pantheon+ (promedio por intervalo)",
+          "kind": "Nombre de modelo o serie",
+          "tokens": [],
+          "line": 57,
+          "id": "SUP-018"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 5492,
+          "end": 5511,
+          "original": "`${b.n} mediciones`",
+          "text": "⟦MEDICIONES_DEL_INTERVALO⟧ mediciones",
+          "kind": "Texto del gráfico",
+          "tokens": [
+            {
+              "marker": "⟦MEDICIONES_DEL_INTERVALO⟧",
+              "expression": "b.n"
+            }
+          ],
+          "line": 57,
+          "id": "SUP-019"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 5814,
+          "end": 5837,
+          "original": "\"corrimiento al rojo z\"",
+          "text": "corrimiento al rojo z",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 61,
+          "id": "SUP-020"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 5880,
+          "end": 5917,
+          "original": "\"Δμ respecto al universo vacío (mag)\"",
+          "text": "Δμ respecto al universo vacío (mag)",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 61,
+          "id": "SUP-021"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 6128,
+          "end": 6134,
+          "original": "Modelo",
+          "text": "Modelo",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 65,
+          "id": "SUP-022"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 6143,
+          "end": 6145,
+          "original": "Ωm",
+          "text": "Ωm",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 65,
+          "id": "SUP-023"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 6154,
+          "end": 6156,
+          "original": "ΩΛ",
+          "text": "ΩΛ",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 65,
+          "id": "SUP-024"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 6165,
+          "end": 6167,
+          "original": "χ²",
+          "text": "χ²",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 65,
+          "id": "SUP-025"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 6176,
+          "end": 6180,
+          "original": "χ²/N",
+          "text": "χ²/N",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 65,
+          "id": "SUP-026"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 6189,
+          "end": 6196,
+          "original": "δ (mag)",
+          "text": "δ (mag)",
+          "kind": "Encabezado de tabla",
+          "tokens": [],
+          "line": 65,
+          "id": "SUP-027"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 6672,
+          "end": 7192,
+          "original": "\n                δ es el desplazamiento vertical que mejor ajusta cada curva. Las distancias usadas están calibradas con Cefeidas de SH0ES, con H₀ cercano a 73; al usar 67,4 esperamos una diferencia de calibración de unos −0,17 mag. El ajuste también depende de la forma del modelo. Como dejamos libre δ, comparamos sobre todo la <em>forma</em> de las curvas, no medimos H₀ de manera independiente. Usamos incertidumbres individuales sin sus correlaciones: cómo se relacionan los errores entre mediciones.\n              ",
+          "text": "δ es el desplazamiento vertical que mejor ajusta cada curva. Las distancias usadas están calibradas con Cefeidas de SH0ES, con H₀ cercano a 73; al usar 67,4 esperamos una diferencia de calibración de unos −0,17 mag. El ajuste también depende de la forma del modelo. Como dejamos libre δ, comparamos sobre todo la forma de las curvas, no medimos H₀ de manera independiente. Usamos incertidumbres individuales sin sus correlaciones: cómo se relacionan los errores entre mediciones.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 74,
+          "id": "SUP-028"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 7289,
+          "end": 7591,
+          "original": "A fin de cuentas, el recorrido conecta dos tareas: comprobar lo que calcula un programa y comparar sus predicciones con observaciones. Kepler nos dio una referencia conocida; NGC 3198 permitió revisar el aporte de la materia visible; las supernovas permiten contrastar distintas historias de expansión.",
+          "text": "A fin de cuentas, el recorrido conecta dos tareas: comprobar lo que calcula un programa y comparar sus predicciones con observaciones. Kepler nos dio una referencia conocida; NGC 3198 permitió revisar el aporte de la materia visible; las supernovas permiten contrastar distintas historias de expansión.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 82,
+          "id": "SUP-029"
+        },
+        {
+          "file": "src/tabs/Supernovae.tsx",
+          "start": 7607,
+          "end": 7970,
+          "original": "El escenario acelerado sigue mejor estos datos entre los modelos de referencia elegidos. Eso no demuestra qué es la energía oscura ni descarta todas las alternativas. Las distancias requieren relatividad general y el análisis completo debe considerar las correlaciones de los errores. La herramienta ayuda a seguir el razonamiento, no sustituye esa investigación.",
+          "text": "El escenario acelerado sigue mejor estos datos entre los modelos de referencia elegidos. Eso no demuestra qué es la energía oscura ni descarta todas las alternativas. Las distancias requieren relatividad general y el análisis completo debe considerar las correlaciones de los errores. La herramienta ayuda a seguir el razonamiento, no sustituye esa investigación.",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 83,
+          "id": "SUP-030"
+        }
+      ]
+    },
+    {
+      "prefix": "COM",
+      "title": "Rótulos compartidos",
+      "entries": [
+        {
+          "file": "src/components/Story.tsx",
+          "start": 302,
+          "end": 313,
+          "original": "\"Argumento\"",
+          "text": "Argumento",
+          "kind": "Descripción accesible",
+          "tokens": [],
+          "line": 6,
+          "id": "COM-001"
+        },
+        {
+          "file": "src/components/Story.tsx",
+          "start": 454,
+          "end": 465,
+          "original": "Qué hicimos",
+          "text": "Qué hicimos",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 10,
+          "id": "COM-002"
+        },
+        {
+          "file": "src/components/Story.tsx",
+          "start": 559,
+          "end": 574,
+          "original": "Qué encontramos",
+          "text": "Qué encontramos",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 14,
+          "id": "COM-003"
+        },
+        {
+          "file": "src/components/Story.tsx",
+          "start": 854,
+          "end": 871,
+          "original": "\"Por qué importa\"",
+          "text": "Por qué importa",
+          "kind": "Descripción accesible",
+          "tokens": [],
+          "line": 25,
+          "id": "COM-004"
+        },
+        {
+          "file": "src/components/Story.tsx",
+          "start": 906,
+          "end": 921,
+          "original": "Por qué importa",
+          "text": "Por qué importa",
+          "kind": "Párrafo",
+          "tokens": [],
+          "line": 26,
+          "id": "COM-005"
+        }
+      ]
+    },
+    {
+      "prefix": "EST",
+      "title": "Mensajes y estados",
+      "entries": [
+        {
+          "file": "src/components/Controls.tsx",
+          "start": 1299,
+          "end": 1553,
+          "original": "\n        <strong>Este cálculo aún no está disponible.</strong> Falta implementar la función <code>{error.what}</code>.\n        Si estás trabajando en el código, ejecuta <code>pytest</code> en <code>core/</code> para revisar las pruebas pendientes.\n      ",
+          "text": "Este cálculo aún no está disponible. Falta implementar la función ⟦FUNCIÓN_PENDIENTE⟧. Si estás trabajando en el código, ejecuta pytest en core/ para revisar las pruebas pendientes.",
+          "kind": "Aviso completo",
+          "tokens": [
+            {
+              "marker": "⟦FUNCIÓN_PENDIENTE⟧",
+              "expression": "error.what"
+            }
+          ],
+          "line": 27,
+          "id": "EST-001"
+        },
+        {
+          "file": "src/components/Controls.tsx",
+          "start": 1654,
+          "end": 1882,
+          "original": "\n        <strong>No pudimos completar el cálculo.</strong> Recarga la página para volver a intentarlo. Si el problema continúa, informa el error en el repositorio e incluye este mensaje:\n        <pre>{error.message}</pre>\n      ",
+          "text": "No pudimos completar el cálculo. Recarga la página para volver a intentarlo. Si el problema continúa, informa el error en el repositorio e incluye este mensaje: ⟦DETALLE_ERROR⟧",
+          "kind": "Aviso completo",
+          "tokens": [
+            {
+              "marker": "⟦DETALLE_ERROR⟧",
+              "expression": "error.message"
+            }
+          ],
+          "line": 35,
+          "id": "EST-002"
+        }
+      ]
+    },
+    {
+      "prefix": "INI",
+      "title": "Inicio del motor",
+      "entries": [
+        {
+          "file": "src/worker.ts",
+          "start": 1424,
+          "end": 1465,
+          "original": "`No se pudo leer ${path} (${res.status})`",
+          "text": "No se pudo leer ⟦ARCHIVO⟧ (⟦CÓDIGO_HTTP⟧)",
+          "kind": "Detalle de error",
+          "tokens": [
+            {
+              "marker": "⟦ARCHIVO⟧",
+              "expression": "path"
+            },
+            {
+              "marker": "⟦CÓDIGO_HTTP⟧",
+              "expression": "res.status"
+            }
+          ],
+          "line": 32,
+          "id": "INI-001"
+        },
+        {
+          "file": "src/worker.ts",
+          "start": 1540,
+          "end": 1568,
+          "original": "\"Cargando Python (Pyodide)…\"",
+          "text": "Cargando Python (Pyodide)…",
+          "kind": "Mensaje de carga",
+          "tokens": [],
+          "line": 37,
+          "id": "INI-002"
+        },
+        {
+          "file": "src/worker.ts",
+          "start": 1728,
+          "end": 1745,
+          "original": "\"Cargando numpy…\"",
+          "text": "Cargando numpy…",
+          "kind": "Mensaje de carga",
+          "tokens": [],
+          "line": 40,
+          "id": "INI-003"
+        },
+        {
+          "file": "src/worker.ts",
+          "start": 1791,
+          "end": 1817,
+          "original": "\"Preparando los cálculos…\"",
+          "text": "Preparando los cálculos…",
+          "kind": "Mensaje de carga",
+          "tokens": [],
+          "line": 43,
+          "id": "INI-004"
+        },
+        {
+          "file": "src/worker.ts",
+          "start": 2442,
+          "end": 2483,
+          "original": "\"Cargando datos de galaxia y supernovas…\"",
+          "text": "Cargando datos de galaxia y supernovas…",
+          "kind": "Mensaje de carga",
+          "tokens": [],
+          "line": 54,
+          "id": "INI-005"
+        },
+        {
+          "file": "src/worker.ts",
+          "start": 2642,
+          "end": 2649,
+          "original": "\"Listo\"",
+          "text": "Listo",
+          "kind": "Mensaje de carga",
+          "tokens": [],
+          "line": 57,
+          "id": "INI-006"
+        },
+        {
+          "file": "src/worker.ts",
+          "start": 2879,
+          "end": 2964,
+          "original": "`No pudimos iniciar Python. Recarga la página para reintentar. Detalle: ${String(e)}`",
+          "text": "No pudimos iniciar Python. Recarga la página para reintentar. Detalle: ⟦DETALLE_ERROR⟧",
+          "kind": "Mensaje de carga",
+          "tokens": [
+            {
+              "marker": "⟦DETALLE_ERROR⟧",
+              "expression": "String(e)"
+            }
+          ],
+          "line": 66,
+          "id": "INI-007"
+        }
+      ]
+    },
+    {
+      "prefix": "CAR",
+      "title": "Estado inicial de carga",
+      "entries": [
+        {
+          "file": "src/engine.ts",
+          "start": 633,
+          "end": 645,
+          "original": "\"Iniciando…\"",
+          "text": "Iniciando…",
+          "kind": "Texto del gráfico",
+          "tokens": [],
+          "line": 18,
+          "id": "CAR-001"
+        }
+      ]
+    },
+    {
+      "prefix": "MET",
+      "title": "Título del navegador y descripción",
+      "entries": [
+        {
+          "id": "MET-001",
+          "file": "index.html",
+          "start": 209,
+          "end": 240,
+          "original": "Una sola gravedad, tres escalas",
+          "text": "Una sola gravedad, tres escalas",
+          "kind": "Título de la pestaña del navegador",
+          "tokens": []
+        },
+        {
+          "id": "MET-002",
+          "file": "index.html",
+          "start": 353,
+          "end": 531,
+          "original": "¿Qué podemos entender del Universo a partir de un programa? Explora órbitas, rotación de galaxias y expansión con datos reales y cálculos que puedes revisar. Proyecto AST101, UC.",
+          "text": "¿Qué podemos entender del Universo a partir de un programa? Explora órbitas, rotación de galaxias y expansión con datos reales y cálculos que puedes revisar. Proyecto AST101, UC.",
+          "kind": "Descripción para buscadores",
+          "tokens": []
+        }
+      ]
+    }
+  ]
+}
