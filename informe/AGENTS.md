@@ -16,7 +16,7 @@ Un simulador de gravedad con interfaz web. La misma ley (gravitación de Newton)
 - **Formato obligatorio:** PDF, **entre 8 y 12 páginas**, Arial 11 o Times New Roman 12, **interlineado 1,5**. Portada incluida.
 - **Documento principal:** `informe_borrador.docx` (Word). El cuerpo se genera desde `secciones/*.md` con la herramienta de §14 y el PDF se exporta con Word. No editar el DOCX a mano sin conciliar antes: hay respaldo por hash y la herramienta se niega a sobrescribir cambios no revisados.
 - **Título y portada:** «La gravedad en tres escalas: una exploración desde la computación». Autores en cursiva «Erazo, L., Garrillo, J.»; institución, carrera, curso, fecha y enlaces con etiquetas legibles. Sin correos.
-- **Estado actual:** 12 páginas, 7 figuras insertadas y PDF en `informe_final.pdf`. Los únicos pendientes personales son la reflexión de Luis (5.1) y la confirmación de la declaración de IA (5.2), marcadas en cursiva.
+- **Estado actual (1 nov, tarde):** 12 páginas en LibreOffice con ~110 palabras de holgura al final, 7 figuras reexportadas, pilares de los ramos ya nombrados en 3.1, 3.2 y 4.1. `informe_final.pdf` está **desactualizado** respecto del DOCX: hay que reexportarlo con Word. Los únicos pendientes personales son la reflexión de Luis (5.1) y la confirmación de la declaración de IA (5.2), marcadas en cursiva.
 - **Idioma:** español. Redacción propia; nada de pegar texto de la web ni de este archivo sin reescribirlo.
 - Vale 7,5 % de la nota final del curso. Nota 4,0 con 60/100 puntos.
 
@@ -95,7 +95,7 @@ Hilo conductor: *cuando un computador muestra algo sorprendente, ¿cómo sabemos
 | 4 | `fig4_factor_escala.png` | a(t) para los cuatro escenarios cosmológicos |
 | 5a, 5b | `fig5a_hubble.png`, `fig5b_residuos.png` | Diagrama de Hubble con Pantheon+; residuos respecto de un universo vacío |
 
-Se exportan con Playwright desde https://ssj400.github.io/one-gravity/, sin barra de herramientas y con fondo claro; luego se recortan los márgenes. En el Word van a 10,2 cm las individuales y 7,0 cm los pares, con pie de 9,5 pt y `keepNext` para que la figura no se separe de su texto. Los pies extensos viven en `secciones/03-pies-de-figura.md`; el Word usa una versión condensada. Cada pie dice qué se ve y qué se concluye, en 2–3 frases.
+Se exportan con `herramientas/exportar_figuras.mjs` (playwright-core + Chromium) contra `npm run dev` de `web/`, en tema claro, sin barra de herramientas y con los anchos de columna fijados para que las siete salgan con el mismo ancho; luego se recortan los márgenes con PIL. La curva «Personalizado» ya no aparece cuando coincide con un preset. En el Word van a 9,4 cm las individuales y 7,0 cm los pares, con pie de 9,5 pt y `keepNext` para que la figura no se separe de su texto. Los pies extensos viven en `secciones/03-pies-de-figura.md`; el Word usa una versión condensada. Cada pie dice qué se ve y qué se concluye, en 2–3 frases.
 
 ## 10. Referencias (verificar cada una en NASA ADS antes de citar; estilo APA 7)
 

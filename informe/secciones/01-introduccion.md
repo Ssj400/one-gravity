@@ -4,7 +4,7 @@
 
 ¿Qué podemos entender del Universo a partir de un programa? Esta pregunta dio origen al proyecto y nos llevó a una segunda: ¿cómo sabemos que lo que aparece en pantalla corresponde al fenómeno que buscamos representar? En clases vimos que los modelos astronómicos se construyen y se revisan al compararlos con observaciones (*Modelos de Universo*, s. f.). Llevar esa comparación a una herramienta interactiva nos pareció una forma de acercarnos a esos contenidos desde nuestra carrera.
 
-El trabajo es una web que explora tres escalas de la gravedad: las órbitas del Sistema Solar, donde comprobamos las leyes de Kepler; la rotación de una galaxia; y distintos escenarios de expansión del Universo. En cada caso nos preguntamos qué predice el modelo y qué tan bien se relaciona con lo observado. Como estudiantes de computación, nos interesa traducir estas ideas a instrucciones y hacer visible el razonamiento que hay detrás; la gravedad conecta los tres problemas, aunque cada uno exige un tratamiento distinto.
+El trabajo es una web que explora tres escalas de la gravedad: las órbitas del Sistema Solar, donde comprobamos las leyes de Kepler; la rotación de una galaxia; y distintos escenarios de expansión del Universo. En cada caso nos preguntamos qué predice el modelo y qué tan bien se relaciona con lo observado. La gravedad conecta los tres problemas, y como estudiantes de computación nos interesa hacer visible el razonamiento que hay detrás.
 
 ## 1.2 Relación con nuestra formación
 

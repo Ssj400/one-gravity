@@ -6,6 +6,8 @@ Volvamos a la pregunta inicial: ¿cómo sabemos que estamos observando el fenóm
 
 Por eso revisamos la energía, comparamos con casos conocidos y evaluamos el efecto del paso de tiempo. Hay dos preguntas distintas: si calculamos correctamente lo que propusimos y si ese modelo representa bien la realidad. Las pruebas abordan la primera; las observaciones permiten avanzar en la segunda (*Modelos de Universo*, s. f.).
 
+También separamos dos errores. El del método, como el 57,6 % que gana Euler, viene de seguir la recta tangente en cada paso, la misma idea de Cálculo I. El de la máquina viene de que el computador redondea cada número en punto flotante, como vimos en Arquitectura de Computadores: en doble precisión guarda unas 16 cifras, así que ese error queda muy por debajo del primero. Cuando un resultado se ve raro, conviene saber cuál de los dos lo explica.
+
 ## 4.2 El alcance de la explicación con materia oscura
 
 Agregar un halo mejora la explicación de NGC 3198. Pero ¿es suficiente para descartar otras posibilidades? MOND propone modificar la descripción de la gravedad a aceleraciones muy pequeñas (Milgrom, 1983). No la implementamos, de modo que el buen resultado del halo tampoco equivale a haberla descartado.

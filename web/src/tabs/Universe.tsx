@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useCompute } from "../engine";
 import { Plot } from "../components/Plot";
-import { fmt } from "../format";
+import { fmt, fmtAuto } from "../format";
 import { useColors, type Colors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 import { Story, Takeaway } from "../components/Story";
@@ -22,10 +22,13 @@ export function Universe() {
   const [om, setOm] = useState(0.31);
   const [ol, setOl] = useState(0.69);
   const [tFuture, setTFuture] = useState(30);
-  const custom: Model = { name: `Personalizado (Ωm = ${om}, ΩΛ = ${ol})`, om, ol };
-  const models = [...PRESETS.map(({ name, om, ol }) => ({ name, om, ol })), custom];
+  // La curva personalizada solo se muestra cuando difiere de los cuatro presets.
+  const customIsPreset = PRESETS.some((p) => p.om === om && p.ol === ol);
+  const custom: Model = { name: `Personalizado (Ωm = ${fmtAuto(om)}, ΩΛ = ${fmtAuto(ol)})`, om, ol };
+  const models = [...PRESETS.map(({ name, om, ol }) => ({ name, om, ol })), ...(customIsPreset ? [] : [custom])];
   const { result, error, busy } = useCompute<UniverseRow[]>("universe", { models, h0, t_future: tFuture, dt: 0.005 });
   const colors = [...PRESETS.map((p) => C[p.color]), C.violet];
+  const N = PRESETS.length;
 
   return (
     <section>
@@ -44,9 +47,9 @@ export function Universe() {
       <Outcome error={error} busy={busy}>
         {result && (
           <div className="grid2">
-            <Figure caption={<>Figura 4. Factor de escala a(t) para cuatro escenarios y el personalizado, con H₀ = {fmt(h0, 1)} km/s/Mpc. Todos pasan por a = 1 hoy. Compara cuánto tiempo ha transcurrido desde el inicio de cada expansión y cómo cambia hacia el futuro; la curva personalizada aparece discontinua.</>}>
+            <Figure caption={<>Figura 4. Factor de escala a(t) para cuatro escenarios, con H₀ = {fmt(h0, 1)} km/s/Mpc. Todos pasan por a = 1 hoy. Compara cuánto tiempo ha transcurrido desde el inicio de cada expansión y cómo cambia hacia el futuro; si cambias Ωm o ΩΛ, la curva personalizada aparece discontinua.</>}>
               <Plot filename="fig4_factor_escala" data={result.map((m, i) => ({
-                x: m.t, y: m.a, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === 4 ? 1.5 : 2, dash: i === 4 ? "dash" : "solid" },
+                x: m.t, y: m.a, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === N ? 1.5 : 2, dash: i === N ? "dash" : "solid" },
               }))} layout={{
                 xaxis: { title: { text: "tiempo desde hoy (Gyr)" }, range: [-16, tFuture] },
                 yaxis: { title: { text: "factor de escala a" }, range: [0, 4] },
