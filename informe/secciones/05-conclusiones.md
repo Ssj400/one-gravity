@@ -6,7 +6,7 @@ El recorrido nos permitió conectar contenidos de astronomía con herramientas d
 
 Volviendo a la pregunta inicial, consideramos que un programa nos ayuda a entender un fenómeno cuando podemos revisar cómo llegó a su resultado. Calcular, comprobar las instrucciones y comparar con observaciones forman parte de ese proceso. A fin de cuentas, el valor del proyecto está tanto en las respuestas obtenidas como en aprender a reconocer hasta dónde podemos confiar en ellas.
 
-**Aprendizaje colaborativo.** *[Luis: 3–4 líneas propias sobre cómo se repartieron el trabajo (código y numérica frente a astronomía, datos y redacción) y qué aprendió cada uno del área del otro. Luis las dictará.]*
+**Aprendizaje colaborativo.** Nos repartimos el trabajo según lo que cada uno podía aportar: José el código, las pruebas y la parte numérica; Luis la investigación, las fuentes y la redacción. Para Luis, lo más interesante fue analizar el código e intentar entender la física que hay detrás mientras el informe avanzaba poco a poco. La fundamentación teórica es la base de cualquier proyecto científico y computacional, y esa parte sostuvo el resto del trabajo.
 
 Como continuación proponemos considerar las relaciones entre los errores de las supernovas, explorar una energía oscura variable y evaluar la herramienta con estudiantes, para revisar tanto el cálculo como la forma en que lo presentamos.
 
