@@ -27,7 +27,7 @@ PIC = "http://schemas.openxmlformats.org/drawingml/2006/picture"
 P = re.compile(r"<w:p(?:\s[^>]*)?>.*?</w:p>", re.S)
 IMAGE = re.compile(r"^!\[(.+?)\]\((.+?)\)\s*$")
 EMU_PER_CM = 360000
-SINGLE_CM = 10.2
+SINGLE_CM = 9.4
 PAIR_CM = 7.0
 
 

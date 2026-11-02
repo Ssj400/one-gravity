@@ -16,7 +16,7 @@ Ahora, ¿cómo comprobamos el movimiento que resulta? Las leyes de Kepler, revis
 
 T es el tiempo de una vuelta y a el semieje mayor, que describe el tamaño de la elipse. Una unidad astronómica (UA) es aproximadamente la distancia media entre la Tierra y el Sol, y el valor 1 corresponde a la masa solar en estas unidades.
 
-Cada órbita comienza con un tamaño y una excentricidad, es decir, qué tanto se aparta de un círculo. El programa obtiene la velocidad inicial con la relación vis-viva y revisa si el movimiento respeta lo esperado.
+Cada órbita parte de un tamaño y una excentricidad, qué tanto se aparta de un círculo; la velocidad inicial sale de la relación vis-viva.
 
 ## 2.2 Rotación de galaxias y materia oscura
 
@@ -56,6 +56,6 @@ Tener una ecuación no resuelve cómo llevarla al computador. Para avanzar en el
 
 Elegimos leapfrog porque mantiene acotado el error de energía en nuestras pruebas orbitales con pasos suficientemente pequeños (Hairer et al., 2003). Sigue siendo una aproximación, así que debemos comprobar sus resultados. Para las distancias cosmológicas usamos la **regla del trapecio**, que aproxima el área bajo una función sumando partes pequeñas.
 
-El valor **χ²** (chi cuadrado) resume las diferencias entre predicciones y observaciones considerando sus incertidumbres: con los mismos datos y procedimiento, un valor menor indica mejor acuerdo. En supernovas permitimos desplazar verticalmente las curvas para ajustar diferencias de calibración; el alcance de esa comparación depende de cómo tratamos los errores, cuestión que retomamos en la discusión.
+El valor **χ²** (chi cuadrado) resume las diferencias entre predicciones y observaciones considerando sus incertidumbres: con los mismos datos y procedimiento, un valor menor indica mejor acuerdo. En supernovas permitimos desplazar verticalmente las curvas para absorber diferencias de calibración; su alcance lo retomamos en la discusión.
 
 Programamos con Python y NumPy (Harris et al., 2020), y usamos pytest para comprobar resultados conocidos. Pyodide ejecuta ese código en el navegador y Plotly dibuja los gráficos (The Pyodide development team, s. f.; Plotly Technologies Inc., s. f.).

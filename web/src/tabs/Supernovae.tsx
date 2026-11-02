@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Data } from "plotly.js";
 import { useCompute } from "../engine";
 import { Plot } from "../components/Plot";
-import { fmt } from "../format";
+import { fmt, fmtAuto } from "../format";
 import { useColors } from "../theme";
 import { Controls, Figure, Outcome, Slider } from "../components/Controls";
 import { Story, Takeaway } from "../components/Story";
@@ -18,9 +18,13 @@ export function Supernovae() {
   const [om, setOm] = useState(0.31);
   const [ol, setOl] = useState(0.69);
   const [showErr, setShowErr] = useState(false);
-  const models = [...PRESETS.map(({ name, om, ol }) => ({ name, om, ol })), { name: `Personalizado (Ωm = ${om}, ΩΛ = ${ol})`, om, ol }];
+  // La curva personalizada solo se muestra cuando difiere de los cuatro presets.
+  const customIsPreset = PRESETS.some((p) => p.om === om && p.ol === ol);
+  const custom = { name: `Personalizado (Ωm = ${fmtAuto(om)}, ΩΛ = ${fmtAuto(ol)})`, om, ol };
+  const models = [...PRESETS.map(({ name, om, ol }) => ({ name, om, ol })), ...(customIsPreset ? [] : [custom])];
   const { result, error, busy } = useCompute<SnResult>("supernovae", { models, h0 });
   const colors = [...PRESETS.map((p) => C[p.color]), C.violet];
+  const N = PRESETS.length;
 
   return (
     <section>
@@ -47,7 +51,7 @@ export function Supernovae() {
                   error_y: { type: "data", array: result.data.err, visible: showErr, color: C.obs, thickness: 0.6, width: 0 },
                 },
                 ...result.models.map((m, i): Data => ({
-                  x: m.z, y: m.mu, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === 4 ? 1.5 : 2, dash: i === 4 ? "dash" : "solid" },
+                  x: m.z, y: m.mu, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === N ? 1.5 : 2, dash: i === N ? "dash" : "solid" },
                 })),
               ]} layout={{ xaxis: { title: { text: "corrimiento al rojo z" }, type: "log" }, yaxis: { title: { text: "módulo de distancia μ (mag)" }, range: [32, 46] } }} height={420} />
             </Figure>
@@ -56,7 +60,7 @@ export function Supernovae() {
                 { x: result.data.z, y: result.data.res, type: "scatter", mode: "markers", name: "Pantheon+ (cada medición)", marker: { color: C.obs, size: 3, opacity: 0.18 }, hoverinfo: "skip" },
                 { x: result.bins.map((b) => b.z), y: result.bins.map((b) => b.res), error_y: { type: "data", array: result.bins.map((b) => b.err), visible: true, color: C.ink, thickness: 1.2, width: 3 }, type: "scatter", mode: "markers", name: "Pantheon+ (promedio por intervalo)", marker: { color: C.ink, size: 8 }, text: result.bins.map((b) => `${b.n} mediciones`) },
                 ...result.models.map((m, i): Data => ({
-                  x: m.z, y: m.res, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === 4 ? 1.5 : 2, dash: i === 4 ? "dash" : "solid" },
+                  x: m.z, y: m.res, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === N ? 1.5 : 2, dash: i === N ? "dash" : "solid" },
                 })),
               ]} layout={{ xaxis: { title: { text: "corrimiento al rojo z" }, type: "log" }, yaxis: { title: { text: "Δμ respecto al universo vacío (mag)" }, range: [-1, 0.6], zeroline: true, zerolinecolor: C.muted, zerolinewidth: 1 } }} height={420} />
             </Figure>

@@ -2,9 +2,9 @@
 
 ## 3.1 Organización del programa
 
-Con las ideas anteriores construimos una web con cuatro pestañas: Sistema Solar, Galaxia, Universo y Supernovas. Las últimas dos abordan la misma escala desde el modelo y desde las observaciones. El usuario cambia los parámetros y el programa vuelve a calcular, de modo que puede seguir las consecuencias de una decisión y no solo mirar un resultado fijo.
+Con las ideas anteriores construimos una web con cuatro pestañas: Sistema Solar, Galaxia, Universo y Supernovas. Las últimas dos abordan la misma escala desde el modelo y desde las observaciones. El usuario cambia los parámetros y el programa vuelve a calcular.
 
-Separamos los cálculos, las pruebas, los datos y la interfaz para poder revisar cada parte:
+Separamos los cálculos, las pruebas, los datos y la interfaz para poder revisar cada parte. Es lo que aprendimos en Programación Avanzada: módulos pequeños, funciones que no guardan estado y una prueba por cada ley física.
 
 ```text
 Parámetros elegidos → cálculo en Python + datos → resultados → figuras
@@ -25,7 +25,7 @@ return rn1,vn1
 
 Las tres actualizaciones corresponden al procedimiento ya explicado y se reutilizan cambiando la función de aceleración; en cosmología, la variable que avanzamos es el factor de escala. Así, una decisión de programación queda ligada al problema físico que buscamos representar.
 
-Para comprobarlo usamos las leyes de Kepler y soluciones cosmológicas conocidas para ciertos parámetros, y revisamos condiciones del código, como no modificar los datos de entrada. Cada prueba responde una pregunta concreta; aprobarlas nos da razones para confiar en esos cálculos dentro de las condiciones comprobadas.
+Aquí entra una idea de Matemáticas Discretas. Si una propiedad se mantiene de un paso al siguiente, por inducción se mantiene después de cualquier número de pasos. Por eso las pruebas revisan el paso y unas pocas órbitas contra respuestas conocidas, como las leyes de Kepler o la edad de un universo con solución exacta, y no cada simulación completa. Aprobarlas nos da razones para confiar en esos cálculos dentro de las condiciones comprobadas.
 
 ## 3.3 Sistema Solar
 
@@ -49,9 +49,9 @@ Con M ≈ v²r/G estimamos que alrededor del 81 % de la masa dentro del último 
 
 Tomando el presente como a = 1, calculamos hacia el pasado y el futuro. Comparamos los escenarios crítico, abierto, acelerado y de recolapso de la clase 10 (*Cosmología, materia y energía oscura*, s. f.).
 
-![Figura 4. Evolución del factor de escala en los cuatro escenarios. Con H₀ = 67,4 km/s/Mpc, el crítico, el abierto y el acelerado tienen edades de 9,67, 11,7 y 13,86 Gyr; el de recolapso termina invirtiendo su expansión.](figuras/fig4_factor_escala.png)
+![Figura 4. Evolución del factor de escala en los cuatro escenarios, con H₀ = 67,4 km/s/Mpc. Las curvas de solo materia llegan a a = 0 antes; el de recolapso termina invirtiendo su expansión.](figuras/fig4_factor_escala.png)
 
-Con H₀ = 67,4 km/s/Mpc obtenemos edades de 9,67 Gyr para el caso crítico (Ωm = 1, ΩΛ = 0), 11,7 para el abierto (0,3; 0) y 13,86 para el acelerado (0,31; 0,69). Gyr significa mil millones de años. En el escenario de recolapso (5; 0), la mayor cantidad de materia detiene la expansión y luego la invierte. La edad del acelerado se acerca a los 13,8 Gyr inferidos por Planck (Planck Collaboration, 2020): nos interesa esa comparación precisamente porque el programa permite obtener edades distintas.
+Con H₀ = 67,4 km/s/Mpc obtenemos edades de 9,67 Gyr para el caso crítico (Ωm = 1, ΩΛ = 0), 11,7 para el abierto (0,3; 0) y 13,86 para el acelerado (0,31; 0,69). Gyr significa mil millones de años. En el escenario de recolapso (5; 0), la mayor cantidad de materia detiene la expansión y luego la invierte. La edad del acelerado se acerca a los 13,8 Gyr inferidos por Planck (Planck Collaboration, 2020).
 
 ## 3.6 Comparación con supernovas
 
@@ -60,5 +60,3 @@ Para contrastar esas historias seleccionamos 1.580 mediciones de Pantheon+, excl
 ![Figura 5. (a) Diagrama de Hubble con las 1.580 mediciones y los cuatro modelos. (b) Diferencias respecto de un universo vacío de referencia, que hacen visible la separación entre escenarios sin agregar una prueba estadística.](figuras/fig5a_hubble.png|figuras/fig5b_residuos.png)
 
 El escenario acelerado obtiene el menor χ², aproximadamente 686, seguido del abierto (817), el crítico (1.331) y el de recolapso (5.702). Dentro de esta comparación, el primero sigue mejor los datos. El resultado ilustra por qué es relevante contrastar las curvas con observaciones, aunque nuestro procedimiento simplificado no permite asignarle una certeza estadística.
-
-Dejamos disponibles el código, la procedencia de los datos y las pruebas para que este recorrido pueda repetirse; además, las pruebas se ejecutan antes de publicar cambios en la web.
