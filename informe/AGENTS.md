@@ -15,7 +15,7 @@ Un simulador de gravedad con interfaz web. La misma ley (gravitación de Newton)
 - **Fecha:** lunes 2 de noviembre de 2026 (hora y canal de entrega: confirmar en Canvas; asumir que es durante el día, no a medianoche).
 - **Formato obligatorio:** PDF, **entre 8 y 12 páginas**, Arial 11 o Times New Roman 12, **interlineado 1,5**. Portada incluida.
 - **Documento principal:** `informe_borrador.docx` (Word). El cuerpo se genera desde `secciones/*.md` con la herramienta de §14 y el PDF se exporta con Word. No editar el DOCX a mano sin conciliar antes: hay respaldo por hash y la herramienta se niega a sobrescribir cambios no revisados.
-- **Título y portada:** «La gravedad en tres escalas: una exploración desde la computación». Autores en cursiva «Erazo, L., Garrillo, J.»; institución, carrera, curso, fecha y enlaces con etiquetas legibles. Sin correos.
+- **Título y portada:** «La gravedad en tres escalas: una exploración desde la computación». Autores en cursiva «José Garrillo y Luis Erazo»; institución, carrera, curso, fecha y enlaces con etiquetas legibles. Sin correos.
 - **Estado actual (1 nov, tarde):** 12 páginas en LibreOffice con ~110 palabras de holgura al final, 7 figuras reexportadas, pilares de los ramos ya nombrados en 3.1, 3.2 y 4.1. `informe_final.pdf` está **desactualizado** respecto del DOCX: hay que reexportarlo con Word. Los únicos pendientes personales son la reflexión de Luis (5.1) y la confirmación de la declaración de IA (5.2), marcadas en cursiva.
 - **Idioma:** español. Redacción propia; nada de pegar texto de la web ni de este archivo sin reescribirlo.
 - Vale 7,5 % de la nota final del curso. Nota 4,0 con 60/100 puntos.

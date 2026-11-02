@@ -1,6 +1,6 @@
 # La gravedad en tres escalas: una exploración desde la computación
 
-*Erazo, L., Garrillo, J.*
+*José Garrillo y Luis Erazo*
 
 **Pontificia Universidad Católica de Chile**
 
