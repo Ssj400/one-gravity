@@ -25,21 +25,22 @@ export function Supernovae() {
   return (
     <section>
       <Story
-        question="¿Cuál de esos universos es el nuestro?"
-        did={<>Lo deciden los datos. Una supernova de tipo Ia brilla siempre casi igual, así que lo tenue que se ve dice a qué distancia está; su corrimiento al rojo z dice cuánto se estiró el Universo desde que salió la luz. Para cada universo calculamos qué tan tenue debería verse una supernova a cada z, y lo comparamos con {result ? fmt(result.n, 0) : "1.580"} supernovas reales del catálogo Pantheon+.</>}
-        found={<>Las supernovas lejanas se ven más tenues de lo que permite cualquier universo de solo materia: están más lejos de lo esperado, porque la expansión se aceleró. Solo el universo con energía oscura calza con los datos{result ? ` (χ² = ${fmt(result.models[3].chi2, 0)}, contra ${fmt(result.models[2].chi2, 0)} del abierto y ${fmt(result.models[1].chi2, 0)} del crítico)` : ""}. Es el descubrimiento de 1998, Premio Nobel de Física 2011, reproducido con el mismo código que movía los planetas.</>}
+        question="¿Qué historia de expansión se acerca más a las observaciones?"
+        did={<>Las supernovas de tipo Ia permiten estimar distancias al estandarizar su luminosidad con sus curvas de luz; no todas brillan igual. El corrimiento al rojo z mide cuánto se estiró la luz desde su emisión. Calculamos el brillo esperado en cada escenario y lo comparamos con {result ? fmt(result.n, 0) : "1.580"} mediciones de Pantheon+, excluyendo las calibradoras y exigiendo z &gt; 0,01. Son filas de datos, que pueden incluir un mismo objeto.</>}
+        found={<>Entre los cuatro escenarios de referencia, el acelerado obtiene el menor χ²{result ? ` (${fmt(result.models[3].chi2, 0)}, frente a ${fmt(result.models[2].chi2, 0)} del abierto y ${fmt(result.models[1].chi2, 0)} del crítico)` : ""}. Ese valor resume las diferencias con los datos considerando sus incertidumbres: con el mismo procedimiento, menor χ² indica mejor acuerdo. La comparación ilustra la evidencia de expansión acelerada, sin reemplazar el análisis completo de Pantheon+.</>}
       />
+      <p className="note">El módulo de distancia μ relaciona el brillo con la distancia: un valor mayor corresponde a una distancia mayor. H₀ describe la expansión actual, en km/s por megapársec (Mpc). En el modelo personalizado, Ωm y ΩΛ representan las densidades de materia y de una constante cosmológica, comparadas con la densidad crítica.</p>
       <Controls>
         <Slider label="H₀ (km/s/Mpc)" value={h0} min={60} max={80} step={0.1} onChange={setH0} />
-        <Slider label="Ωm (personalizado)" value={om} min={0} max={2} step={0.01} onChange={setOm} />
-        <Slider label="ΩΛ (personalizado)" value={ol} min={0} max={1.2} step={0.01} onChange={setOl} />
-        <label className="slider"><span className="slider-label">Barras de error</span><input type="checkbox" checked={showErr} onChange={(e) => setShowErr(e.target.checked)} /></label>
+        <Slider label="Materia Ωm (personalizado)" value={om} min={0} max={2} step={0.01} onChange={setOm} />
+        <Slider label="Energía oscura ΩΛ (personalizado)" value={ol} min={0} max={1.2} step={0.01} onChange={setOl} />
+        <label className="slider"><span className="slider-label">Mostrar incertidumbres individuales</span><input type="checkbox" checked={showErr} onChange={(e) => setShowErr(e.target.checked)} /></label>
       </Controls>
       <Outcome error={error} busy={busy}>
         {result && (
           <div className="grid2 stack-figures">
-            <Figure caption={<>Figura 7. Diagrama de Hubble: módulo de distancia μ contra corrimiento al rojo z para {result.n} supernovas Ia de Pantheon+ (gris) y los modelos. Cada curva está desplazada por su mejor δ (ver tabla), que absorbe la calibración absoluta de las supernovas.</>}>
-              <Plot filename="fig7_diagrama_hubble" data={[
+            <Figure caption={<>Figura 5a. Diagrama de Hubble con {fmt(result.n, 0)} mediciones de Pantheon+: módulo de distancia μ frente al corrimiento al rojo z. Comparamos los datos con cuatro escenarios y el personalizado. Cada curva lleva un desplazamiento constante δ, elegido para ajustar la calibración del brillo.</>}>
+              <Plot filename="fig5a_diagrama_hubble" data={[
                 {
                   x: result.data.z, y: result.data.mu, type: "scatter", mode: "markers", name: "Pantheon+ (datos)",
                   marker: { color: C.obs, size: 4, opacity: 0.45 },
@@ -50,10 +51,10 @@ export function Supernovae() {
                 })),
               ]} layout={{ xaxis: { title: { text: "corrimiento al rojo z" }, type: "log" }, yaxis: { title: { text: "módulo de distancia μ (mag)" }, range: [32, 46] } }} height={420} />
             </Figure>
-            <Figure caption={<>Figura 7b. Lo mismo, como residuos respecto a un universo vacío (Ωm = ΩΛ = 0, línea cero). Puntos: promedio ponderado de los datos en bins de z, con su error. Las supernovas lejanas son más tenues (Δμ &gt; 0) que en cualquier universo de solo materia: la expansión se acelera.</>}>
-              <Plot filename="fig7b_residuos_hubble" data={[
-                { x: result.data.z, y: result.data.res, type: "scatter", mode: "markers", name: "Pantheon+ (cada supernova)", marker: { color: C.obs, size: 3, opacity: 0.18 }, hoverinfo: "skip" },
-                { x: result.bins.map((b) => b.z), y: result.bins.map((b) => b.res), error_y: { type: "data", array: result.bins.map((b) => b.err), visible: true, color: C.ink, thickness: 1.2, width: 3 }, type: "scatter", mode: "markers", name: "Pantheon+ (promedio por bin)", marker: { color: C.ink, size: 8 }, text: result.bins.map((b) => `${b.n} SNe`) },
+            <Figure caption={<>Figura 5b. Diferencias respecto de un universo vacío de referencia (Ωm = ΩΛ = 0), representado por la línea cero. Agrupamos los datos por intervalos de z y mostramos su promedio ponderado con incertidumbres. Restar la referencia hace más visible la separación entre curvas, pero no agrega una prueba estadística.</>}>
+              <Plot filename="fig5b_residuos_hubble" data={[
+                { x: result.data.z, y: result.data.res, type: "scatter", mode: "markers", name: "Pantheon+ (cada medición)", marker: { color: C.obs, size: 3, opacity: 0.18 }, hoverinfo: "skip" },
+                { x: result.bins.map((b) => b.z), y: result.bins.map((b) => b.res), error_y: { type: "data", array: result.bins.map((b) => b.err), visible: true, color: C.ink, thickness: 1.2, width: 3 }, type: "scatter", mode: "markers", name: "Pantheon+ (promedio por intervalo)", marker: { color: C.ink, size: 8 }, text: result.bins.map((b) => `${b.n} mediciones`) },
                 ...result.models.map((m, i): Data => ({
                   x: m.z, y: m.res, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === 4 ? 1.5 : 2, dash: i === 4 ? "dash" : "solid" },
                 })),
@@ -71,15 +72,15 @@ export function Supernovae() {
                 ))}</tbody>
               </table>
               <p className="note">
-                δ es el desplazamiento constante que mejor ajusta cada modelo a los datos. Pantheon+ está calibrado con Cefeidas de SH0ES (H₀ ≈ 73), por eso con H₀ = 67,4 sale δ ≈ −0,17 mag = −5 log₁₀(73/67,4). Solo la <em>forma</em> de μ(z) distingue los modelos. Los χ² usan errores diagonales (solo para comparar; un ajuste publicable usa la covarianza completa).
+                δ es el desplazamiento vertical que mejor ajusta cada curva. Las distancias usadas están calibradas con Cefeidas de SH0ES, con H₀ cercano a 73; al usar 67,4 esperamos una diferencia de calibración de unos −0,17 mag. El ajuste también depende de la forma del modelo. Como dejamos libre δ, comparamos sobre todo la <em>forma</em> de las curvas, no medimos H₀ de manera independiente. Usamos incertidumbres individuales sin sus correlaciones: cómo se relacionan los errores entre mediciones.
               </p>
             </div>
           </div>
         )}
       </Outcome>
       <Takeaway>
-        <p>Las tres escalas cierran el círculo. El motor se validó donde Kepler ya sabía la respuesta; en la galaxia mostró que falta masa; aquí muestra que, además, algo empuja la expansión. Materia oscura y energía oscura no son suposiciones del programa: son lo que hay que agregar para que la misma gravedad reproduzca lo que se mide.</p>
-        <p>Límites que hay que decir: las distancias usan la relatividad general, no Newton; los errores son solo diagonales, así que el χ² compara modelos pero no es un ajuste publicable; y Pantheon+ está calibrado con H₀ ≈ 73, por eso cada curva lleva un desplazamiento δ que absorbe esa calibración. Solo la forma de la curva distingue los universos, y esa forma favorece la aceleración.</p>
+        <p>A fin de cuentas, el recorrido conecta dos tareas: comprobar lo que calcula un programa y comparar sus predicciones con observaciones. Kepler nos dio una referencia conocida; NGC 3198 permitió revisar el aporte de la materia visible; las supernovas permiten contrastar distintas historias de expansión.</p>
+        <p>El escenario acelerado sigue mejor estos datos entre los modelos de referencia elegidos. Eso no demuestra qué es la energía oscura ni descarta todas las alternativas. Las distancias requieren relatividad general y el análisis completo debe considerar las correlaciones de los errores. La herramienta ayuda a seguir el razonamiento, no sustituye esa investigación.</p>
       </Takeaway>
     </section>
   );

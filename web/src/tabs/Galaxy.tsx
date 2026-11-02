@@ -26,21 +26,22 @@ export function Galaxy() {
     <section>
       <Story
         question="¿Alcanza la materia que vemos para explicar cómo gira una galaxia?"
-        did={<>Tomamos NGC 3198, una espiral a {fmtAuto(result?.distance_mpc ?? 13.8)} Mpc con su curva de rotación medida (SPARC): a qué velocidad orbita el gas a cada distancia del centro. Con la misma relación del Sistema Solar, v² = GM/r, calculamos la velocidad que producirían sus estrellas y su gas, y la comparamos con la medida.</>}
-        found={<>La materia visible predice que, lejos del centro, la velocidad cae como con los planetas. La curva medida no cae: se mantiene plana en 150 km/s. Para sostenerla hace falta masa que no brilla: {result ? `${fmt(100 * (1 - result.m_vis / result.m_dyn), 0)} %` : "alrededor del 80 %"} de la masa dentro de {result ? fmt(result.r_last, 0) : "44"} kpc es oscura.</>}
+        did={<>Usamos NGC 3198, una galaxia espiral a {fmtAuto(result?.distance_mpc ?? 13.8)} Mpc, y las mediciones de SPARC. Su curva de rotación muestra la velocidad del gas a distintas distancias del centro. Comparamos esos datos con el aporte del gas y las estrellas, y con un modelo que agrega un halo: una distribución extendida de materia oscura. Aquí calculamos velocidades, sin avanzar órbitas en el tiempo.</>}
+        found={<>En las regiones exteriores, las velocidades observadas se mantienen cerca de 150 km/s. Con los parámetros iniciales, la materia visible predice unos 65 km/s y agregar un halo mejora el acuerdo. Bajo los supuestos elegidos estimamos que {result ? `${fmt(100 * (1 - result.m_vis / result.m_dyn), 0)} %` : "alrededor del 81 %"} de la masa dentro de {result ? fmt(result.r_last, 0) : "44"} kpc sería oscura. Esa cifra cambia con el cociente masa-luz que elijas.</>}
       />
+      <p className="note">El cociente masa-luz Υ permite convertir la luz de las estrellas en masa; M☉ y L☉ representan la masa y la luminosidad del Sol. Un kpc equivale a mil pársecs y un Mpc, a un millón. El halo tiene un radio central r_c y una velocidad límite v_∞. NGC 3198 no tiene bulbo, por lo que ese control no cambia el resultado.</p>
       <Controls>
-        <Slider label="Υ disco (M☉/L☉)" value={upsDisk} min={0.1} max={1.5} step={0.05} onChange={setUpsDisk} />
-        <Slider label="Υ bulbo" value={upsBulge} min={0.1} max={1.5} step={0.05} onChange={setUpsBulge} />
-        <label className="slider"><span className="slider-label">Ajustar halo (χ² mínimo)</span><input type="checkbox" checked={fit} onChange={(e) => setFit(e.target.checked)} /></label>
-        {!fit && <Slider label="r_c del halo" value={rCore} min={0.5} max={20} step={0.1} unit=" kpc" onChange={setRCore} />}
-        {!fit && <Slider label="v_∞ del halo" value={vInf} min={50} max={300} step={1} unit=" km/s" onChange={setVInf} />}
+        <Slider label="Masa-luz del disco Υ (M☉/L☉)" value={upsDisk} min={0.1} max={1.5} step={0.05} onChange={setUpsDisk} />
+        <Slider label="Masa-luz del bulbo Υ (M☉/L☉)" value={upsBulge} min={0.1} max={1.5} step={0.05} onChange={setUpsBulge} />
+        <label className="slider"><span className="slider-label">Ajustar el halo automáticamente</span><input type="checkbox" checked={fit} onChange={(e) => setFit(e.target.checked)} /></label>
+        {!fit && <Slider label="Radio central del halo r_c" value={rCore} min={0.5} max={20} step={0.1} unit=" kpc" onChange={setRCore} />}
+        {!fit && <Slider label="Velocidad límite del halo v_∞" value={vInf} min={50} max={300} step={1} unit=" km/s" onChange={setVInf} />}
       </Controls>
       <Outcome error={error} busy={busy}>
         {result && (
           <div className="grid2">
-            <Figure caption={<>Figura 4. Velocidad de rotación de NGC 3198 contra la distancia al centro. Puntos grises: medida, con su error. Naranja: lo que produciría la materia visible (gas más estrellas, con Υ_disco = {fmtAuto(upsDisk)}); baja hacia afuera como en el Sistema Solar. Verde: un halo de materia oscura con r_c = {fmt(result.r_core, 1)} kpc y v_∞ = {fmt(result.v_inf, 0)} km/s, ajustado a los datos. Azul: visible más halo, que sigue la curva medida.</>}>
-              <Plot filename="fig4_curva_rotacion_ngc3198" data={[
+            <Figure caption={<>Figura 3. Rotación de NGC 3198: datos de SPARC con sus incertidumbres y aportes calculados. Usamos Υ_disco = {fmtAuto(upsDisk)} y un halo con r_c = {fmt(result.r_core, 1)} kpc y v_∞ = {fmt(result.v_inf, 0)} km/s, {fit ? "ajustado automáticamente" : "elegido con los controles"}. Compara la curva de materia visible con la suma de visible y halo para revisar el acuerdo con las observaciones.</>}>
+              <Plot filename="fig3_curva_rotacion_ngc3198" data={[
                 { x: result.r, y: result.v_obs, error_y: { type: "data", array: result.v_err, visible: true, color: C.obs, thickness: 1, width: 3 }, type: "scatter", mode: "markers", name: "observada (SPARC)", marker: { color: C.obs, size: 7 } },
                 { x: result.r, y: result.v_vis, type: "scatter", mode: "lines", name: "materia visible", line: { color: C.orange, width: 2 } },
                 { x: result.r, y: result.v_halo, type: "scatter", mode: "lines", name: "halo oscuro", line: { color: C.aqua, width: 2, dash: "dash" } },
@@ -59,15 +60,15 @@ export function Galaxy() {
                 </tbody>
               </table>
               <p className="note">
-                v_c = √(G M(&lt;r)/r), así que M(&lt;r) = v² r / G. Una curva plana exige M(&lt;r) ∝ r: masa que sigue sumándose donde casi no hay luz. Sube Υ_disco para ver cuánta masa estelar haría falta sin halo.
+                Si aproximamos la masa como esférica y el movimiento como circular, M(&lt;r) ≈ v²r/G: estimamos la masa encerrada dentro del radio r a partir de la velocidad v. La galaxia tiene un disco, así que esta aproximación limita el resultado. χ² resume las diferencias con los datos considerando sus incertidumbres; N es el número de mediciones. El denominador N − 2 corresponde al ajuste de los dos parámetros del halo, no a su elección manual.
               </p>
             </div>
           </div>
         )}
       </Outcome>
       <Takeaway>
-        <p>Es la misma física de la primera escala. Un planeta lejano orbita lento porque toda la masa del Sol queda adentro de su órbita; una estrella lejana en NGC 3198 debería hacer lo mismo, y no lo hace. La curva plana es evidencia directa de masa que no vemos, la misma que Rubin y Ford midieron en Andrómeda en 1970.</p>
-        <p>Lo que esta escala no demuestra: que esa masa sea materia oscura y no una gravedad distinta a aceleraciones muy bajas (MOND). Eso lo deciden otras evidencias, como el Cúmulo Bala y las lentes gravitacionales. El simulador aporta una pieza del argumento, no el argumento entero.</p>
+        <p>La pregunta era si la materia visible alcanza. Con el cociente masa-luz inicial, su aporte queda por debajo de las velocidades exteriores observadas. El halo permite acercarnos a ellas. Este tipo de diferencia, estudiada también en Andrómeda por Rubin y Ford (1970), es una de las evidencias de materia oscura.</p>
+        <p>Pero ajustar un halo no responde qué es esa materia ni descarta una descripción distinta de la gravedad, como MOND. No la implementamos. Para avanzar necesitamos otras evidencias, como las lentes gravitacionales y el Cúmulo Bala. Además, la fracción estimada corresponde a esta galaxia y a nuestros supuestos, no a todo el Universo.</p>
       </Takeaway>
     </section>
   );

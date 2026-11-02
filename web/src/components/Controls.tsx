@@ -25,15 +25,15 @@ export function Outcome({ error, busy, children }: { error: Error | null; busy: 
   if (error instanceof PendingError) {
     return (
       <div className="notice pending" aria-live="polite">
-        <strong>Pendiente.</strong> Esta escala se activa cuando exista la función <code>{error.what}</code>.
-        Corre <code>pytest</code> en <code>core/</code> para ver qué falta.
+        <strong>Este cálculo aún no está disponible.</strong> Falta implementar la función <code>{error.what}</code>.
+        Si estás trabajando en el código, ejecuta <code>pytest</code> en <code>core/</code> para revisar las pruebas pendientes.
       </div>
     );
   }
   if (error) {
     return (
       <div className="notice error" aria-live="polite">
-        <strong>No se pudo calcular.</strong> Recarga la página; si vuelve a pasar, copia este mensaje en un issue del repositorio.
+        <strong>No pudimos completar el cálculo.</strong> Recarga la página para volver a intentarlo. Si el problema continúa, informa el error en el repositorio e incluye este mensaje:
         <pre>{error.message}</pre>
       </div>
     );

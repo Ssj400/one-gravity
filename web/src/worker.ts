@@ -40,7 +40,7 @@ async function init(): Promise<void> {
   status("Cargando numpy…");
   await py.loadPackage("numpy");
 
-  status("Instalando una_gravedad…");
+  status("Preparando los cálculos…");
   const manifest = JSON.parse(await fetchText("py/manifest.json", true)) as { version: string; package: string[]; overrides: boolean };
   version = manifest.version;
   py.FS.mkdirTree("/app/una_gravedad");
@@ -51,7 +51,7 @@ async function init(): Promise<void> {
   if (manifest.overrides) py.runPython("import _overrides");
   bridge = py.pyimport("bridge");
 
-  status("Leyendo datos…");
+  status("Cargando datos de galaxia y supernovas…");
   bridge.set_data("sparc", await fetchText("data/NGC3198_rotmod.dat"));
   bridge.set_data("pantheon", await fetchText("data/Pantheon+SH0ES.dat"));
   status("Listo", true);
@@ -63,7 +63,7 @@ self.onmessage = async (ev: MessageEvent<Request | { init: string }>) => {
   if ("init" in ev.data) {
     baseUrl = ev.data.init;
     ready = init().catch((e) => {
-      status(`Error al iniciar: ${String(e)}`);
+      status(`No pudimos iniciar Python. Recarga la página para reintentar. Detalle: ${String(e)}`);
       throw e;
     });
     return;

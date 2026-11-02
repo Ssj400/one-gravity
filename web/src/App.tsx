@@ -56,7 +56,7 @@ export default function App() {
       <header className="header">
         <div className="masthead">
           <h1>Una sola gravedad, tres escalas</h1>
-          <p className="subtitle">La misma ecuación de Newton, integrada con el mismo método, desde Mercurio hasta las supernovas más lejanas.</p>
+          <p className="subtitle">¿Qué podemos entender del Universo a partir de un programa? Exploramos órbitas, galaxias y expansión, y revisamos hasta dónde podemos confiar en lo que calculamos.</p>
         </div>
         <div className="header-right">
           <button className="theme-toggle" onClick={() => setMode(mode === "dark" ? "light" : "dark")} title="Cambiar entre el tema oscuro y el tema claro para el informe" aria-pressed={mode === "light"}>
@@ -101,10 +101,10 @@ export default function App() {
         <summary>Sobre el proyecto y su método</summary>
         <div className="thesis-content">
         <p>
-          La idea del proyecto: una sola ley, la gravedad de Newton, y un solo método numérico, aplicados a tres escalas. En la primera, el Sistema Solar, la respuesta se conoce desde Kepler; la usamos para comprobar que el programa es correcto.
+          Como estudiantes de computación, nos preguntamos cómo llevar los contenidos de astronomía a instrucciones que podamos revisar. Comenzamos con el Sistema Solar: las leyes de Kepler nos dan resultados conocidos con los que comprobar el cálculo. Después pasamos a la rotación de una galaxia y a la expansión del Universo, donde también necesitamos relaciones basadas en relatividad general.
         </p>
         <p>
-          En las otras dos, el mismo programa muestra que la materia que vemos no alcanza: una galaxia gira demasiado rápido sin materia oscura, y las supernovas lejanas solo se explican si la expansión del Universo se acelera. Cada escala responde una pregunta; las figuras son la evidencia.
+          La gravedad conecta los tres problemas, aunque no los resolvemos de la misma forma. En la galaxia comparamos velocidades con datos de SPARC; en el Universo calculamos distintas historias de expansión y las contrastamos con Pantheon+. Los controles permiten cambiar los supuestos y observar sus consecuencias. Las pruebas del código y las observaciones cumplen tareas distintas: comprobar el cálculo y revisar qué tan bien representa la realidad.
         </p>
         </div>
       </details>
@@ -112,7 +112,7 @@ export default function App() {
       <main className="main" id="contenido" tabIndex={-1}>{current.el}</main>
 
       <footer className="footer">
-        Datos: SPARC (Lelli, McGaugh y Schombert 2016) y Pantheon+ (Scolnic et al. 2022; Brout et al. 2022). El paquete Python que corre en esta página es el mismo que pasa los tests de física en el repositorio.
+        Datos: SPARC (Lelli, McGaugh y Schombert, 2016) y Pantheon+ (Scolnic et al., 2022; Brout et al., 2022). El código Python que usamos aquí es el mismo que revisamos con las pruebas de física del repositorio.
       </footer>
     </>
   );

@@ -10,7 +10,7 @@ type Model = { name: string; om: number; ol: number };
 type UniverseRow = Model & { t: number[]; a: number[]; age: number; age_exact: number | null; recollapses: boolean };
 
 export const PRESETS: (Model & { color: keyof Colors; fate: string })[] = [
-  { name: "Recolapso (Ωm = 5, exagerado)", om: 5, ol: 0, color: "orange", fate: "Deja de crecer y colapsa (big crunch)" },
+  { name: "Recolapso (Ωm = 5)", om: 5, ol: 0, color: "orange", fate: "La expansión se detiene y se invierte" },
   { name: "Crítico (Ωm = 1)", om: 1, ol: 0, color: "yellow", fate: "Se expande por siempre, frenando hacia velocidad cero" },
   { name: "Abierto (Ωm = 0,3)", om: 0.3, ol: 0, color: "aqua", fate: "Se expande por siempre, frenando pero sin detenerse" },
   { name: "Acelerado (Ωm = 0,31, ΩΛ = 0,69)", om: 0.31, ol: 0.69, color: "blue", fate: "Se expande cada vez más rápido" },
@@ -30,21 +30,22 @@ export function Universe() {
   return (
     <section>
       <Story
-        question="¿Qué le pasa al Universo si solo actúa la gravedad? ¿Y si además hay energía oscura?"
-        did={<>El tamaño del Universo cabe en un número, el factor de escala a (a = 1 hoy). Su ecuación es la de una pelota lanzada hacia arriba: la materia la frena y la energía oscura la empuja. Con el mismo integrador de los planetas corrimos cuatro universos con distinto contenido, todos con la expansión que se mide hoy, hacia el futuro y hacia atrás hasta el Big Bang.</>}
-        found={<>Con solo materia la expansión frena siempre, y el Universo resulta joven: entre 6 y 12 mil millones de años según cuánta materia haya. Con energía oscura (Ωm = 0,31, ΩΛ = 0,69) acelera y tiene 13,86 mil millones de años, lo que da la fórmula exacta y lo que mide el satélite Planck. Las estrellas más viejas tienen 12–13 mil millones de años: un universo de solo materia sería más joven que sus estrellas.</>}
+        question="¿Cómo cambia la expansión según el contenido del Universo?"
+        did={<>Representamos su tamaño relativo con el factor de escala a, cuyo valor actual fijamos en 1. Usamos una ecuación cosmológica basada en relatividad general: la materia frena la expansión y una constante cosmológica positiva puede acelerarla. Con el integrador leapfrog calculamos hacia el pasado y el futuro cuatro escenarios y uno que puedes modificar.</>}
+        found={<>Con H₀ = 67,4 km/s/Mpc, los escenarios crítico, abierto y acelerado tienen edades de 9,67, 11,7 y 13,86 mil millones de años. El último se acerca a los 13,8 inferidos por Planck. El escenario con más materia termina invirtiendo su expansión. No fijamos una edad que todos deban cumplir: la obtenemos de los parámetros elegidos.</>}
       />
+      <p className="note">H₀ describe la expansión actual. Ωm representa la densidad de materia y ΩΛ la de una constante cosmológica, con la que modelamos la energía oscura; ambas se comparan con la densidad crítica, asociada a una geometría plana. Gyr significa mil millones de años y Mpc, un millón de pársecs. Aquí ignoramos la radiación, por lo que el modelo no describe las primeras etapas del Universo.</p>
       <Controls>
         <Slider label="H₀ (km/s/Mpc)" value={h0} min={60} max={80} step={0.1} onChange={setH0} />
-        <Slider label="Ωm (personalizado)" value={om} min={0} max={5} step={0.01} onChange={setOm} />
-        <Slider label="ΩΛ (personalizado)" value={ol} min={0} max={1.5} step={0.01} onChange={setOl} />
+        <Slider label="Materia Ωm (personalizado)" value={om} min={0} max={5} step={0.01} onChange={setOm} />
+        <Slider label="Energía oscura ΩΛ (personalizado)" value={ol} min={0} max={1.5} step={0.01} onChange={setOl} />
         <Slider label="Futuro simulado" value={tFuture} min={5} max={60} step={5} unit=" Gyr" onChange={setTFuture} />
       </Controls>
       <Outcome error={error} busy={busy}>
         {result && (
           <div className="grid2">
-            <Figure caption={<>Figura 6. Factor de escala a(t) para cinco universos, todos con la misma expansión hoy (H₀ = {h0} km/s/Mpc). Difieren solo en su contenido. Las curvas de solo materia llegan a a = 0 antes: son más jóvenes.</>}>
-              <Plot filename="fig6_cuatro_universos" data={result.map((m, i) => ({
+            <Figure caption={<>Figura 4. Factor de escala a(t) para cuatro escenarios y el personalizado, con H₀ = {fmt(h0, 1)} km/s/Mpc. Todos pasan por a = 1 hoy. Compara cuánto tiempo ha transcurrido desde el inicio de cada expansión y cómo cambia hacia el futuro; la curva personalizada aparece discontinua.</>}>
+              <Plot filename="fig4_factor_escala" data={result.map((m, i) => ({
                 x: m.t, y: m.a, type: "scatter", mode: "lines", name: m.name, line: { color: colors[i], width: i === 4 ? 1.5 : 2, dash: i === 4 ? "dash" : "solid" },
               }))} layout={{
                 xaxis: { title: { text: "tiempo desde hoy (Gyr)" }, range: [-16, tFuture] },
@@ -67,15 +68,15 @@ export function Universe() {
                 ))}</tbody>
               </table>
               <p className="note">
-                Las edades exactas vienen de fórmulas cerradas (2/(3H₀) para el crítico; la fórmula de ΛCDM plano para el acelerado). Las estrellas más viejas, en cúmulos globulares, tienen ≈ 12–13 Gyr: un universo de solo materia con este H₀ es más joven que sus estrellas. Con H₀ = 73 (escalera de distancias) la edad de ΛCDM baja a ≈ 12,8 Gyr: la tensión de Hubble.
+                La edad numérica se obtiene avanzando en pasos pequeños; la exacta usa una fórmula conocida cuando está disponible. Compararlas permite comprobar el cálculo, no contrastarlo por sí solo con observaciones. Las estrellas antiguas aportan otra referencia: Valcin et al. (2020) estiman unos 13,3 Gyr para los cúmulos globulares más antiguos, con incertidumbres importantes. El Universo debe ser más viejo que sus estrellas.
               </p>
             </div>
           </div>
         )}
       </Outcome>
       <Takeaway>
-        <p>La ecuación de la pelota y la del Universo son la misma, y por eso el mismo código resuelve las dos. También se conserva lo mismo: la "energía" de la pelota es aquí la curvatura del Universo, y el programa comprueba que no cambia, igual que comprobó la energía de la órbita.</p>
-        <p>La edad es una prueba independiente de las supernovas: no usa ninguna medición de distancia, solo el contenido del Universo y la expansión de hoy. Cambia H₀ a 73 (el valor de la escalera de distancias) y la misma mezcla da 12,8 mil millones de años: esa diferencia es la tensión de Hubble, un problema abierto.</p>
+        <p>Reutilizar el integrador de las órbitas no convierte la cosmología en un problema de Newton. Cambiamos la ecuación y la variable que avanzamos: aquí calculamos el factor de escala. Las soluciones conocidas permiten revisar ese cálculo, mientras que las edades de estrellas y otras observaciones ayudan a evaluar el modelo.</p>
+        <p>Prueba cambiar H₀ de 67,4 a 73 manteniendo la mezcla acelerada: su edad baja de 13,86 a unos 12,8 Gyr. Es una consecuencia de la tensión de Hubble, la diferencia entre valores inferidos con el fondo cósmico de microondas y con la escalera de distancias. El control permite visualizarla, no resolverla.</p>
       </Takeaway>
     </section>
   );
